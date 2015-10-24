@@ -35,7 +35,7 @@ fecha::fecha (const string & dato){
 
 
 fecha::fecha(const fecha & x){
- // @todo implementar esta funcion
+ 
 	mday = x.mday;
 	mon = x.mon;
 	year = x.year;
@@ -44,7 +44,73 @@ fecha::fecha(const fecha & x){
 	sec = x.sec;
 }
   
-    
+fecha & fecha::operator=(const fecha & f){
+
+	 if (this != &other) {
+
+		mday = f.mday;
+		mon = f.mon;
+		year = f.year;
+		hour = f.hour;
+		min = f.min;
+		sec = f.sec;
+        
+    }
+    return *this;
+
+}
+fecha & fecha::operator=(const string & s){
+
+	 if (this != &other) {
+
+		String XM;
+
+		mday = atoi ( s.substr( 0, 2 ));
+		mon = atoi ( s.substr( 3, 2 ));
+		year = atoi ( s.substr( 6, 4 ));
+	
+		hour = atoi ( s.substr( 11, 2 ));
+		min = atoi ( s.substr(14, 2 ));
+		sec = atoi ( s.substr(17, 2 ));
+	
+		XM = s.substr(20, 2 );
+
+		if(XM.compare("PM")){
+			hour += 12 ;
+		}
+
+		
+        
+    }
+    return *this;
+
+}
+string fecha::toString( ) const{
+
+}
+
+// Operadores relacionales
+ bool fecha::operator==(const fecha & f) const{
+	bool sol;
+	sol = (mday == f.mday && mon == f.mon && year == f.year && hour == f.hour && min == f.min && sec == f.sec );
+	return sol;
+
+}
+ bool fecha::operator<(const fecha & f)const{
+
+}
+ bool fecha::operator>(const fecha & f) const{
+
+}
+ bool fecha::operator<=(const fecha & f)const{
+
+}
+ bool fecha::operator>=(const fecha & f) const{
+
+}
+ bool fecha::operator!=(const fecha & f)const{
+
+}
  
  ostream& operator<< ( ostream& os, const fecha & f){
    // @todo implementa esta funcion
