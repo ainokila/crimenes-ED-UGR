@@ -133,6 +133,7 @@ string fecha::toString( ) const{
       
     os << f.toString();
 
+
    return os;
  }
    
