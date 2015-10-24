@@ -88,7 +88,18 @@ fecha & fecha::operator=(const string & s){
 string fecha::toString( ) const{
 
 	string sol ; 
-	sol = to_string(mday)+"/"+to_string(mon)+"/"+to_string(year)+" "+to_string(hour)+":"+to_string(min)+":"+to_string(sec);
+	int hourAux;
+	string XM;
+
+	if(hour>12){
+		hourAux = hour % 12 ;
+		XM = "PM";
+	}else{
+		hourAux = hour;
+		XM = "AM";
+	}
+
+	sol = to_string(mday)+"/"+to_string(mon)+"/"+to_string(year)+" "+to_string(hourAux)+":"+to_string(min)+":"+to_string(sec)+" "+XM;
 	return sol;
 
 }
@@ -119,9 +130,9 @@ string fecha::toString( ) const{
 }
  
  ostream& operator<< ( ostream& os, const fecha & f){
-   // @todo implementa esta funcion
-     
-   // os << f.getYear() ;
+      
+    os << f.toString();
+
    return os;
  }
    
