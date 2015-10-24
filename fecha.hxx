@@ -179,9 +179,128 @@ string fecha::toString( ) const{
 
 }
  bool fecha::operator<=(const fecha & f)const{
+	bool sol;
+
+	if(year < fecha.getYear){
+		sol = true;
+
+	}else if ( year == fecha.getYear ){
+
+			if(mon < fecha.getMon){
+				sol = true;
+
+			}else if ( year == fecha.getYear ){
+
+					if(day < fecha.getDay){
+						sol = true;
+
+					}else if ( day == fecha.getDay ){
+
+							if(hour < fecha.getHour){
+								sol = true;
+
+							}else if ( hour == fecha.getHour ){
+
+								if(min < fecha.getMin){
+									sol = true;
+
+								}else if ( min == fecha.getMin ){
+
+									if(sec < fecha.getSec){
+										sol = true;
+
+									}else if ( sec == fecha.getSec ){
+										sol = true;
+		
+									}else{
+										sol = false;
+									}
+					
+		
+								}else{
+									sol = false;
+								}
+		
+							}else{
+								sol = false;
+							}
+		
+		
+					}else{
+						sol = false;
+					}
+		
+			}else{
+				sol = false;
+			}
+		
+	}else{
+		sol = false;
+	}
+	return sol;
 
 }
  bool fecha::operator>=(const fecha & f) const{
+
+	bool sol;
+
+	if(year > fecha.getYear){
+		sol = true;
+
+	}else if ( year == fecha.getYear ){
+
+			if(mon > fecha.getMon){
+				sol = true;
+
+			}else if ( year == fecha.getYear ){
+
+					if(day > fecha.getDay){
+						sol = true;
+
+					}else if ( day == fecha.getDay ){
+
+							if(hour > fecha.getHour){
+								sol = true;
+
+							}else if ( hour == fecha.getHour ){
+
+								if(min > fecha.getMin){
+									sol = true;
+
+								}else if ( min == fecha.getMin ){
+
+									if(sec > fecha.getSec){
+										sol = true;
+
+									}else if ( sec == fecha.getSec ){
+										sol = false;
+		
+									}else{
+										sol = false;
+									}
+					
+		
+								}else{
+									sol = false;
+								}
+		
+							}else{
+								sol = false;
+							}
+		
+		
+					}else{
+						sol = false;
+					}
+		
+			}else{
+				sol = false;
+			}
+		
+	}else{
+		sol = false;
+	}
+	return sol;
 
 }
  bool fecha::operator!=(const fecha & f)const{
