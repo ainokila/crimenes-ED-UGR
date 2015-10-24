@@ -8,6 +8,7 @@
 
 #include <string>
 #include <iostream> 
+#include <sstream>
 
 
 //! Clase fecha, asociada a la 

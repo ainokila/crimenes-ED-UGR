@@ -87,20 +87,21 @@ fecha & fecha::operator=(const string & s){
 }
 string fecha::toString( ) const{
 
-	string sol ; 
+	stringstream ss;
 	int hourAux;
 	string XM;
 
-	if(hour>12){
-		hourAux = hour % 12 ;
+	if(hour>=12){
+		hourAux = hour - 12 ;
 		XM = "PM";
 	}else{
 		hourAux = hour;
 		XM = "AM";
 	}
 
-	sol = to_string(mday)+"/"+to_string(mon)+"/"+to_string(year)+" "+to_string(hourAux)+":"+to_string(min)+":"+to_string(sec)+" "+XM;
-	return sol;
+	ss = << mday << "/" << mon << "/" << year << " " << hourAux << ":" << min << ":" << sec << " " << XM;
+
+	return ss.str();
 
 }
 
