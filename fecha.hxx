@@ -36,24 +36,24 @@ fecha::fecha (const string & dato){
 
 fecha::fecha(const fecha & x){
  
-	mday = x.mday;
-	mon = x.mon;
-	year = x.year;
+	mday = x.getDay;
+	mon = x.getMon;
+	year = x.getYear;
 	hour = x.hour;
-	min = x.min;
-	sec = x.sec;
+	min = x.getMin;
+	sec = x.getSec;
 }
   
 fecha & fecha::operator=(const fecha & f){
 
 	 if (this != &other) {
 
-		mday = f.mday;
-		mon = f.mon;
-		year = f.year;
+		mday = f.getDay;
+		mon = f.getMon;
+		year = f.getYear;
 		hour = f.hour;
-		min = f.min;
-		sec = f.sec;
+		min = f.getMin;
+		sec = f.getSec;
         
     }
     return *this;
@@ -108,12 +108,71 @@ string fecha::toString( ) const{
  bool fecha::operator==(const fecha & f) const{
 
 	bool sol;
-	sol = (mday == f.mday && mon == f.mon && year == f.year && hour == f.hour && min == f.min && sec == f.sec );
+	sol = (mday == f.getDay && mon == f.getMon && year == f.getYear && hour == f.hour && min == f.getMin && sec == f.getSec );
 	return sol;
 
 }
  bool fecha::operator<(const fecha & f)const{
 
+	bool sol;
+
+	if(year < fecha.getYear){
+		sol = true;
+
+	}else if ( year == fecha.getYear ){
+
+			if(mon < fecha.getMon){
+				sol = true;
+
+			}else if ( year == fecha.getYear ){
+
+					if(day < fecha.getDay){
+						sol = true;
+
+					}else if ( day == fecha.getDay ){
+
+							if(hour < fecha.getHour){
+								sol = true;
+
+							}else if ( hour == fecha.getHour ){
+
+								if(min < fecha.getMin){
+									sol = true;
+
+								}else if ( min == fecha.getMin ){
+
+									if(sec < fecha.getSec){
+										sol = true;
+
+									}else if ( sec == fecha.getSec ){
+										sol = false;
+		
+									}else{
+										sol = false;
+									}
+					
+		
+								}else{
+									sol = false;
+								}
+		
+							}else{
+								sol = false;
+							}
+		
+		
+					}else{
+						sol = false;
+					}
+		
+			}else{
+				sol = false;
+			}
+		
+	}else{
+		sol = false;
+	}
+	return sol;
 }
  bool fecha::operator>(const fecha & f) const{
 	return !operator<(f);
