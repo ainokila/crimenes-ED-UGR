@@ -87,10 +87,15 @@ fecha & fecha::operator=(const string & s){
 }
 string fecha::toString( ) const{
 
+	string sol ; 
+	sol = to_string(mday)+"/"+to_string(mon)+"/"+to_string(year)+" "+to_string(hour)+":"+to_string(min)+":"+to_string(sec);
+	return sol;
+
 }
 
 // Operadores relacionales
  bool fecha::operator==(const fecha & f) const{
+
 	bool sol;
 	sol = (mday == f.mday && mon == f.mon && year == f.year && hour == f.hour && min == f.min && sec == f.sec );
 	return sol;
@@ -100,6 +105,7 @@ string fecha::toString( ) const{
 
 }
  bool fecha::operator>(const fecha & f) const{
+	return !operator<(f);
 
 }
  bool fecha::operator<=(const fecha & f)const{
@@ -109,7 +115,7 @@ string fecha::toString( ) const{
 
 }
  bool fecha::operator!=(const fecha & f)const{
-
+	return !operator==(f);
 }
  
  ostream& operator<< ( ostream& os, const fecha & f){

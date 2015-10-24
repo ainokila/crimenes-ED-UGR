@@ -31,6 +31,7 @@ public:
  fecha (); //Constructor de fecha por defecto
  fecha (const string & s); // s es un string con el formato mm/dd/aaaa  hh:mm:ss AM/PM
 
+
  fecha & operator=(const fecha & f);
  fecha & operator=(const string & s); // s es un string con el formato mm/dd/aaaa hh:mm:ss AM/PM
  string toString( ) const; //convierte la fecha a un string
