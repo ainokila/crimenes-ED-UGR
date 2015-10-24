@@ -46,6 +46,25 @@ public:
 };
 
  ostream& operator<< ( ostream& os, const fecha & f); imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
+inline int getSec() {
+  return sec ;
+}
+inline int getMin() {
+  return min ;
+}
+inline int getHour() {
+  return hour ;
+}
+inline int getDay() {
+  return mDay ;
+}
+inline int getMon() {
+  return mon ;
+}
+inline int getYear() {
+  return year ;
+}
+
 
 #include "fecha.hxx" // Incluimos la implementacion.
 
