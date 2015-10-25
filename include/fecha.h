@@ -10,6 +10,7 @@
 #include <iostream> 
 #include <sstream>
 
+using namespace std;
 
 //! Clase fecha, asociada a la 
 /*! fecha::fecha,  .....
@@ -55,7 +56,7 @@ inline int getHour() {
   return hour ;
 }
 inline int getDay() {
-  return mDay ;
+  return mday ;
 }
 inline int getMon() {
   return mon ;

@@ -2,6 +2,9 @@
 
 */
 #include "fecha.h"
+#include <iostream>
+
+
 fecha::fecha(){
 
 	sec = 0;   // seconds of minutes from 0 to 59
@@ -47,7 +50,7 @@ fecha::fecha(const fecha & x){
   
 fecha & fecha::operator=(const fecha & f){
 
-	 if (this != &other) {
+	 if (this != &s) {
 
 		mday = f.getDay();
 		mon = f.getMon();
