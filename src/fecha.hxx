@@ -19,18 +19,19 @@ fecha::fecha (const string & dato){
 	
 	//String format imput dd/mm/yyyy hh:mm:ss XM
 	//					  0123456789
-
-	string XM;
-
-	mday = atoi( dato.substr( 0, 2 ));
-	mon = atoi( dato.substr( 3, 2 ));
-	year = atoi( dato.substr( 6, 4 ));
 	
-	hour = atoi( dato.substr( 11, 2 ));
-	min = atoi( dato.substr(14, 2 ));
-	sec = atoi( dato.substr(17, 2 ));
+	string XM;
+	string aux;
+	
+	mday = atoi(dato.substr( 0, 2 ).c_str());
+	mon = atoi(dato.substr( 3, 2 ).c_str());
+	year = atoi(dato.substr( 6, 4 ).c_str());
+	
+	hour = atoi(dato.substr( 11, 2 ).c_str());
+	min = atoi(dato.substr(14, 2 ).c_str());
+	sec = atoi(dato.substr(17, 2 ).c_str());
 
-	XM = dato.substr(20, 2 );
+	XM = dato.substr(20, 2 ).c_str();
 
 	if(XM.compare("PM")){
 		hour += 12 ;
@@ -39,14 +40,14 @@ fecha::fecha (const string & dato){
 }
 
 
-fecha::fecha(const fecha & f){
+fecha::fecha(const fecha & s){
  
-	mday = f.mday;
-	mon = f.mon;
-	year = f.year;
-	hour = f.hour;
-	min = f.min;
-	sec = f.sec;
+	mday = s.mday;
+	mon = s.mon;
+	year = s.year;
+	hour = s.hour;
+	min = s.min;
+	sec = s.sec;
         
 }
   
@@ -65,19 +66,19 @@ fecha & fecha::operator=(const fecha & f){
     return *this;
 
 }
-/*fecha & fecha::operator=(const string & s){
+fecha & fecha::operator=(const string & s){
 
 	
 
 		string XM;
 
-		mday = atoi ( s.substr( 0, 2 ));
-		mon = atoi ( s.substr( 3, 2 ));
-		year = atoi ( s.substr( 6, 4 ));
+		mday = atoi ( s.substr( 0, 2 ).c_str());
+		mon = atoi ( s.substr( 3, 2 ).c_str());
+		year = atoi ( s.substr( 6, 4 ).c_str());
 	
-		hour = atoi ( s.substr( 11, 2 ));
-		min = atoi ( s.substr(14, 2 ));
-		sec = atoi ( s.substr(17, 2 ));
+		hour = atoi ( s.substr( 11, 2 ).c_str());
+		min = atoi ( s.substr(14, 2 ).c_str());
+		sec = atoi ( s.substr(17, 2 ).c_str());
 	
 		XM = s.substr(20, 2 );
 
@@ -89,7 +90,7 @@ fecha & fecha::operator=(const fecha & f){
     }
     return *this;
 
-}*/
+}
 string fecha::toString( ) const{
 
 	stringstream ss;
@@ -201,7 +202,7 @@ string fecha::toString( ) const{
 	return !operator==(f);
 }
  
- ostream& operator<< ( ostream &os , fecha &f){
+ ostream& operator << ( ostream &os ,const fecha &f){
       
     os << f.toString();
 

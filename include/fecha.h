@@ -33,6 +33,7 @@ private:
 public:
  fecha (); //Constructor de fecha por defecto
  fecha (const string & s); // s es un string con el formato mm/dd/aaaa  hh:mm:ss AM/PM
+ fecha(const fecha & s);
 
 
  fecha & operator=(const fecha & f);
@@ -47,26 +48,26 @@ public:
  bool operator>=(const fecha & f) const;
  bool operator!=(const fecha & f)const;
 
-inline int getSec() {
+inline int getSec() const{
   return sec ;
 }
-inline int getMin() {
+inline int getMin() const{
   return min ;
 }
-inline int getHour() {
+inline int getHour() const{
   return hour ;
 }
-inline int getDay() {
+inline int getDay() const{
   return mday ;
 }
-inline int getMon() {
+inline int getMon() const{
   return mon ;
 }
-inline int getYear() {
+inline int getYear() const{
   return year ;
 }
 
-ostream& operator<< ( ostream &os, fecha &f);  // imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
+ostream& operator << (ostream &os, const fecha &f);  // imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
 
 };
 
