@@ -62,7 +62,7 @@ fecha & fecha::operator=(const fecha & f){
 }
 fecha & fecha::operator=(const string & s){
 
-	 if (this != &other) {
+	 if (this != &s) {
 
 		string XM;
 
