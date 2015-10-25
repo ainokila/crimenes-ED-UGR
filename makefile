@@ -37,8 +37,11 @@ $(OBJ)/fecha.o : $(SRC)/fecha.hxx
 $(OBJ)/crimen.o : $(SRC)/crimen.hxx $(OBJ)/fecha.o
 	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/crimen.o $(SRC)/crimen.hxx $(OBJ)/fecha.o -I$(INCLUDE)
 
-$(OBJ)/principal.o : $(SRC)/principal.cpp $(OBJ)/crimen.o
-	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/principal.o $(SRC)/principal.cpp $(OBJ)/crimen.o $(OBJ)/fecha.o -I$(INCLUDE)
+$(OBJ)/conjunto.o : $(SRC)/conjunto.hxx $(OBJ)/fecha.o $(OBJ)/crimen.o
+	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/conjunto.o $(SRC)/conjunto.hxx $(OBJ)/fecha.o $(OBJ)/crimen.o -I$(INCLUDE)
+
+$(OBJ)/principal.o : $(SRC)/principal.cpp $(OBJ)/conjunto.o
+	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/principal.o $(SRC)/principal.cpp $(OBJ)/conjunto.o $(OBJ)/crimen.o $(OBJ)/fecha.o -I$(INCLUDE)
 #
 #
 #
