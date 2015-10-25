@@ -44,9 +44,7 @@ public:
  bool operator<=(const fecha & f)const;
  bool operator>=(const fecha & f) const;
  bool operator!=(const fecha & f)const;
-};
 
- ostream& operator<< ( ostream& os, const fecha & f); imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
 inline int getSec() {
   return sec ;
 }
@@ -65,6 +63,10 @@ inline int getMon() {
 inline int getYear() {
   return year ;
 }
+};
+
+ ostream& operator<< ( ostream& os, const fecha & f); imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
+
 
 
 //#include "fecha.hxx" // Incluimos la implementacion.
