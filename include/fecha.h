@@ -67,9 +67,11 @@ inline int getYear() const{
   return year ;
 }
 
-ostream& operator << (ostream &os, const fecha &f);  // imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
+
 
 };
+
+ostream& operator << (ostream &os, const fecha &f);  // imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
 
  
 

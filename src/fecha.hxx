@@ -112,14 +112,15 @@ string fecha::toString( ) const{
 }
 
 // Operadores relacionales
- /*bool fecha::operator==(const fecha & f) const{
+ bool fecha::operator==(const fecha & f) const{
 
 	bool sol;
 	sol = (mday == f.getDay() && mon == f.getMon() && year == f.getYear() && hour == f.getHour() && min == f.getMin() && sec == f.getSec());
 	return sol;
 
-}*/
- /*bool fecha::operator<(const fecha & f)const{
+}
+
+/*bool fecha::operator<(const fecha & f)const{
 
 	bool sol;
 
@@ -202,7 +203,7 @@ string fecha::toString( ) const{
 	return !operator==(f);
 }
  
- ostream& operator << ( ostream &os ,const fecha &f){
+std::ostream& operator << ( ostream &os ,const fecha &f){
       
     os << f.toString();
 
