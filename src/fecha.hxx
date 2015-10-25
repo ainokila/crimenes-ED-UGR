@@ -66,7 +66,7 @@ fecha & fecha::operator=(const fecha & f){
 }
 fecha & fecha::operator=(const string & s){
 
-	 if (this != &s) {
+	
 
 		string XM;
 
@@ -82,8 +82,7 @@ fecha & fecha::operator=(const string & s){
 
 		if(XM.compare("PM")){
 			hour += 12 ;
-		}
-
+		
 		
         
     }
