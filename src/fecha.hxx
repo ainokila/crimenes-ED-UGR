@@ -1,6 +1,7 @@
 /** @brief fichero de implementacion de la clase fecha
 
 */
+#include "fecha.h"
 fecha::fecha(){
 
 	sec = 0;   // seconds of minutes from 0 to 59
@@ -15,7 +16,7 @@ fecha::fecha (const string & dato){
 	//String format imput dd/mm/yyyy hh:mm:ss XM
 	//					  0123456789
 
-	String XM;
+	string XM;
 
 	mday = atoi ( dato.substr( 0, 2 ));
 	mon = atoi ( dato.substr( 3, 2 ));
@@ -36,24 +37,24 @@ fecha::fecha (const string & dato){
 
 fecha::fecha(const fecha & x){
  
-	mday = x.getDay;
-	mon = x.getMon;
-	year = x.getYear;
-	hour = x.hour;
-	min = x.getMin;
-	sec = x.getSec;
+	mday = x.getDay();
+	mon = x.getMon();
+	year = x.getYear();
+	hour = x.getHour();
+	min = x.getMin();
+	sec = x.getSec();
 }
   
 fecha & fecha::operator=(const fecha & f){
 
 	 if (this != &other) {
 
-		mday = f.getDay;
-		mon = f.getMon;
-		year = f.getYear;
-		hour = f.hour;
-		min = f.getMin;
-		sec = f.getSec;
+		mday = f.getDay();
+		mon = f.getMon();
+		year = f.getYear();
+		hour = f.getHour();
+		min = f.getMin();
+		sec = f.getSec();
         
     }
     return *this;
@@ -63,7 +64,7 @@ fecha & fecha::operator=(const string & s){
 
 	 if (this != &other) {
 
-		String XM;
+		string XM;
 
 		mday = atoi ( s.substr( 0, 2 ));
 		mon = atoi ( s.substr( 3, 2 ));
@@ -109,7 +110,7 @@ string fecha::toString( ) const{
  bool fecha::operator==(const fecha & f) const{
 
 	bool sol;
-	sol = (mday == f.getDay && mon == f.getMon && year == f.getYear && hour == f.hour && min == f.getMin && sec == f.getSec );
+	sol = (mday == f.getDay() && mon == f.getMon() && year == f.getYear() && hour == f.getHour() && min == f.getMin() && sec == f.getSec());
 	return sol;
 
 }
@@ -117,35 +118,35 @@ string fecha::toString( ) const{
 
 	bool sol;
 
-	if(year < fecha.getYear){
+	if(year < fecha.getYear()){
 		sol = true;
 
-	}else if ( year == fecha.getYear ){
+	}else if ( year == fecha.getYear() ){
 
-			if(mon < fecha.getMon){
+			if(mon < fecha.getMon()){
 				sol = true;
 
-			}else if ( year == fecha.getYear ){
+			}else if ( year == fecha.getYear() ){
 
-					if(day < fecha.getDay){
+					if(day < fecha.getDay()){
 						sol = true;
 
-					}else if ( day == fecha.getDay ){
+					}else if ( day == fecha.getDay() ){
 
 							if(hour < fecha.getHour){
 								sol = true;
 
 							}else if ( hour == fecha.getHour ){
 
-								if(min < fecha.getMin){
+								if(min < fecha.getMin()){
 									sol = true;
 
-								}else if ( min == fecha.getMin ){
+								}else if ( min == fecha.getMin() ){
 
-									if(sec < fecha.getSec){
+									if(sec < fecha.getSec()){
 										sol = true;
 
-									}else if ( sec == fecha.getSec ){
+									}else if ( sec == fecha.getSec() ){
 										sol = false;
 		
 									}else{

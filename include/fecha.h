@@ -9,7 +9,6 @@
 #include <string>
 #include <iostream> 
 #include <sstream>
-#include "fecha.hxx"
 
 
 //! Clase fecha, asociada a la 
@@ -68,7 +67,7 @@ inline int getYear() {
 }
 
 
-#include "fecha.hxx" // Incluimos la implementacion.
+//#include "fecha.hxx" // Incluimos la implementacion.
 
 
 #endif
