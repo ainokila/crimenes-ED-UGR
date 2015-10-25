@@ -9,6 +9,7 @@
 #include <string>
 #include <iostream> 
 #include <sstream>
+#include "fecha.hxx"
 
 
 //! Clase fecha, asociada a la 
