@@ -39,14 +39,15 @@ fecha::fecha (const string & dato){
 }
 
 
-fecha::fecha(const fecha & x){
+fecha::fecha(const fecha & f){
  
-	mday = x.getDay();
-	mon = x.getMon();
-	year = x.getYear();
-	hour = x.getHour();
-	min = x.getMin();
-	sec = x.getSec();
+	mday = f.mday;
+	mon = f.mon;
+	year = f.year;
+	hour = f.hour;
+	min = f.min;
+	sec = f.sec;
+        
 }
   
 fecha & fecha::operator=(const fecha & f){
@@ -64,7 +65,7 @@ fecha & fecha::operator=(const fecha & f){
     return *this;
 
 }
-fecha & fecha::operator=(const string & s){
+/*fecha & fecha::operator=(const string & s){
 
 	
 
@@ -88,7 +89,7 @@ fecha & fecha::operator=(const string & s){
     }
     return *this;
 
-}
+}*/
 string fecha::toString( ) const{
 
 	stringstream ss;
@@ -103,20 +104,20 @@ string fecha::toString( ) const{
 		XM = "AM";
 	}
 
-	ss = << mday << "/" << mon << "/" << year << " " << hourAux << ":" << min << ":" << sec << " " << XM;
+	ss <<  mday << "/" << mon << "/" << year << " " << hourAux << ":" << min << ":" << sec << " " << XM;
 
 	return ss.str();
 
 }
 
 // Operadores relacionales
- bool fecha::operator==(const fecha & f) const{
+ /*bool fecha::operator==(const fecha & f) const{
 
 	bool sol;
 	sol = (mday == f.getDay() && mon == f.getMon() && year == f.getYear() && hour == f.getHour() && min == f.getMin() && sec == f.getSec());
 	return sol;
 
-}
+}*/
  /*bool fecha::operator<(const fecha & f)const{
 
 	bool sol;
