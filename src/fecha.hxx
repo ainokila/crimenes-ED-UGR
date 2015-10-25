@@ -16,6 +16,7 @@ fecha::fecha(){
 }
 
 fecha::fecha (const string & dato){
+	
 	//String format imput dd/mm/yyyy hh:mm:ss XM
 	//					  0123456789
 
@@ -52,12 +53,12 @@ fecha & fecha::operator=(const fecha & f){
 
 	 if (this != &f) {
 
-		mday = f.getDay();
-		mon = f.getMon();
-		year = f.getYear();
-		hour = f.getHour();
-		min = f.getMin();
-		sec = f.getSec();
+		mday = f.mday;
+		mon = f.mon;
+		year = f.year;
+		hour = f.hour;
+		min = f.min;
+		sec = f.sec();
         
     }
     return *this;
