@@ -21,14 +21,14 @@ fecha::fecha (const string & dato){
 
 	string XM;
 
-	mday = atoi ( dato.substr( 0, 2 ));
-	mon = atoi ( dato.substr( 3, 2 ));
-	year = atoi ( dato.substr( 6, 4 ));
+	mday = atoi( dato.substr( 0, 2 ));
+	mon = atoi( dato.substr( 3, 2 ));
+	year = atoi( dato.substr( 6, 4 ));
 	
-	hour = atoi ( dato.substr( 11, 2 ));
-	min = atoi ( dato.substr(14, 2 ));
-	sec = atoi ( dato.substr(17, 2 ));
-	
+	hour = atoi( dato.substr( 11, 2 ));
+	min = atoi( dato.substr(14, 2 ));
+	sec = atoi( dato.substr(17, 2 ));
+
 	XM = dato.substr(20, 2 );
 
 	if(XM.compare("PM")){
@@ -50,7 +50,7 @@ fecha::fecha(const fecha & x){
   
 fecha & fecha::operator=(const fecha & f){
 
-	 if (this != &s) {
+	 if (this != &f) {
 
 		mday = f.getDay();
 		mon = f.getMon();
