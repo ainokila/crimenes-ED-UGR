@@ -112,6 +112,7 @@ string fecha::toString( ) const{
 }
 
 // Operadores relacionales
+
  bool fecha::operator==(const fecha & f) const{
 
 	bool sol;
@@ -120,39 +121,39 @@ string fecha::toString( ) const{
 
 }
 
-/*bool fecha::operator<(const fecha & f)const{
+bool fecha::operator<(const fecha & f)const{
 
 	bool sol;
 
-	if(year < fecha.getYear()){
+	if(year < f.getYear()){
 		sol = true;
 
-	}else if ( year == fecha.getYear() ){
+	}else if ( year == f.getYear() ){
 
-			if(mon < fecha.getMon()){
+			if(mon < f.getMon()){
 				sol = true;
 
-			}else if ( year == fecha.getYear() ){
+			}else if ( year == f.getYear() ){
 
-					if(day < fecha.getDay()){
+					if(mday < f.getDay()){
 						sol = true;
 
-					}else if ( day == fecha.getDay() ){
+					}else if ( mday == f.getDay() ){
 
-							if(hour < fecha.getHour){
+							if(hour < f.getHour()){
 								sol = true;
 
-							}else if ( hour == fecha.getHour ){
+							}else if ( hour == f.getHour() ){
 
-								if(min < fecha.getMin()){
+								if(min < f.getMin()){
 									sol = true;
 
-								}else if ( min == fecha.getMin() ){
+								}else if ( min == f.getMin() ){
 
-									if(sec < fecha.getSec()){
+									if(sec < f.getSec()){
 										sol = true;
 
-									}else if ( sec == fecha.getSec() ){
+									}else if ( sec == f.getSec() ){
 										sol = false;
 		
 									}else{
@@ -181,7 +182,7 @@ string fecha::toString( ) const{
 		sol = false;
 	}
 	return sol;
-}*/
+}
  bool fecha::operator>(const fecha & f) const{
 
 	return !operator<(f);
