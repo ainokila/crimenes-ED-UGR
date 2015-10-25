@@ -6,7 +6,7 @@ SRC = src
 OBJ = obj
 LIB = lib
 DOC = doc
-INCLUDE = include
+INCLUDE = ./include
 #
 #
 #Compiladores
@@ -26,7 +26,7 @@ all: clean $(BIN)/principal
 #
 #COMPILACION
 $(BIN)/principal : $(OBJ)/principal.o $(LIB)/libcrimenes.a
-	$(CXX) -o $(BIN)/principal $(OBJ)/principal.o -I$(INCLUDE) -L$(LIB) -lcrimenes
+	$(CXX) -o $(BIN)/principal $(OBJ)/principal.o -I$(INCLUDE) -l$(LIB) -lcrimenes
 
 $(LIB)/libcrimenes.a : $(OBJ)crimen.o $(OBJ)fecha.o
 	ar rvs $(LIB)/libcrimenes.a $(OBJ)crimen.o $(OBJ)fecha.o
@@ -37,7 +37,7 @@ $(OBJ)/fecha.o : $(SRC)/fecha.hxx
 $(OBJ)/crimen.o : $(SRC)/crimen.hxx $(OBJ)/fecha.o
 	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/crimen.o $(SRC)/crimen.hxx $(OBJ)/fecha.o -I$(INCLUDE)
 
-$(OBJ)/principal.o : $(SRC)/principal.cpp $(OBJ)/crimen.o $(OBJ)/fecha.o
+$(OBJ)/principal.o : $(SRC)/principal.cpp $(OBJ)/crimen.o
 	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/principal.o $(SRC)/principal.cpp $(OBJ)/crimen.o $(OBJ)/fecha.o -I$(INCLUDE)
 #
 #
