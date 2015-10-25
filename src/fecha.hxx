@@ -58,7 +58,7 @@ fecha & fecha::operator=(const fecha & f){
 		year = f.year;
 		hour = f.hour;
 		min = f.min;
-		sec = f.sec();
+		sec = f.sec;
         
     }
     return *this;
