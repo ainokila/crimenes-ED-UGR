@@ -9,6 +9,7 @@
 #include <string>
 #include <iostream> 
 #include <sstream>
+#include <stdlib.h> 
 
 using namespace std;
 
@@ -64,7 +65,8 @@ inline int getMon() {
 inline int getYear() {
   return year ;
 }
-ostream& operator<< ( ostream& os, const fecha & f); imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
+
+ostream& operator<< ( ostream &os, fecha &f);  // imprime fecha con el formato  mm/dd/aaaa hh:mm:ss AM/PM
 
 };
 

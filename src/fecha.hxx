@@ -2,7 +2,7 @@
 
 */
 #include "fecha.h"
-#include <iostream>
+
 
 
 fecha::fecha(){
@@ -117,7 +117,7 @@ string fecha::toString( ) const{
 	return sol;
 
 }
- bool fecha::operator<(const fecha & f)const{
+ /*bool fecha::operator<(const fecha & f)const{
 
 	bool sol;
 
@@ -178,7 +178,7 @@ string fecha::toString( ) const{
 		sol = false;
 	}
 	return sol;
-}
+}*/
  bool fecha::operator>(const fecha & f) const{
 
 	return !operator<(f);
@@ -200,7 +200,7 @@ string fecha::toString( ) const{
 	return !operator==(f);
 }
  
- ostream& operator<< ( ostream& os, const fecha & f){
+ ostream& operator<< ( ostream &os , fecha &f){
       
     os << f.toString();
 
