@@ -33,8 +33,8 @@ using namespace std;
 
 
 
-class conjunto
-{  
+class conjunto{
+  
 public:
 	typedef crimen entrada;
 	typedef unsigned int size_type;

@@ -1,22 +1,20 @@
 #Makefile
 #
 #Carpetas:
-BIN = bin
-SRC = src
-OBJ = obj
-LIB = lib
-DOC = doc
-INCLUDE = ./include
+BIN=./bin
+INCLUDE=include
+SRC=./src
+OBJ=./obj
+LIB=./lib
+DOC = ./doc
 #
 #
 #Compiladores
-CXX = g++ -Ofast
-CC = gcc -Ofast
+CXX = g++
 #
 #
 #Flags
-LDFLAGS =
-CPPFLAGS = -Wall -g -c
+CPPFLAGS = -Wall -g -c -I$(INCLUDE)
 #
 #
 #
@@ -25,31 +23,45 @@ CPPFLAGS = -Wall -g -c
 all: clean $(BIN)/principal
 #
 #COMPILACION
+
 $(BIN)/principal : $(OBJ)/principal.o $(LIB)/libcrimenes.a
-	$(CXX) -o $(BIN)/principal $(OBJ)/principal.o -I$(INCLUDE) -l$(LIB) -lcrimenes
+	$(CXX) $(OBJ)/principal.o $(LIB)/libcrimenes.a -o $(BIN)/principal 
+
+$(OBJ)/principal.o : $(SRC)/principal.cpp $(INCLUDE)/conjunto.h $(INCLUDE)/crimen.h $(INCLUDE)/fecha.h
+	$(CXX) $(CPPFLAGS)  $(SRC)/principal.cpp -o $(OBJ)/principal.o 
 
 $(LIB)/libcrimenes.a : $(OBJ)crimen.o $(OBJ)fecha.o $(OBJ)conjunto.o
-	ar rvs $(LIB)/libcrimenes.a $(OBJ)conjunto.o $(OBJ)crimen.o $(OBJ)fecha.o 
+	ar -rvs $(LIB)/libcrimenes.a $(OBJ)conjunto.o $(OBJ)crimen.o $(OBJ)fecha.o 
 
-$(OBJ)/fecha.o : $(SRC)/fecha.hxx
-	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/fecha.o $(SRC)/fecha.hxx -I$(INCLUDE)
+$(OBJ)/conjunto.o : $(SRC)/conjunto.hxx $(INCLUDE)/conjunto.h $(INCLUDE)/fecha.h $(INCLUDE)/crimen.h
+	$(CXX) $(CPPFLAGS)  $(SRC)/conjunto.hxx -o $(OBJ)/conjunto.o
 
-$(OBJ)/crimen.o : $(SRC)/crimen.hxx $(OBJ)/fecha.o
-	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/crimen.o $(SRC)/crimen.hxx $(OBJ)/fecha.o -I$(INCLUDE)
+$(OBJ)/crimen.o : $(SRC)/crimen.hxx $(INCLUDE)/crimen.h $(INCLUDE)/fecha.h 
+	$(CXX) $(CPPFLAGS)   $(SRC)/crimen.hxx -o  $(OBJ)/crimen.o 
 
-$(OBJ)/conjunto.o : $(SRC)/conjunto.hxx $(OBJ)/fecha.o $(OBJ)/crimen.o
-	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/conjunto.o $(SRC)/conjunto.hxx $(OBJ)/fecha.o $(OBJ)/crimen.o -I$(INCLUDE)
+$(OBJ)/fecha.o : $(SRC)/fecha.hxx $(INCLUDE)/fecha.h 
+	$(CXX) $(CPPFLAGS)  $(SRC)/fecha.hxx -o $(OBJ)/fecha.o
 
-$(OBJ)/principal.o : $(SRC)/principal.cpp $(OBJ)/conjunto.o $(OBJ)/crimen.o $(OBJ)/fecha.o
-	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/principal.o $(SRC)/principal.cpp $(OBJ)/conjunto.o $(OBJ)/crimen.o $(OBJ)/fecha.o -I$(INCLUDE)
+
+
 #
 #
 #
 #
+# ************ documentación *******
+
+documentacion:
+	doxygen doc/doxys/Doxyfile
+
+# ************ Limpieza ************
+
 clean:
 	@echo "Limpiando archivos objetos "
 	@rm -f $(OBJ)/*
 	@rm -f $(LIB)/*
 	@rm -f $(BIN)/*
-	   
+
+	
+	
+mrproper: clean
 

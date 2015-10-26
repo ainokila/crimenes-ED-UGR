@@ -1,6 +1,6 @@
 #include "conjunto.h"
 #include "crimen.h"
-#include "fecha.cpp"
+#include "fecha.h"
 #include <iostream>
 
 using namespace std;
