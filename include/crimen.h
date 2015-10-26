@@ -8,7 +8,6 @@
 
 #include <string>
 #include <iostream> 
-
 #include "fecha.h"
 //! Clase crimen, asociada a la definición de un crimen 
 /*! crimen::crimen,  .....

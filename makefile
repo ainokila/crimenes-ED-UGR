@@ -28,8 +28,8 @@ all: clean $(BIN)/principal
 $(BIN)/principal : $(OBJ)/principal.o $(LIB)/libcrimenes.a
 	$(CXX) -o $(BIN)/principal $(OBJ)/principal.o -I$(INCLUDE) -l$(LIB) -lcrimenes
 
-$(LIB)/libcrimenes.a : $(OBJ)crimen.o $(OBJ)fecha.o
-	ar rvs $(LIB)/libcrimenes.a $(OBJ)crimen.o $(OBJ)fecha.o
+$(LIB)/libcrimenes.a : $(OBJ)crimen.o $(OBJ)fecha.o $(OBJ)conjunto.o
+	ar rvs $(LIB)/libcrimenes.a $(OBJ)conjunto.o $(OBJ)crimen.o $(OBJ)fecha.o 
 
 $(OBJ)/fecha.o : $(SRC)/fecha.hxx
 	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/fecha.o $(SRC)/fecha.hxx -I$(INCLUDE)
@@ -40,7 +40,7 @@ $(OBJ)/crimen.o : $(SRC)/crimen.hxx $(OBJ)/fecha.o
 $(OBJ)/conjunto.o : $(SRC)/conjunto.hxx $(OBJ)/fecha.o $(OBJ)/crimen.o
 	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/conjunto.o $(SRC)/conjunto.hxx $(OBJ)/fecha.o $(OBJ)/crimen.o -I$(INCLUDE)
 
-$(OBJ)/principal.o : $(SRC)/principal.cpp $(OBJ)/conjunto.o
+$(OBJ)/principal.o : $(SRC)/principal.cpp $(OBJ)/conjunto.o $(OBJ)/crimen.o $(OBJ)/fecha.o
 	$(CXX) $(CPPFLAGS) -c -o $(OBJ)/principal.o $(SRC)/principal.cpp $(OBJ)/conjunto.o $(OBJ)/crimen.o $(OBJ)/fecha.o -I$(INCLUDE)
 #
 #
