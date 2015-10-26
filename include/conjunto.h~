@@ -4,8 +4,8 @@
  * Copyright  (C) Juan F. Huete
 */
 
-#ifndef __CONJUNTO_H
-#define __CONJUNTO_H
+#ifndef __CONJUTO_H
+#define __CONJUTO_H
 #include <string>
 #include <vector>
 #include <iostream> 
