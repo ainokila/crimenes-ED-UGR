@@ -4,8 +4,8 @@
  * Copyright  (C) Juan F. Huete
 */
 
-#ifndef __CONJUTO_H
-#define __CONJUTO_H
+#ifndef __CONJUNTO_H
+#define __CONJUNTO_H
 #include <string>
 #include <vector>
 #include <iostream> 
@@ -33,8 +33,8 @@ using namespace std;
 
 
 
-class conjunto
-{  
+class conjunto{
+  
 public:
 	typedef crimen entrada;
 	typedef unsigned int size_type;

@@ -8,8 +8,8 @@
 
 #include <string>
 #include <iostream> 
-
 #include "fecha.h"
+
 //! Clase crimen, asociada a la definición de un crimen 
 /*! crimen::crimen,  .....
  * Descripción contiene toda la información asociada a un crimen.
@@ -18,6 +18,7 @@
 
 */
 
+using namespace std;
 
 class crimen {
  private:
@@ -48,5 +49,5 @@ class crimen {
   ostream& operator<< ( ostream& , const crimen& );
 
 
-#include "crimen.hxx"
+//#include "crimen.hxx"
 #endif
