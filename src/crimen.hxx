@@ -135,17 +135,18 @@ double crimen::getLongitude( ) const{
 
 //Operadores relacionales
 crimen & crimen::operator=(const crimen &c){
-    c.setID(ID);
-    c.setCaseNumber(case_number);
-    c.setDate(date);
-    c.setIUCR(iucr);
-    c.setPrimaryType(primary_type);
-    c.setDescr(descr);
-    c.setLocalDescription(local_description);
-    c.setArrest(arrest);
-    c.setDomestic(domestic);
-    c.setLatitude(latitude);
-    c.setLonguitude(longitude)
+   ID = c.getID();
+   case_number = c.getCaseNumber();
+   date = c.getDate();
+   iucr = c.getIUCR();
+   primary_type = c.getPrimaryType();
+   descr = c.getDescr();
+   local_description = c.getLocalDescription();
+   arrest = c.getArrest();
+   domestic = c.getDomestic();
+   latitude = c.getLatitude();
+   longitude = c.getLongitude();
+   
 }
 
 bool crimen::operator==(const crimen &x) const{
