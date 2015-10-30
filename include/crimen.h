@@ -23,21 +23,43 @@ using namespace std;
 class crimen {
  private:
    long int ID; 
+   string case_number;
+   fecha date;
+   string iucr;
+   string primary_type;
+   string descr;
+   string local_description;
+   bool arrest;
+   bool domestic;
+   double latitude;
+   double longitude;
  public:
   crimen();
   crimen(const crimen& x);
+  //...
   void setID(long int & id);
   void setCaseNumber(const string &  s);
   void setDate(const fecha & d);
-  // ...
+  void setIUCR(string iucr);
+  void setPrimaryType(string primary_type);
+  void setDescr(string descripcion);
+  void setLocalDescription(string descripcion_local);
   void setArrest(bool a);
   void setDomestic(bool d); 
+  void setLatitude(double latitud);
+  void setLongitude(double longuitud);
   // ...
-  
-  
   long int getID( ) const;
   string getCaseNumber( ) const;
   fecha getDate( ) const;
+  string getIUCR( ) const;
+  string getPrimaryType( ) const;
+  string getDescr( ) const;
+  string getLocalDescription( ) const;
+  bool getArrest( ) const;
+  bool getDomestic( ) const;
+  double getLatitude( ) const;
+  double getLongitude( ) const;
   
   // -...
    crimen & operator=(const crimen & c);
