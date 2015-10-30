@@ -20,6 +20,8 @@
 
 
 class crimen {
+ private:
+   long int ID; 
  public:
   crimen();
   crimen(const crimen& x);
@@ -40,9 +42,7 @@ class crimen {
    crimen & operator=(const crimen & c);
    bool operator==(const crimen & x) const;
    bool operator<(const crimen & x) const;
- private:
-   long int ID; 
-  // ...
+ 
 };
 
   ostream& operator<< ( ostream& , const crimen& );
