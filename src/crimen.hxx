@@ -146,13 +146,13 @@ crimen & crimen::operator=(const crimen &c){
    domestic = c.getDomestic();
    latitude = c.getLatitude();
    longitude = c.getLongitude();
-   
+   return *this;
 }
 
 bool crimen::operator==(const crimen &x) const{
    bool sol;
 
-   if ( ( ID == x.getID( ) ) && ( case_number == x.getCaseNumber() ) && ( date = x.getDate( ) ) && ( iucr == x.getIUCR( ) ) && ( primary_type == x.getPrimaryType( ) ) && ( descr == x.getDescr( ) ) && ( local_description == x.getLocalDescription( ) ) && ( arrest == x.getArrest( ) ) && ( domestic == x.getDomestic( ) ) && ( latitude == x.getLatitude( ) ) && (longitude == x.getLongitude( ) ) ) {
+   if ( ( ID == x.getID( ) ) && ( case_number == x.getCaseNumber() ) && ( date == x.getDate( ) ) && ( iucr == x.getIUCR( ) ) && ( primary_type == x.getPrimaryType( ) ) && ( descr == x.getDescr( ) ) && ( local_description == x.getLocalDescription( ) ) && ( arrest == x.getArrest( ) ) && ( domestic == x.getDomestic( ) ) && ( latitude == x.getLatitude( ) ) && (longitude == x.getLongitude( ) ) ) {
 	sol = true;
    }else{
 	sol = false;
@@ -170,8 +170,8 @@ bool crimen::operator<(const crimen &x) const{
 return sol;
 }
 
-std::ostream& operator << ( ostream &os, const crimen &c ){
-  os << c.toString();
-
+ostream& operator << ( ostream &os, const crimen &c ){
+	os << c.getID() << "  " << c.getCaseNumber() << "  " << c.getDate().toString() << "  " << c.getIUCR() << "  " << c.getPrimaryType() << "  " << c.getDescr() << "  " << c.getLocalDescription() << "  " << c.getArrest() << "  " << c.getDomestic() << "  " << c.getLatitude() << "  " << c.getLongitude() << "  " << endl;
+   return os;
 }
 
