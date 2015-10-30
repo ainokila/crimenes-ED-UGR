@@ -99,7 +99,7 @@ public:
 
 Busca la entrada con id en el conjunto (o e.getID() en el segundo caso) y si la encuentra la borra
 
-@param[in] entrada con e.getID() que geremos borrar, el resto de los valores no son tenidos en cuenta
+@param[in] entrada con e.getID() que queremos borrar, el resto de los valores no son tenidos en cuenta
 @param[in] id a borrar
 
 @post Si esta en el conjunto su tamaño se decrementa en 1.
@@ -124,6 +124,16 @@ Busca la entrada con id en el conjunto (o e.getID() en el segundo caso) y si la 
    Chequea si el conjunto esta vacio (size()==0)
 */
   bool empty() const;
+
+/** @brief Consultor Vector
+   Devuelve el valor del vector vc
+*/
+
+
+inline vector<crimen> getVector(){
+	
+	return vc;
+}
 
 	
 	 
