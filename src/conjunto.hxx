@@ -4,7 +4,7 @@
   
 conjunto::conjunto( ){
 
-	size_type = 0;
+	numeroDeDatos = 0;
 }
 
 	
@@ -13,7 +13,7 @@ conjunto::conjunto( ){
 conjunto::conjunto (const conjunto & d){
 
 	entrada = d.entrada;
-	size_type = d.size_type;
+	numeroDeDatos = d.numeroDeDatos;
 	vc = d.getVector();
 }
 
@@ -55,7 +55,7 @@ conjunto<conjunto::entrada>  conjunto::findIUCR( const string & iucr) const{
 		if(vc[i].getIUCR() == iucr){
 				
 			solucion.push_back(vc[i]);
-			size_type++;
+			numeroDeDatos++;
 		
 		}
 		
@@ -75,7 +75,7 @@ conjunto<conjunto::entrada>  conjunto::findDESCR( const string & descr) const{
 		if(vc[i].getDescr() == descr){
 				
 			solucion.push_back(vc[i]);
-			size_type++;
+			numeroDeDatos++;
 		
 		}
 		
@@ -92,7 +92,7 @@ bool conjunto::insert( const conjunto::entrada & e){
 		
 		solucion = true;
 		vc.push_back(e);
-		size_type++;
+		numeroDeDatos++;
 		
 	}
 return solucion;
@@ -107,7 +107,7 @@ bool conjunto::erase(const long int & id){
 		if(it.getID() == id){
 			solucion = true;
 			vc.erase(it);
-			size_type--;
+			numeroDeDatos--;
 		}
 	}
 
@@ -132,7 +132,7 @@ return solucion;
 conjunto & conjunto::operator=( const conjunto & org){
 
 		entrada = org.entrada;
-		size_type = org.size_type;
+		numeroDeDatos = org.numeroDeDatos;
 		vc = org.getVector();
 
 return *this;
@@ -140,12 +140,12 @@ return *this;
 
 size_type conjunto::size() const {
 	
-return size_type;
+return numeroDeDatos;
 }
 
 bool conjunto::empty() const{
 	
-return size_type == 0;	
+return numeroDeDatos == 0;	
 
 }
 

@@ -142,6 +142,7 @@ inline vector<crimen> getVector(){
 	 
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
+ size_type numeroDeDatos;
  /** \invariant
  
  IR: rep ==> bool
