@@ -149,8 +149,33 @@ return size_type == 0;
 
 }
 
-bool conjunto::cheq_rep( ) const;
+bool conjunto::cheq_rep( ) const{
 
-ostream &  conjunto::operator << ( ostream & sal, const conjunto & D);
+  bool solucion=true;
+ 
+	for(int i = 0; i < vc.size() && solucion ; i++){
+	
+		if(vc[i].ID <= 0){
+			solucion = false;
+		}
+
+return solucion;
+
+}
+
+ostream &  conjunto::operator << ( ostream &sal, const conjunto & D){
+
+		if(D.empty()){
+			sal << "Conjunto vacio." ;
+
+		}else{
+			for(int i = 0; i< D.vc.size(); i++){
+				sal << D.vc[i];
+				sal << endl;
+			}
+		}
+
+	return sal;
+}
 
 #endif
