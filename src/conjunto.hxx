@@ -73,7 +73,7 @@ conjunto conjunto::findDESCR( const string & descr) const{
 	for(size_t i =0;  i<vc.size()  ; i++){
 		if(vc[i].getDescr() == descr){
 				
-			solucion.push_back(vc[i]);
+			solucion.insert(vc[i]);
 			solucion.numeroDeDatos++;
 		
 		}
@@ -103,7 +103,7 @@ bool conjunto::erase(const long int & id){
 	bool solucion = false;
 	
 	for (vector<conjunto::entrada>::iterator it = vc.begin() ; it != vc.end(); it++){
-		if(it.getID() == id){
+		if(it->getID() == id){
 			solucion = true;
 			vc.erase(it);
 			numeroDeDatos--;
@@ -119,7 +119,7 @@ bool conjunto::erase(const  conjunto::entrada & e){
 		bool solucion = false;
 	
 	for (vector<conjunto::entrada>::iterator it = vc.begin() ; it != vc.end(); it++){
-		if(it.getID() == e.getID){
+		if(it->getID() == e.getID()){
 			solucion = true;
 			vc.erase(it);
 		}
@@ -130,14 +130,13 @@ return solucion;
 
 conjunto & conjunto::operator=( const conjunto & org){
 
-		entrada = org.entrada;
 		numeroDeDatos = org.numeroDeDatos;
 		vc = org.getVector();
 
 return *this;
 }
 
-size_type conjunto::size() const {
+conjunto::size_type conjunto::size() const {
 	
 return numeroDeDatos;
 }
@@ -176,5 +175,4 @@ ostream &  conjunto::operator << ( ostream &sal, const conjunto & D){
 
 	return sal;
 }
-
 
