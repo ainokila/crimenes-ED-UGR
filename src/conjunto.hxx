@@ -155,13 +155,13 @@ bool conjunto::cheq_rep( ) const{
 	
 		if(vc[i].getID() <= 0){
 			solucion = false;
-		}
-
+		}	
+	}
 return solucion;
 
 }
 
-ostream& operator<< ( ostream &sal, const conjunto & D){
+std::ostream& operator << ( ostream &sal, const conjunto & D){
 
 		if(D.empty()){
 			sal << "Conjunto vacio." ;

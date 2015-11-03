@@ -170,7 +170,7 @@ private:
 @post  No se modifica el conjunto.
 @todo implementar esta funcion
 	*/
-ostream &  operator<< ( ostream & sal, const conjunto & D);
+ostream &  operator << (ostream & sal, const conjunto & D);
 
 	
 
