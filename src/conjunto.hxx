@@ -161,16 +161,26 @@ return solucion;
 
 }
 
+string conjunto::toString(){
+		
+	string sal;
+		
+		for(unsigned int i = 0; i< vc.size(); i++){
+				sal << vc[i];
+				sal << endl;
+			}
+		}
+
+	return sal;
+	
+
 std::ostream& operator << ( ostream &sal, const conjunto & D){
 
 		if(D.empty()){
 			sal << "Conjunto vacio." ;
 
 		}else{
-			for(int i = 0; i< D.vc.size(); i++){
-				sal << D.vc[i];
-				sal << endl;
-			}
+			sal.toString();
 		}
 
 	return sal;

@@ -135,8 +135,7 @@ inline vector<crimen> getVector(){
 	return vc;
 }
 
-	
-	 
+  string toString();
 	 
 	   
 	 
