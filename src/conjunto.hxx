@@ -161,18 +161,6 @@ return solucion;
 
 }
 
-string conjunto::toString(){
-		
-	string sal;
-		
-		for(unsigned int i = 0; i< vc.size(); i++){
-				sal << vc[i];
-				sal << endl;
-			}
-		}
-
-	return sal;
-	
 
 std::ostream& operator << ( ostream &sal, const conjunto & D){
 
@@ -180,7 +168,10 @@ std::ostream& operator << ( ostream &sal, const conjunto & D){
 			sal << "Conjunto vacio." ;
 
 		}else{
-			sal.toString();
+			for(unsigned int i = 0; i< D.getVector().size(); i++){
+				sal << D.vc[i];
+				sal << endl;
+			}
 		}
 
 	return sal;
