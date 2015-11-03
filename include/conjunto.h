@@ -173,5 +173,5 @@ private:
 ostream &  operator<< ( ostream & sal, const conjunto & D);
 
 	
-}
+
 #endif
