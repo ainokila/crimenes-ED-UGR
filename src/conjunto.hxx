@@ -46,10 +46,10 @@ pair<conjunto::entrada,bool>  conjunto::findID( const long int & id) const{
 return solucion;
 }
 	
-conjunto<conjunto::entrada>  conjunto::findIUCR( const string & iucr) const{
+conjunto::entrada  conjunto::findIUCR( const string & iucr) const{
 			
 		
-	conjunto<conjunto::entrada> solucion;
+	conjunto::entrada solucion;
 	
 	for(size_t i =0;  i<vc.size() && ; i++){
 		if(vc[i].getIUCR() == iucr){
@@ -67,9 +67,9 @@ return solucion;
 }
 
 
-conjunto<conjunto::entrada>  conjunto::findDESCR( const string & descr) const{
+conjunto::entrada  conjunto::findDESCR( const string & descr) const{
 
-	conjunto<conjunto::entrada> solucion;
+	conjunto::entrada solucion;
 
 	for(size_t i =0;  i<vc.size() && ; i++){
 		if(vc[i].getDescr() == descr){

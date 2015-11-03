@@ -1,6 +1,7 @@
 #include "conjunto.h"
 #include "crimen.h"
 #include "fecha.h"
+#include <fstream>
 #include <iostream>
 
 using namespace std;
@@ -12,6 +13,7 @@ using namespace std;
 	*/
 
 bool load(conjunto &  C, const string & s) {
+
  ifstream fe;
  string cadena;
 
