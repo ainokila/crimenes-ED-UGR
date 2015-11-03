@@ -13,7 +13,7 @@ conjunto::conjunto( ){
 conjunto::conjunto (const conjunto & d){
 
 	numeroDeDatos = d.numeroDeDatos;
-	vc = d.getVector();
+	this->vc = d.vc;
 }
 
 
@@ -45,16 +45,16 @@ pair<conjunto::entrada,bool>  conjunto::findID( const long int & id) const{
 return solucion;
 }
 	
-conjunto::entrada  conjunto::findIUCR( const string & iucr) const{
+conjunto conjunto::findIUCR( const string & iucr) const{
 			
 		
-	conjunto::entrada solucion;
+	conjunto solucion;
 	
-	for(size_t i =0;  i<vc.size() && ; i++){
+	for(size_t i =0;  i<vc.size() ; i++){
 		if(vc[i].getIUCR() == iucr){
 				
-			solucion.push_back(vc[i]);
-			numeroDeDatos++;
+			solucion.insert(vc[i]);
+			solucion.numeroDeDatos++;
 		
 		}
 		
@@ -66,15 +66,15 @@ return solucion;
 }
 
 
-conjunto::entrada  conjunto::findDESCR( const string & descr) const{
+conjunto conjunto::findDESCR( const string & descr) const{
 
-	conjunto::entrada solucion;
+	conjunto solucion;
 
-	for(size_t i =0;  i<vc.size() && ; i++){
+	for(size_t i =0;  i<vc.size()  ; i++){
 		if(vc[i].getDescr() == descr){
 				
 			solucion.push_back(vc[i]);
-			numeroDeDatos++;
+			solucion.numeroDeDatos++;
 		
 		}
 		
@@ -177,4 +177,4 @@ ostream &  conjunto::operator << ( ostream &sal, const conjunto & D){
 	return sal;
 }
 
-#endif
+

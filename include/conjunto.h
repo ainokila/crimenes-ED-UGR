@@ -72,7 +72,7 @@ public:
         A = C.findIUCR("0460");
 	\endverbatim
 	*/
-	conjunto::entrada  findIUCR( const string & iucr) const;
+	conjunto findIUCR( const string & iucr) const;
 
 /** @brief busca los crimenes que contienen una determinada descripcion 
 	@param descr string que representa la descripcion del delito buscar
@@ -84,7 +84,7 @@ public:
         A = C.findDESCR("BATTERY");
 	\endverbatim
 	*/
-	conjunto::entrada  findDESCR( const string & descr) const;
+	conjunto  findDESCR( const string & descr) const;
 
 /** @brief Inserta una entrada en el conjunto
 @param e entrada a insertar
