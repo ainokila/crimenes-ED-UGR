@@ -12,7 +12,6 @@ conjunto::conjunto( ){
 	
 conjunto::conjunto (const conjunto & d){
 
-	entrada = d.entrada;
 	numeroDeDatos = d.numeroDeDatos;
 	vc = d.getVector();
 }
