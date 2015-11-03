@@ -31,7 +31,7 @@ $(OBJ)/principal.o : $(SRC)/principal.cpp $(INCLUDE)/conjunto.h $(INCLUDE)/crime
 	$(CXX) $(CPPFLAGS)  $(SRC)/principal.cpp -o $(OBJ)/principal.o 
 
 $(LIB)/libcrimenes.a : $(OBJ)/crimen.o $(OBJ)/fecha.o $(OBJ)/conjunto.o
-	ar -rvs $(LIB)/libcrimenes.a $(OBJ)conjunto.o $(OBJ)crimen.o $(OBJ)fecha.o 
+	ar -rvs $(LIB)/libcrimenes.a $(OBJ)/conjunto.o $(OBJ)/crimen.o $(OBJ)/fecha.o 
 
 $(OBJ)/conjunto.o : $(SRC)/conjunto.hxx $(INCLUDE)/conjunto.h $(INCLUDE)/fecha.h $(INCLUDE)/crimen.h
 	$(CXX) $(CPPFLAGS)  $(SRC)/conjunto.hxx -o $(OBJ)/conjunto.o

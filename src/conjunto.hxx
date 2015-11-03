@@ -168,8 +168,8 @@ std::ostream& operator << ( ostream &sal, const conjunto & D){
 			sal << "Conjunto vacio." ;
 
 		}else{
-			for(unsigned int i = 0; i< D.getVector().size(); i++){
-				sal << D.vc[i];
+			for(unsigned int i = 0; i< D.size(); i++){
+				sal << D.getPos(i);
 				sal << endl;
 			}
 		}

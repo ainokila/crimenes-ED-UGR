@@ -135,9 +135,17 @@ inline vector<crimen> getVector(){
 	return vc;
 }
 
-  string toString();
-	 
-	   
+
+inline conjunto::entrada getPos(unsigned int indice) const{
+	
+	if(indice < numeroDeDatos){
+		return vc[indice];
+	}else{
+		cout << "El indice es mayor que el numero total de datos del vector."<< endl;
+	}
+
+
+}	   
 	 
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
