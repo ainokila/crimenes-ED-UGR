@@ -131,7 +131,7 @@ return solucion;
 conjunto & conjunto::operator=( const conjunto & org){
 
 		numeroDeDatos = org.numeroDeDatos;
-		vc = org.getVector();
+		this->vc = org.vc;
 
 return *this;
 }
@@ -151,9 +151,9 @@ bool conjunto::cheq_rep( ) const{
 
   bool solucion=true;
  
-	for(int i = 0; i < vc.size() && solucion ; i++){
+	for(unsigned int i = 0; i < vc.size() && solucion ; i++){
 	
-		if(vc[i].ID <= 0){
+		if(vc[i].getID() <= 0){
 			solucion = false;
 		}
 
@@ -161,7 +161,7 @@ return solucion;
 
 }
 
-ostream &  conjunto::operator << ( ostream &sal, const conjunto & D){
+ostream& operator<< ( ostream &sal, const conjunto & D){
 
 		if(D.empty()){
 			sal << "Conjunto vacio." ;
