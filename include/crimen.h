@@ -36,6 +36,7 @@ class crimen {
  public:
   crimen();
   crimen(const crimen& x);
+  crimen(string nuevo);
   //...
   void setID(long int & id);
   void setCaseNumber(const string &  s);
