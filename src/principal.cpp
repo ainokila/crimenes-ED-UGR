@@ -3,6 +3,7 @@
 #include "fecha.h"
 #include <fstream>
 #include <iostream>
+#include <string>
 
 using namespace std;
 	
@@ -28,10 +29,11 @@ bool load(conjunto &  C, const string & s) {
     while ( !fe.eof() )
       { getline(fe,cadena,'\n');
        	if (!fe.eof()) {
-	   cout << "leo:: "<< cadena << endl;
+	   		cout << "leo:: "<< cadena << endl;
 
-		crimen aux(cadena);
-                C.insert(aux);
+			crimen aux;
+			aux.setCrimen(cadena);
+            C.insert(aux);
          }
      }
     fe.close();

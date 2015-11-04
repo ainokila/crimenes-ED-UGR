@@ -37,10 +37,9 @@ class crimen {
    double longitude;
  public:
   crimen();
-  crimen(const string & cadena);
+  void setCrimen(string & cadena);
   crimen(const crimen& x);
-  crimen(string nuevo);
-  //...
+  
   void setID(long int & id);
   void setCaseNumber(const string &  s);
   void setDate(const fecha & d);
