@@ -8,6 +8,8 @@
 
 #include <string>
 #include <iostream> 
+#include <sstream>
+#include <stdlib.h> 
 #include "fecha.h"
 
 //! Clase crimen, asociada a la definición de un crimen 
@@ -35,6 +37,7 @@ class crimen {
    double longitude;
  public:
   crimen();
+  crimen(const string & cadena);
   crimen(const crimen& x);
   //...
   void setID(long int & id);

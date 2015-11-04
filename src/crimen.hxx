@@ -19,6 +19,42 @@ crimen::crimen(){
 
 }
 
+crimen::crimen(const string & cadena){
+//recorre el string hasta encontrar una coma, e inicializa ese dato al correspondiente atributo de la clase
+int pos_inicio=0, pos_fin; 
+string aux[25];
+
+//recorro string y formo subcadenas dentro de un vector de strings
+for(size_t i=0; i<cadena.size(); i++){
+   if(cadena[i] == ',')
+      pos_fin = cadena[i];
+   aux[i] = cadena.substr(pos_inicio, pos_fin).c_str();
+   pos_inicio = pos_fin++;
+}
+
+//inicializo
+ID=atoi(aux[0]); //convierto string a entero
+case_number= aux[1]; 
+date = fecha(aux[2]);
+iucr=aux[3];
+primary_type=aux[5];
+descr=aux[6];
+local_description=aux[7];
+if( aux[8] == "false" )
+   arrest = false;
+else if (aux[8] == "true" )
+   arrest = true;
+
+if( aux[9] == "false" ) 
+   domestic = false;
+else if (aux[9] == "true" )
+   domestic = true;
+latitude = atof(aux[19]);//Convierto string a double
+longitude = atof(aux[20]);
+
+
+}
+
 crimen::crimen(const crimen& x){
  ID = x.getID();
  case_number = x.getCaseNumber();
