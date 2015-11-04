@@ -76,7 +76,7 @@ ostream& operator << (ostream &os, const fecha &f);  // imprime fecha con el for
  
 
 
-//#include "fecha.hxx" // Incluimos la implementacion.
+#include "../src/fecha.hxx" // Incluimos la implementacion.
 
 
 #endif

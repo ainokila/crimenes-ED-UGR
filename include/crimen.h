@@ -71,5 +71,5 @@ class crimen {
   ostream& operator<< ( ostream& , const crimen& );
 
 
-//#include "crimen.hxx"
+#include "../src/crimen.hxx"
 #endif

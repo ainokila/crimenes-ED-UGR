@@ -142,6 +142,8 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		return vc[indice];
 	}else{
 		cout << "El indice es mayor que el numero total de datos del vector."<< endl;
+		conjunto::entrada solucion;
+		return solucion;
 	}
 
 
@@ -180,5 +182,5 @@ private:
 ostream &  operator << (ostream & sal, const conjunto & D);
 
 	
-
+#include "../src/conjunto.hxx"
 #endif
