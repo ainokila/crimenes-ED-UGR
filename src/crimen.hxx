@@ -56,17 +56,24 @@ longitude = atof(aux[20]);
 }
 
 crimen::crimen(const crimen& x){
- ID = x.getID();
- case_number = x.getCaseNumber();
- date = x.getDate();
- iucr = x.getIUCR();
- primary_type = x.getPrimaryType();
- descr = x.getDescr();
- local_description = x.getLocalDescription();
- arrest = x.getArrest();
- domestic = x.getDomestic();
- latitude = x.getLatitude();
- longitude = x.getLongitude();
+	 ID = x.getID();
+	 case_number = x.getCaseNumber();
+	 date = x.getDate();
+	 iucr = x.getIUCR();
+	 primary_type = x.getPrimaryType();
+	 descr = x.getDescr();
+	 local_description = x.getLocalDescription();
+	 arrest = x.getArrest();
+	 domestic = x.getDomestic();
+	 latitude = x.getLatitude();
+	 longitude = x.getLongitude();
+
+}
+
+crimen::crimen(string nuevo){
+
+
+
 
 }
 //SETS

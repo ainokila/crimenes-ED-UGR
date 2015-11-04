@@ -29,10 +29,9 @@ bool load(conjunto &  C, const string & s) {
       { getline(fe,cadena,'\n');
        	if (!fe.eof()) {
 	   cout << "leo:: "<< cadena << endl;
-	   // Convertir cadena a crimen
-           // crimen aux = cadena;
-           // Insertar cadena en el conjunto
-           // C.insert(aux);
+
+		crimen aux(cadena);
+                C.insert(aux);
          }
      }
     fe.close();

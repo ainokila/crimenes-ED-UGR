@@ -39,6 +39,7 @@ class crimen {
   crimen();
   crimen(const string & cadena);
   crimen(const crimen& x);
+  crimen(string nuevo);
   //...
   void setID(long int & id);
   void setCaseNumber(const string &  s);
