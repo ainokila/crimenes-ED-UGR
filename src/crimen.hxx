@@ -33,13 +33,14 @@ for(size_t i=0; i<cadena.size(); i++){
 }
 
 //inicializo
-ID=atoi(aux[0]); //convierto string a entero
-case_number= aux[1]; 
+ID = stoi (aux[0]); //convierto string a entero
+case_number = aux[1]; 
 date = fecha(aux[2]);
-iucr=aux[3];
-primary_type=aux[5];
-descr=aux[6];
-local_description=aux[7];
+iucr = aux[3];
+primary_type = aux[5];
+descr = aux[6];
+local_description = aux[7];
+
 if( aux[8] == "false" )
    arrest = false;
 else if (aux[8] == "true" )
@@ -48,9 +49,10 @@ else if (aux[8] == "true" )
 if( aux[9] == "false" ) 
    domestic = false;
 else if (aux[9] == "true" )
+
    domestic = true;
-latitude = atof(aux[19]);//Convierto string a double
-longitude = atof(aux[20]);
+latitude = stod(aux[19]);//Convierto string a double
+longitude = stod(aux[20]);
 
 
 }
