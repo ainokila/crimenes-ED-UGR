@@ -17,7 +17,7 @@ bool load(conjunto &  C, const string & s) {
 
  ifstream fe;
  string cadena;	
- int contador =0;
+
 
  cout << "Abrimos "<< s << endl;
  fe.open(s.c_str(), ifstream::in);
@@ -33,12 +33,9 @@ bool load(conjunto &  C, const string & s) {
 	   	//cout << "leo:: "<< cadena << endl;
 		crimen aux;
 		aux.setCrimen(cadena);
-		contador++;
-		//cout << contador<<endl;
-                C.insert(aux);
+		C.insert(aux);
          }
      }
-   // cout <<"contador: "<< contador<< endl;
     fe.close();
     return true;
     } // else
@@ -54,8 +51,8 @@ int main()
     
     
 
-    load(ChicagoDB, "crimenes.csv");
-  // cout << ChicagoDB.findIUCR("003XX E MARQUETTE RD,143A,WEAPONS VIOLATION,UNLAWFUL POSS OF")<< endl;
+	load(ChicagoDB, "crimenes.csv");
+	cout << ChicagoDB.findDESCR("AGGRAVATED DOMESTIC BATTERY: HANDS/FIST/FEET SERIOUS INJURY")<< endl;
 			
    //	cout << ChicagoDB<< endl;
 

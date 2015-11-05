@@ -21,7 +21,7 @@ crimen::crimen(){
 
 void crimen::setCrimen(const string & cadena){
 	
-	int pos_inicio=0; //pos_fin=0; 
+	int pos_inicio=0, pos_fin=0; 
 	int elemento=0;
 	string aux[250]={""};
 	
@@ -29,31 +29,22 @@ void crimen::setCrimen(const string & cadena){
 	for(size_t i=0; i<cadena.length(); i++){
 
 	   if(cadena[i] == ','){
-		
-		//cout << cadena[i]<<i<<endl;
-		  //pos_fin = i;
-		  aux[elemento] = cadena.substr(pos_inicio, i).c_str();
-		  cout <<aux[elemento] << endl;
-		  pos_inicio = i+1;
+				
+		 pos_fin = i - pos_inicio;
+		  aux[elemento] = cadena.substr(pos_inicio, pos_fin).c_str();
 		 
-
-		  elemento++;
-		//cout << "posicion inicio  "<< pos_inicio<<endl;	
-		//cout << "posicion final  "<< pos_fin<< endl;	
-		  //pos_inicio = pos_fin+1;
+		  pos_inicio += pos_fin+1;
+		   elemento++;
 		  
 		}
-	   //cout << pos_fin;
-		//else { }
-	   
+	  
 	}
 
 	//inicializo
 	ID = atoi (aux[0].c_str()); //convierto string a entero
 	case_number = aux[1]; 
 	date = fecha(aux[2]);
-	//cout<< aux[2]<<endl;
-	iucr = aux[3];
+	iucr = aux[4];
 	primary_type = aux[5];
 	descr = aux[6];
 	local_description = aux[7];
@@ -72,6 +63,7 @@ void crimen::setCrimen(const string & cadena){
 
 	latitude = atof(aux[19].c_str());
 	longitude = atof(aux[20].c_str());
+	//cout << aux[20]<<endl;
 
 }
 
@@ -228,7 +220,32 @@ return sol;
 }
 
 ostream& operator << ( ostream &os, const crimen &c ){
-	os << c.getID() << "  " << c.getCaseNumber() << "  " << c.getDate().toString() << "  " << c.getIUCR() << "  " << c.getPrimaryType() << "  " << c.getDescr() << "  " << c.getLocalDescription() << "  " << c.getArrest() << "  " << c.getDomestic() << "  " << c.getLatitude() << "  " << c.getLongitude() << "  " << endl;
+
+	string aux1, aux2;
+
+//Ajusto valor al aux para que muestre Si o No
+	if (c.getArrest()){
+	
+		aux1 = "Si";
+	
+	}
+	else{
+
+		aux1= "No";
+
+	}
+//Ajusto valor para que muestre Si o No.
+	if(c.getDomestic()){
+
+		aux2 = "Si";
+
+	}
+	else{
+	
+		aux2= "No";
+	}
+
+	os << "ID : " << c.getID() << " - " << "Numero de caso: " << c.getCaseNumber() << " - " << "Fecha: "<< c.getDate().toString() << " - " << "IUCR: "<< c.getIUCR()<< " - " << "Tipo Primario: " << c.getPrimaryType() << " - " <<"Descripcion del caso: "<<  c.getDescr() << " - " <<"Descripcion del lugar: " << c.getLocalDescription() << " - " <<"Arresto: "<< aux1 << " - " <<"Crimen domestico: " << aux2 << " - " << "Latitud: " << c.getLatitude() << " - " <<"Longitud: "<< c.getLongitude()<< endl;
    return os;
 }
 
