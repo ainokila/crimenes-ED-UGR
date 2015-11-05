@@ -162,7 +162,7 @@ return solucion;
 }
 
 
-std::ostream& operator << ( ostream &sal, const conjunto & D){
+ostream& operator << ( ostream &sal, const conjunto & D){
 
 		if(D.empty()){
 			sal << "Conjunto vacio." ;
