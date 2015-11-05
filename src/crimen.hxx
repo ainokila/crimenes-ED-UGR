@@ -53,8 +53,7 @@ void crimen::setCrimen(const string & cadena){
 	
 	  
 	}
-	
-	string aux[tamanio]={""};
+	string aux[tamanio];
 
 	//Recorro string y formo subcadenas dentro de un vector de strings
 	for(size_t i=0; i<cadena.length(); i++){
