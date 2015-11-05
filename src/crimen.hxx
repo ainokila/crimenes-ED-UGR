@@ -149,8 +149,8 @@ void crimen::setLatitude(double latitud){
    latitude = latitud;
 }
 
-void crimen::setLongitude(double longuitud){
-   longitude = longuitud;
+void crimen::setLongitude(double longitud){
+   longitude = longitud;
 }
 
 //GETS

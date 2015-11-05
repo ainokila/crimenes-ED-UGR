@@ -40,7 +40,7 @@ public:
  fecha (); //Constructor de fecha por defecto
 
 /** @brief Constructor con parametro string 
-	@param s strin a convertir , para inicializar la clase
+	@param s string a convertir , para inicializar la clase
 */
  fecha (const string & s); // s es un string con el formato mm/dd/aaaa  hh:mm:ss AM/PM
 
