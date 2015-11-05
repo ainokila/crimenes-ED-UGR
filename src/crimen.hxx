@@ -19,24 +19,57 @@ crimen::crimen(){
 
 }
 
+
+crimen::crimen(const crimen& x){
+	 ID = x.getID();
+	 case_number = x.getCaseNumber();
+	 date = x.getDate();
+	 iucr = x.getIUCR();
+	 primary_type = x.getPrimaryType();
+	 descr = x.getDescr();
+	 local_description = x.getLocalDescription();
+	 arrest = x.getArrest();
+	 domestic = x.getDomestic();
+	 latitude = x.getLatitude();
+	 longitude = x.getLongitude();
+
+}
+
+//SETS
+
 void crimen::setCrimen(const string & cadena){
 	
 	int pos_inicio=0, pos_fin=0; 
-	int elemento=0;
-	string aux[250]={""};
+	int comas=0, tamanio=0;
 	
-	//recorro string y formo subcadenas dentro de un vector de strings
+	
+	//Compruebo que tamaño tiene que tener el vector de strings
+	for(size_t i=0; i<cadena.length(); i++){
+
+	   if(cadena[i] == ','){
+				
+		tamanio++;
+		}
+	
+	  
+	}
+	
+	string aux[tamanio]={""};
+
+	//Recorro string y formo subcadenas dentro de un vector de strings
 	for(size_t i=0; i<cadena.length(); i++){
 
 	   if(cadena[i] == ','){
 				
 		 pos_fin = i - pos_inicio;
-		  aux[elemento] = cadena.substr(pos_inicio, pos_fin).c_str();
+		  aux[comas] = cadena.substr(pos_inicio, pos_fin).c_str();
+		 
 		 
 		  pos_inicio += pos_fin+1;
-		   elemento++;
+		   comas++;
 		  
 		}
+	
 	  
 	}
 
@@ -63,26 +96,10 @@ void crimen::setCrimen(const string & cadena){
 
 	latitude = atof(aux[19].c_str());
 	longitude = atof(aux[20].c_str());
-	//cout << aux[20]<<endl;
+	
 
 }
 
-crimen::crimen(const crimen& x){
-	 ID = x.getID();
-	 case_number = x.getCaseNumber();
-	 date = x.getDate();
-	 iucr = x.getIUCR();
-	 primary_type = x.getPrimaryType();
-	 descr = x.getDescr();
-	 local_description = x.getLocalDescription();
-	 arrest = x.getArrest();
-	 domestic = x.getDomestic();
-	 latitude = x.getLatitude();
-	 longitude = x.getLongitude();
-
-}
-
-//SETS
 
 void crimen::setID(long int &id){
    this->ID = id;

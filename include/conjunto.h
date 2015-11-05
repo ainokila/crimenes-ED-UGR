@@ -138,7 +138,7 @@ inline vector<crimen> getVector(){
 
 inline conjunto::entrada getPos(unsigned int indice) const{
 	
-	if(indice < numeroDeDatos){
+	if(indice < vc.size()){
 		return vc[indice];
 	}else{
 		cout << "El indice es mayor que el numero total de datos del vector."<< endl;
@@ -151,7 +151,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
- size_type numeroDeDatos;
+ 
  /** \invariant
  
  IR: rep ==> bool

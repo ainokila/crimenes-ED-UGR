@@ -52,9 +52,17 @@ int main()
     
 
 	load(ChicagoDB, "crimenes.csv");
-	cout << ChicagoDB.findDESCR("AGGRAVATED DOMESTIC BATTERY: HANDS/FIST/FEET SERIOUS INJURY")<< endl;
-			
-   //	cout << ChicagoDB<< endl;
+	/*Descomentar esto para comprobaciones
+	
+	if (ChicagoDB.findID(10073647).second){
+		cout << ChicagoDB.findID(10073647).first<<endl;
+	}
+	else{
+		cout << "ID no encontrado."<<endl;
+	}	
+	cout << ChicagoDB.findDESCR("AGGRAVATED DOMESTIC BATTERY: HANDS/FIST/FEET SERIOUS INJURY")<< endl; */
+
+	//cout <<"Crimen: "<< ChicagoDB<< endl;
 
    return 0;
 }

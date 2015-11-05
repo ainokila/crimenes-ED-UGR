@@ -4,7 +4,7 @@
   
 conjunto::conjunto( ){
 
-	numeroDeDatos = 0;
+	
 }
 
 	
@@ -12,7 +12,7 @@ conjunto::conjunto( ){
 	
 conjunto::conjunto (const conjunto & d){
 
-	numeroDeDatos = d.numeroDeDatos;
+	
 	this->vc = d.vc;
 }
 
@@ -54,7 +54,7 @@ conjunto conjunto::findIUCR( const string & iucr) const{
 		if(vc[i].getIUCR() == iucr){
 				
 			solucion.insert(vc[i]);
-			solucion.numeroDeDatos++;
+			
 		
 		}
 		
@@ -74,7 +74,7 @@ conjunto conjunto::findDESCR( const string & descr) const{
 		if(vc[i].getDescr() == descr){
 				
 			solucion.insert(vc[i]);
-			solucion.numeroDeDatos++;
+		
 		
 		}
 		
@@ -91,7 +91,7 @@ bool conjunto::insert( const conjunto::entrada & e){
 		
 		solucion = true;
 		vc.push_back(e);
-		numeroDeDatos++;
+		
 		
 	}
 return solucion;
@@ -106,7 +106,7 @@ bool conjunto::erase(const long int & id){
 		if(it->getID() == id){
 			solucion = true;
 			vc.erase(it);
-			numeroDeDatos--;
+			
 		}
 	}
 
@@ -130,7 +130,7 @@ return solucion;
 
 conjunto & conjunto::operator=( const conjunto & org){
 
-		numeroDeDatos = org.numeroDeDatos;
+		
 		this->vc = org.vc;
 
 return *this;
@@ -138,12 +138,12 @@ return *this;
 
 conjunto::size_type conjunto::size() const {
 	
-return numeroDeDatos;
+return vc.size();
 }
 
 bool conjunto::empty() const{
 	
-return numeroDeDatos == 0;	
+return vc.size() == 0;	
 
 }
 
