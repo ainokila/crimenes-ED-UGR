@@ -30,6 +30,7 @@ private:
   int  mday;  // day of month from 1 to 31
   int  mon;   // month of year from 0 to 11
   int  year;  // year since 2000
+  friend  ostream& operator<< ( ostream& os, const fecha & f);  // declaracion de operator<< como funcion amiga
 
 public:
 

@@ -204,6 +204,7 @@ bool fecha::operator<(const fecha & f)const{
 	return !operator==(f);
 }
  
+
 std::ostream& operator << ( ostream &os ,const fecha &f){
       
     os << f.toString();

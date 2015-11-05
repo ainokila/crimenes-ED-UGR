@@ -169,7 +169,8 @@ private:
 */
   bool cheq_rep( ) const;
   
-  
+//  declaracion del operator<< como metodo amigo
+  friend ostream &  operator << ( ostream & sal, const conjunto & D);
  
 
 };
