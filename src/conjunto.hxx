@@ -173,7 +173,6 @@ std::ostream& operator << ( ostream &sal, const conjunto & D){
 				sal << endl;
 			}
 		}
-
 	return sal;
 }
 

@@ -19,30 +19,40 @@ crimen::crimen(){
 
 }
 
-void crimen::setCrimen(string & cadena){
+void crimen::setCrimen(const string & cadena){
 	
-	int pos_inicio=0, pos_fin; 
+	int pos_inicio=0; //pos_fin=0; 
 	int elemento=0;
-	string aux[250];
+	string aux[250]={""};
 	
 	//recorro string y formo subcadenas dentro de un vector de strings
 	for(size_t i=0; i<cadena.length(); i++){
 
 	   if(cadena[i] == ','){
-
-		  pos_fin = i;
-		  aux[elemento] = cadena.substr(pos_inicio, pos_fin).c_str();
+		
+		//cout << cadena[i]<<i<<endl;
+		  //pos_fin = i;
+		  aux[elemento] = cadena.substr(pos_inicio, i).c_str();
+		  cout <<aux[elemento] << endl;
+		  pos_inicio = i+1;
+		 
 
 		  elemento++;
+		//cout << "posicion inicio  "<< pos_inicio<<endl;	
+		//cout << "posicion final  "<< pos_fin<< endl;	
+		  //pos_inicio = pos_fin+1;
+		  
 		}
+	   //cout << pos_fin;
+		//else { }
 	   
-	   pos_inicio = pos_fin+1;
 	}
 
 	//inicializo
 	ID = atoi (aux[0].c_str()); //convierto string a entero
 	case_number = aux[1]; 
 	date = fecha(aux[2]);
+	//cout<< aux[2]<<endl;
 	iucr = aux[3];
 	primary_type = aux[5];
 	descr = aux[6];

@@ -12,6 +12,7 @@
 #include <stdlib.h> 
 #include "fecha.h"
 
+
 //! Clase crimen, asociada a la definición de un crimen 
 /*! crimen::crimen,  .....
  * Descripción contiene toda la información asociada a un crimen.
@@ -37,7 +38,7 @@ class crimen {
    double longitude;
  public:
   crimen();
-  void setCrimen(string & cadena);
+  void setCrimen(const string & cadena);
   crimen(const crimen& x);
   
   void setID(long int & id);

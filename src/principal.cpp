@@ -16,7 +16,8 @@ using namespace std;
 bool load(conjunto &  C, const string & s) {
 
  ifstream fe;
- string cadena;
+ string cadena;	
+ int contador =0;
 
  cout << "Abrimos "<< s << endl;
  fe.open(s.c_str(), ifstream::in);
@@ -29,13 +30,15 @@ bool load(conjunto &  C, const string & s) {
     while ( !fe.eof() )
       { getline(fe,cadena,'\n');
        	if (!fe.eof()) {
-	   		cout << "leo:: "<< cadena << endl;
-
-			crimen aux;
-			aux.setCrimen(cadena);
-            C.insert(aux);
+	   	//cout << "leo:: "<< cadena << endl;
+		crimen aux;
+		aux.setCrimen(cadena);
+		contador++;
+		//cout << contador<<endl;
+                C.insert(aux);
          }
      }
+   // cout <<"contador: "<< contador<< endl;
     fe.close();
     return true;
     } // else
@@ -48,10 +51,13 @@ int main()
     conjunto ChicagoDB;
     crimen d;
     fecha f;
- 
+    
     
 
     load(ChicagoDB, "crimenes.csv");
+  // cout << ChicagoDB.findIUCR("003XX E MARQUETTE RD,143A,WEAPONS VIOLATION,UNLAWFUL POSS OF")<< endl;
+			
+   //	cout << ChicagoDB<< endl;
 
    return 0;
 }
