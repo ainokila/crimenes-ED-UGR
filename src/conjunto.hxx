@@ -97,31 +97,23 @@ bool conjunto::insert( const conjunto::entrada & e){
 		ultimo = vc.size();
 		ultimo--;
 		primero = 0;
-		//cout << "Ultimo : "<< ultimo<<"    Primero: " << primero<< endl;
-		//cout << "Hola"<< endl;
-		 //Busqueda binaria de la posicion de insercion
-		cout << vc.size() << "   <--Tamaño"<< endl;
-			while(primero < ultimo){
-				//cout << "Hola2"<< endl;
+		//Busqueda binaria de la posicion de insercion
+			while(primero <= ultimo && ultimo !=0){
 				central = (int) ((primero + ultimo)/2);
 				//cout << vc.size() << "   <--Tamaño"<< endl;
-				//cout << "Ultimo(if): "<< ultimo<<"    Primero(if): " << primero<< "   Central(if): "<< central<< endl;
+				cout << "Ultimo(if): "<< ultimo<<"    Primero(if): " << primero<< "   Central(if): "<< central<< endl;
 				if(e <= vc[central] && central!=0){
 					ultimo = central -1;
-					cout << "If."<< endl;
-					cout << "Ultimo(if): "<< ultimo<<"    Primero(if): " << primero<< "Central(if): "<< central<< endl;
-					
+									
 				}else if(e <= vc[central] && central==0){
-						//cout << "Else If."<< endl;
+						
 						ultimo = central;
 				}else{
-					cout << "Else."<< endl;
 					primero = central + 1;
-					cout << "Ultimo(else) : "<< ultimo<<"    Primero(else): " << primero<< endl;
 				}	
 			}
 			
-			//cout << "Hola4"<< endl;
+			
 			vc.insert(vc.begin()+primero, e);
 			
 	}
