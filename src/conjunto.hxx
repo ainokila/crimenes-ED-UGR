@@ -86,35 +86,37 @@ return solucion;
 bool conjunto::insert( const conjunto::entrada & e){
 
 	bool solucion = false;
-	unsigned int i,j,izq,der,m;
+	unsigned int primero=0, ultimo, central , i;
 	conjunto::entrada aux;
-
-	if(!(findID(e.getID()).second)){
+	ultimo = vc.size() - 1;
 		
+	if(empty()){
+		vc.push_back(e);
 		solucion = true;
-		
-		for(i=1; i<vc.size() ;i++){
-				aux = vc[i];
-				izq=0;
-				der=i-1;
-			while(izq<=der){
-				m=((izq+der)/2);
-				if (aux < vc[m]){
-					der=m-1;
+	}else {
+
+		solucion = true;
+
+		 //Busqueda binaria de la posicion de insercion
+			while(primero <= ultimo){
+				central = (int) ((primero + ultimo)/2);
+	
+				if(aux < vc[central] || aux == vc[central]){
+					ultimo = central - 1;
 				}else{
-					izq=m+1;              
-				}
+					primero = central + 1;
+				}	
 			}
-			j=i-1;
-			while(j>=izq){
-				vc[j+1]=vc[j];
-				j=j-1;
+			for(i = ultimo; i >= primero; i--){
+				vc[i+1] = vc[i];
 			}
-			vc[izq]=aux;
-		}		
+			vc[primero] = aux;
+			
 	}
+
 return solucion;
 }
+
 
 
 bool conjunto::erase(const long int & id){
