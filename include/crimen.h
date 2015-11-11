@@ -266,8 +266,13 @@ class crimen {
 
 
   bool operator<(const crimen & x) const;
+
+
+  bool operator<=(const crimen &x) const;
  
 };
+
+
 
 
 /** @brief imprime todas las entradas del Crimen

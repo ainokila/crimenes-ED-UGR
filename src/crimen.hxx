@@ -215,24 +215,27 @@ crimen & crimen::operator=(const crimen &c){
 }
 
 bool crimen::operator==(const crimen &x) const{
-   bool sol;
+   bool sol=false;
 
    if ( ( ID == x.getID( ) ) && ( case_number == x.getCaseNumber() ) && ( date == x.getDate( ) ) && ( iucr == x.getIUCR( ) ) && ( primary_type == x.getPrimaryType( ) ) && ( descr == x.getDescr( ) ) && ( local_description == x.getLocalDescription( ) ) && ( arrest == x.getArrest( ) ) && ( domestic == x.getDomestic( ) ) && ( latitude == x.getLatitude( ) ) && (longitude == x.getLongitude( ) ) ) {
 	sol = true;
-   }else{
-	sol = false;
    }			
 return sol;
 }
 
 bool crimen::operator<(const crimen &x) const{
-   bool sol;
+   bool sol=false;
    if ( ID < x.getID( ) )
 	sol = true;
-   else
-	sol = false;
-
 return sol;
+}
+
+bool crimen::operator<=(const crimen &x) const{
+   bool sol=false;
+   if ( ID <= x.getID( ) )
+	sol = true;
+
+ return sol;
 }
 
 ostream& operator << ( ostream &os, const crimen &c ){

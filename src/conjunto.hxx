@@ -86,31 +86,28 @@ return solucion;
 bool conjunto::insert( const conjunto::entrada & e){
 
 	bool solucion = false;
-	unsigned int primero=0, ultimo, central , i;
-	conjunto::entrada aux;
-	ultimo = vc.size() - 1;
+	unsigned int primero ,ultimo, central;
 		
 	if(empty()){
 		vc.push_back(e);
 		solucion = true;
-	}else {
+	}else{
 
 		solucion = true;
-
+		ultimo = vc.size()-1;
+		primero = 0;
 		 //Busqueda binaria de la posicion de insercion
 			while(primero <= ultimo){
 				central = (int) ((primero + ultimo)/2);
 	
-				if(aux < vc[central] || aux == vc[central]){
+				if(e <= vc[central]){
 					ultimo = central - 1;
 				}else{
 					primero = central + 1;
 				}	
 			}
-			for(i = ultimo; i >= primero; i--){
-				vc[i+1] = vc[i];
-			}
-			vc[primero] = aux;
+			
+			vc.insert(vc.begin()+primero, e);
 			
 	}
 
