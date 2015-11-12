@@ -23,24 +23,15 @@ pair<conjunto::entrada,bool>  conjunto::findID( const long int & id) const{
 
 	pair<conjunto::entrada, bool> solucion;
 	solucion.second = false;
+			unsigned int aux = id;
 
-		for(size_t i =0;  i<vc.size() && !solucion.second ; i++){
-			if(vc[i].getID() == id){
-				
-				solucion.first = vc[i];
+		if (busquedaBinaria(aux) != -1){
+			if(vc[busquedaBinaria(aux)].getID() == id){
+				solucion.first = vc[busquedaBinaria(id)];
 				solucion.second = true;
 		
 			}
-		
-		}	
-		
-		if(!solucion.second){
-			
-			conjunto::entrada defecto;
-			solucion.first = defecto;
-			
 		}
-
 
 return solucion;
 }
@@ -82,48 +73,43 @@ conjunto conjunto::findDESCR( const string & descr) const{
 
 return solucion;
 }
+int conjunto::busquedaBinaria(const long int & e)const{
+		int primero = 0 ;
+			int ultimo = vc.size()-1;
 
-bool conjunto::insert( const conjunto::entrada & e){
-
-	bool solucion = false;
-	unsigned int primero,ultimo, central;
-	conjunto::entrada aux ;
-		
-	if(empty()){
-		vc.push_back(e);
-		solucion = true;
-	}else{
-
-		solucion = true;
-		ultimo = vc.size();
-		ultimo--;
-		primero = 0;
-		//Busqueda binaria de la posicion de insercion
-			while(primero <= ultimo && ultimo !=0){// <<-- Esta condición última la puse porque cuando central era 0, al restarle 1 ultimo se volvía un numero negativo y daba violacion del 							              //segmento core, asi que hice otra condición que verás más abajo. Pero después de eso, el problema daba cuando ultimo y primero era 
-	  	                                             //ambos cero, que seguía acceciendo al while porque eran iguales entraba en un bucle sin fin.
-				central = (int) ((primero + ultimo)/2);
-				//cout << vc.size() << "   <--Tamaño"<< endl;
-				//cout << "Ultimo(if): "<< ultimo<<"    Primero(if): " << primero<< "   Central(if): "<< central<< endl;
-				if(aux <= vc[central] && central!=0){
-					ultimo = central -1;
-									
-				}else if(aux <= vc[central] && central==0){
-						
-						ultimo = central;
+			while(primero<=ultimo){
+				int central = (int) (primero+ultimo)/2;
+			
+				if(e == vc[central].getID()){
+						primero = -1;
+						ultimo = -2;
+				}else if ( e < vc[central].getID() ) {
+					ultimo = central -1 ;
 				}else{
-					primero = central + 1;
-				}	
+					primero = central +1 ;
+				}
 			}
 			
-			
-			vc.insert(vc.begin()+primero, aux);
-			
+return primero;
+}
+bool conjunto::insert( const conjunto::entrada & e){
+		
+		bool solucion = true;
+		if(empty()){
+			vc.push_back(e);
+		}else{
+
+			int posicion = busquedaBinaria(e.getID());
+			if(posicion == -1){
+					solucion = false;
+			}
+			else{
+				vc.insert(vc.begin()+posicion, e);
+			}
 	}
 
 return solucion;
-}
-
-
+}			
 
 bool conjunto::erase(const long int & id){
 	
@@ -169,8 +155,11 @@ return vc.size();
 }
 
 bool conjunto::empty() const{
-	
-return vc.size() == 0;	
+	bool solucion = false;
+		if (vc.size() == 0){
+				solucion = true;
+		}
+return solucion;	
 
 }
 

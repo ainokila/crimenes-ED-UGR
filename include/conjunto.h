@@ -74,6 +74,10 @@ public:
 	*/
 	conjunto findIUCR( const string & iucr) const;
 
+
+	int busquedaBinaria(const long int & e) const;
+
+
 /** @brief busca los crimenes que contienen una determinada descripcion 
 	@param descr string que representa la descripcion del delito buscar
 	@return Devuelve un  conjunto con todos los crimenes  que contengan descr en su descripcionR. Si no existe ninguno devuelve el conjunto vacio.
