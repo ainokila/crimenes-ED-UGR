@@ -87,6 +87,7 @@ bool conjunto::insert( const conjunto::entrada & e){
 
 	bool solucion = false;
 	unsigned int primero,ultimo, central;
+	conjunto::entrada aux ;
 		
 	if(empty()){
 		vc.push_back(e);
@@ -98,14 +99,15 @@ bool conjunto::insert( const conjunto::entrada & e){
 		ultimo--;
 		primero = 0;
 		//Busqueda binaria de la posicion de insercion
-			while(primero <= ultimo && ultimo !=0){
+			while(primero <= ultimo && ultimo !=0){// <<-- Esta condición última la puse porque cuando central era 0, al restarle 1 ultimo se volvía un numero negativo y daba violacion del 							              //segmento core, asi que hice otra condición que verás más abajo. Pero después de eso, el problema daba cuando ultimo y primero era 
+	  	                                             //ambos cero, que seguía acceciendo al while porque eran iguales entraba en un bucle sin fin.
 				central = (int) ((primero + ultimo)/2);
 				//cout << vc.size() << "   <--Tamaño"<< endl;
-				cout << "Ultimo(if): "<< ultimo<<"    Primero(if): " << primero<< "   Central(if): "<< central<< endl;
-				if(e <= vc[central] && central!=0){
+				//cout << "Ultimo(if): "<< ultimo<<"    Primero(if): " << primero<< "   Central(if): "<< central<< endl;
+				if(aux <= vc[central] && central!=0){
 					ultimo = central -1;
 									
-				}else if(e <= vc[central] && central==0){
+				}else if(aux <= vc[central] && central==0){
 						
 						ultimo = central;
 				}else{
@@ -114,7 +116,7 @@ bool conjunto::insert( const conjunto::entrada & e){
 			}
 			
 			
-			vc.insert(vc.begin()+primero, e);
+			vc.insert(vc.begin()+primero, aux);
 			
 	}
 
