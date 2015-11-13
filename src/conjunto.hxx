@@ -167,9 +167,7 @@ bool conjunto::cheq_rep( ) const{
 
   bool solucion=true;
  
-	for(unsigned int i = 0; i < vc.size() && solucion ; i++){
-	
-		if(vc[i].getID() <= 0){
+		if(vc[0].getID() <= 0){
 			solucion = false;
 		}	
 	}
@@ -191,4 +189,42 @@ ostream& operator << ( ostream &sal, const conjunto & D){
 		}
 	return sal;
 }
+//INICIO PRACTICA 3
+
+
+/*! Implementacion  de la clase conjunto
+
+*/
+
+/** @todo implementar la funcion
+*/
+
+conjunto::conjunto(){
+  lo que se tenga que poner
+}
+
+conjunto::iterator conjunto::begin() const{
+conjunto::iterator sal;
+	sal.itv = vc.begin();
+        return sal;
+}
+
+
+conjunto::iterator conjunto::end() const{
+conjunto::iterator sal;
+	sal.itv = vc.end();
+        return sal;
+}
+/** @brief constructor defecto iterator
+*/
+conjunto::iterator::iterator(){
+
+}
+
+/** @brief constructor copia iterator
+*/
+conjunto::iterator::iterator(const conjunto::iterator & i)
+  itv = i.itv;
+}
+
 
