@@ -1,12 +1,60 @@
 #include "conjunto.h"
+//INICIO PRACTICA 3
 
-//Constructor por defecto
-  
-conjunto::conjunto( ){
 
-	
+/*! Implementacion  de la clase conjunto
+
+*/
+
+/** @todo implementar la funcion
+*/
+
+conjunto::conjunto(){
+//  lo que se tenga que poner
 }
 
+conjunto::iterator conjunto::begin() const{
+	conjunto::iterator sal;
+	sal.itv = vc.begin();
+        return sal;
+}
+
+
+conjunto::iterator conjunto::end() const{
+	conjunto::iterator sal;
+	sal.itv = vc.end();
+        return sal;
+}
+/** @brief constructor defecto iterator
+*/
+conjunto::iterator::iterator(){
+
+}
+
+/** @brief constructor copia iterator
+*/
+conjunto::iterator::iterator(const conjunto::iterator & i)
+  	itv = i.itv;
+}
+
+conjunto::iterator::iterator();
+
+
+conjunto::iterator::iterator (const iterator & it);
+const conjunto::entrada & operator*() const;
+iterator operator++( int );
+iterator & operator++();
+iterator operator--(int);
+iterator & operator--();
+bool operator==(const iterator & it);
+bool operator!=(const iterator & it);
+
+
+//FIN PRACTICA 3
+
+
+
+//Constructor por defecto
 	
 //Constructor de copia
 	
@@ -189,42 +237,6 @@ ostream& operator << ( ostream &sal, const conjunto & D){
 		}
 	return sal;
 }
-//INICIO PRACTICA 3
 
-
-/*! Implementacion  de la clase conjunto
-
-*/
-
-/** @todo implementar la funcion
-*/
-
-conjunto::conjunto(){
-  lo que se tenga que poner
-}
-
-conjunto::iterator conjunto::begin() const{
-conjunto::iterator sal;
-	sal.itv = vc.begin();
-        return sal;
-}
-
-
-conjunto::iterator conjunto::end() const{
-conjunto::iterator sal;
-	sal.itv = vc.end();
-        return sal;
-}
-/** @brief constructor defecto iterator
-*/
-conjunto::iterator::iterator(){
-
-}
-
-/** @brief constructor copia iterator
-*/
-conjunto::iterator::iterator(const conjunto::iterator & i)
-  itv = i.itv;
-}
 
 
