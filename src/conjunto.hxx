@@ -4,29 +4,19 @@
 
 // ================================= ITERADOR ========================================/
 
-     /**@brief devuelve iterador al inicio del conjunto
-     */
-     iterator begin();
+conjunto::iterator begin(){
+	
 
-     /**@brief devuelve iterador al final (posición siguiente al último del conjunto
-     */
-     iterator end();
-/** @brief class iterator
-	 * forward iterador sobre el conjunto, LECTURA
-	 *  iterator() ,operator*(), operator++, operator++(int) operator=, operator==, operator!=
-	 * */
-
-       iterator();
-       iterator (const iterator & it);
-       
-       const conjunto::entrada & operator*() const;
-       
-       iterator operator++( int );
-       iterator & operator++();
-       iterator operator--(int);
-       iterator & operator--();
-       bool operator==(const iterator & it);
-       bool operator!=(const iterator & it);
+conjunto::iterator end();
+iterator();
+iterator (const iterator & it);
+const conjunto::entrada & operator*() const;
+iterator operator++( int );
+iterator & operator++();
+iterator operator--(int);
+iterator & operator--();
+bool operator==(const iterator & it);
+bool operator!=(const iterator & it);
 
 
 // ================================= ITERADOR ========================================/
