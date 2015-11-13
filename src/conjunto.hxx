@@ -2,59 +2,40 @@
 //INICIO PRACTICA 3
 
 
-/*! Implementacion  de la clase conjunto
+// ================================= ITERADORES ========================================/
 
-*/
+     /**@brief devuelve iterador al inicio del conjunto
+     */
+     iterator begin();
 
-/** @todo implementar la funcion
-*/
+     /**@brief devuelve iterador al final (posición siguiente al último del conjunto
+     */
+     iterator end();
+/** @brief class iterator
+	 * forward iterador sobre el conjunto, LECTURA
+	 *  iterator() ,operator*(), operator++, operator++(int) operator=, operator==, operator!=
+	 * */
 
-conjunto::conjunto(){
-//  lo que se tenga que poner
-}
-
-conjunto::iterator conjunto::begin() const{
-	conjunto::iterator sal;
-	sal.itv = vc.begin();
-        return sal;
-}
-
-
-conjunto::iterator conjunto::end() const{
-	conjunto::iterator sal;
-	sal.itv = vc.end();
-        return sal;
-}
-/** @brief constructor defecto iterator
-*/
-conjunto::iterator::iterator(){
-
-}
-
-/** @brief constructor copia iterator
-*/
-conjunto::iterator::iterator(const conjunto::iterator & i)
-  	itv = i.itv;
-}
-
-conjunto::iterator::iterator();
+       iterator();
+       iterator (const iterator & it);
+       
+       const conjunto::entrada & operator*() const;
+       
+       iterator operator++( int );
+       iterator & operator++();
+       iterator operator--(int);
+       iterator & operator--();
+       bool operator==(const iterator & it);
+       bool operator!=(const iterator & it);
 
 
-conjunto::iterator::iterator (const iterator & it);
-const conjunto::entrada & operator*() const;
-iterator operator++( int );
-iterator & operator++();
-iterator operator--(int);
-iterator & operator--();
-bool operator==(const iterator & it);
-bool operator!=(const iterator & it);
-
-
-//FIN PRACTICA 3
-
-
+// ================================= ITERADORES ========================================/
 
 //Constructor por defecto
+
+conjunto::conjunto(){
+}
+
 	
 //Constructor de copia
 	
@@ -218,7 +199,12 @@ bool conjunto::cheq_rep( ) const{
 		if(vc[0].getID() <= 0){
 			solucion = false;
 		}	
-	}
+		
+		for(unsigned int = 0; i< vc.size()-1 && solucion; i++){
+			if(v[i+1]<v[i]){
+				solucion = false;
+			}
+		}
 return solucion;
 
 }
