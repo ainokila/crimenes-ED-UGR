@@ -3,10 +3,8 @@
 
 
 // ================================= ITERADOR ========================================/
-
-conjunto::iterator begin(){
-	
-
+/*
+conjunto::iterator begin();
 conjunto::iterator end();
 iterator();
 iterator (const iterator & it);
@@ -17,7 +15,7 @@ iterator operator--(int);
 iterator & operator--();
 bool operator==(const iterator & it);
 bool operator!=(const iterator & it);
-
+*/
 
 // ================================= ITERADOR ========================================/
 

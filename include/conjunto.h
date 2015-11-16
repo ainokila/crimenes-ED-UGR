@@ -172,21 +172,43 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 
 class iterator {
-       iterator();
-       iterator (const iterator & it);
+       iterator(){
+
+	   }
+       iterator (const iterator & it){
+			
+	   }
        
-       const conjunto::entrada & operator*() const;
+       const conjunto::entrada & operator*() const{
+			return *itv;
+	   }
        
-       iterator operator++( int );
-       iterator & operator++();
-       iterator operator--(int);
-       iterator & operator--();
-       bool operator==(const iterator & it);
-       bool operator!=(const iterator & it);
+       iterator operator++( int ){
+			itv++;
+			return *this;
+       }
+       iterator & operator++(){
+			itv++;
+			return this;
+		}
+       iterator operator--(int){
+			itv--;
+			return *this;
+	   }
+       iterator & operator--(){
+			itv--;
+			return this;
+	   }
+       bool operator==(const iterator & it){
+			return it.itv==itv;
+	   }
+       bool operator!=(const iterator & it){
+			return it.itv!=itv;
+	   }
 
        private:
            friend class conjunto;
-           vector<entradas>::iterator itv;
+           vector<entrada>::iterator itv;
 }; 
 
 //AQUÍ TERMINA LA CLASE ITERATOR
