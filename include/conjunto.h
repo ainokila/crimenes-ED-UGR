@@ -51,7 +51,7 @@ public:
 		
 	/** @brief busca un crimen en el conjunto
 	@param id identificador del crimen  buscar
-	@return Si existe una entrada en el conjunto devuelve un par con una copia de la entrada en el conjunto y con el segundo valor a true. Si  no se encuentra devuelve la entrada con la definicion por defecto y false 
+	@return Si existe una entrada en el conjunto devuelve un par con una copia de la entrada en el conjunto y con el segundo valor a true. Si  no se encuentra devuelve la entrada con la definicion 	por defecto y false 
 	@post no modifica el conjunto.
 	\verbatim Uso
        
@@ -160,11 +160,14 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
      /**@brief devuelve iterador al inicio del conjunto
      */
-     iterator begin();
+	/*iterator begin() const{
+		return vc.begin();
+	}*/
+
 
      /**@brief devuelve iterador al final (posición siguiente al último del conjunto
      */
-     iterator end();
+   //  iterator end();
 /** @brief class iterator
 	 * forward iterador sobre el conjunto, LECTURA
 	 *  iterator() ,operator*(), operator++, operator++(int) operator=, operator==, operator!=
@@ -172,39 +175,59 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 
 class iterator {
-       iterator(){
-
-	   }
-       iterator (const iterator & it){
+       
+	iterator();
+		/*{
+		//itv = vc.begin();
+	   }*/
+       iterator (const iterator & it);
+	/*{
+		itv = it.itv;
 			
-	   }
+	   }*/
        
-       const conjunto::entrada & operator*() const{
-			return *itv;
-	   }
+       const conjunto::entrada & operator*() const;
+	/*{
+		return *itv;
+	}*/
+	   
        
-       iterator operator++( int ){
-			itv++;
-			return *this;
-       }
-       iterator & operator++(){
-			itv++;
-			return this;
-		}
-       iterator operator--(int){
-			itv--;
-			return *this;
-	   }
-       iterator & operator--(){
-			itv--;
-			return this;
-	   }
-       bool operator==(const iterator & it){
-			return it.itv==itv;
-	   }
-       bool operator!=(const iterator & it){
-			return it.itv!=itv;
-	   }
+       iterator operator++( int );
+	/*{
+	//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
+	iterator copia(itv);
+		++itv;
+		return copia;
+			
+      	}*/
+       iterator & operator++();
+	/*{
+		itv++;
+		return *this;
+		}*/
+       iterator operator--(int);
+	/*{
+	//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
+		vector<entrada>::iterator copia = itv;
+		--itv;
+		return copia;
+	}*/
+			
+			
+       iterator & operator--();
+	/*{
+		itv--;
+		return *this;
+	   
+	   }*/
+       bool operator==(const iterator & it);
+	/*{
+		return it.itv==itv;
+	   }*/
+       bool operator!=(const iterator & it);
+	/*{
+		return it.itv!=itv;
+	   }*/
 
        private:
            friend class conjunto;

@@ -3,6 +3,50 @@
 
 
 // ================================= ITERADOR ========================================/
+
+conjunto::iterator(){
+	//itv = vc.begin();
+}
+conjunto::iterator (const iterator & it){
+	itv = it.itv;
+}
+       
+const conjunto::entrada & operator*() const{
+		return *itv;
+	}
+	   
+       
+iterator operator++( int ){
+	//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
+		vector<entrada>::iterator copia = itv;
+		++itv;
+		return copia;
+			
+       }
+iterator & operator++(){
+		itv++;
+		return *this;
+		}
+iterator operator--(int){
+	//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
+		vector<entrada>::iterator copia = itv;
+		--itv;
+		return copia;
+	}
+			
+			
+iterator & operator--(){
+		itv--;
+		return *this;
+	   
+	   }
+bool operator==(const iterator & it){
+		return it.itv==itv;
+	   }
+bool operator!=(const iterator & it){
+		return it.itv!=itv;
+	   }
+
 /*
 conjunto::iterator begin();
 conjunto::iterator end();
@@ -188,8 +232,8 @@ bool conjunto::cheq_rep( ) const{
 			solucion = false;
 		}	
 		
-		for(unsigned int = 0; i< vc.size()-1 && solucion; i++){
-			if(v[i+1]<v[i]){
+		for(unsigned int i = 0; i< vc.size()-1 && solucion; i++){
+			if(vc[i+1]<vc[i]){
 				solucion = false;
 			}
 		}
