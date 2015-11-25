@@ -163,8 +163,9 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 * */
     class iterator {
 
-       iterator(vector <conjunto::entrada >::iterator itn);
+       iterator();
        iterator(const iterator & it);
+	   iterator(const vector<conjunto::entrada>::iterator n);
        
        const conjunto::entrada & operator*() const;
        
@@ -201,8 +202,9 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 * */
 	class const_iterator {
 		public:
-		  const_iterator(vector <conjunto::entrada >::const_iterator itn);
+		  const_iterator();
 		  const_iterator(const const_iterator & it);
+		  const_iterator(const vector<conjunto::entrada>::const_iterator n);
 		      /** @brief Convierte iterator en const_iterator
 		      */
 		  const_iterator(const iterator & it);
