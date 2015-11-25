@@ -169,7 +169,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 *  iterator() ,operator*(), operator++, operator++(int) operator=, operator==, operator!=
 	 * */
     class iterator {
-       iterator();
+       iterator(vector<entrada>::iterator itn);
        iterator (const iterator & it);
        
        const conjunto::entrada & operator*() const;
@@ -183,7 +183,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
        private:
            friend class conjunto;
-           vector<entradas>::iterator itv;
+           vector<entrada>::iterator itv;
 };
 
  	/** @brief  
@@ -227,6 +227,8 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
+ friend class iterator;
+ 
  
  /** \invariant
  

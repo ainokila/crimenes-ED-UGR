@@ -4,6 +4,7 @@
 
 // ================================= ITERADORCONJUNTO ========================================/
 
+
 conjunto::iterator conjunto::begin(){
 	return iterator(vc.begin());
 }
@@ -12,8 +13,8 @@ conjunto::iterator conjunto::end(){
 	return iterator(vc.end());
 }
 
-conjunto::iterator(){
-	//itv = vc.begin();
+conjunto::iterator(vector<conjunto::entrada>::iterator itn){
+	itv=itn;
 }
 conjunto::iterator (const iterator & it){
 	itv = it.itv;
@@ -21,39 +22,38 @@ conjunto::iterator (const iterator & it){
        
 const conjunto::entrada & operator*() const{
 		return *itv;
-	}
+}
 	   
        
-iterator operator++( int ){
+conjunto::iterator conjunto::iterator::operator++( int ){
 	//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
 		vector<entrada>::iterator copia = itv;
 		++itv;
 		return copia;
 			
-       }
-iterator & operator++(){
+}
+conjunto::iterator & conjunto::iterator::operator++(){
 		itv++;
 		return *this;
-		}
-iterator operator--(int){
+}
+conjunto::iterator conjunto::iterator::operator--(int){
 	//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
 		vector<entrada>::iterator copia = itv;
 		--itv;
 		return copia;
-	}
+}			
 			
-			
-iterator & operator--(){
+conjunto::iterator & conjunto::iterator::operator--(){
 		itv--;
 		return *this;
 	   
-	   }
-bool operator==(const iterator & it){
+}
+bool conjunto::iterator::operator==(const iterator & it){
 		return it.itv==itv;
-	   }
-bool operator!=(const iterator & it){
+}
+bool conjunto::iterator::operator!=(const iterator & it){
 		return it.itv!=itv;
-	   }
+}
 
 
 // ================================= FIN-ITERADORCONJUNTO ========================================/
