@@ -155,85 +155,74 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 //LOS SIGUIENTES MÉTODOS SON DE LA CLASE ITERATOR
 
-
 	// ================================= ITERADORES ========================================/
 
      /**@brief devuelve iterador al inicio del conjunto
      */
-	/*iterator begin() const{
-		return vc.begin();
-	}*/
-
+     iterator begin();
 
      /**@brief devuelve iterador al final (posición siguiente al último del conjunto
      */
-   //  iterator end();
+     iterator end();
 /** @brief class iterator
 	 * forward iterador sobre el conjunto, LECTURA
 	 *  iterator() ,operator*(), operator++, operator++(int) operator=, operator==, operator!=
 	 * */
-
-
-class iterator {
-       
-	iterator();
-		/*{
-		//itv = vc.begin();
-	   }*/
+    class iterator {
+       iterator();
        iterator (const iterator & it);
-	/*{
-		itv = it.itv;
-			
-	   }*/
        
        const conjunto::entrada & operator*() const;
-	/*{
-		return *itv;
-	}*/
-	   
        
        iterator operator++( int );
-	/*{
-	//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
-	iterator copia(itv);
-		++itv;
-		return copia;
-			
-      	}*/
        iterator & operator++();
-	/*{
-		itv++;
-		return *this;
-		}*/
        iterator operator--(int);
-	/*{
-	//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
-		vector<entrada>::iterator copia = itv;
-		--itv;
-		return copia;
-	}*/
-			
-			
        iterator & operator--();
-	/*{
-		itv--;
-		return *this;
-	   
-	   }*/
        bool operator==(const iterator & it);
-	/*{
-		return it.itv==itv;
-	   }*/
        bool operator!=(const iterator & it);
-	/*{
-		return it.itv!=itv;
-	   }*/
 
        private:
            friend class conjunto;
-           vector<entrada>::iterator itv;
-}; 
+           vector<entradas>::iterator itv;
+};
 
+ 	/** @brief  
+         @return Devuelve el const_iterator a la primera posición del conjunto.
+	@post no modifica el diccionario
+        */
+    
+	 const_iterator cbegin() const;
+	/** @brief iterador al final
+         @return Devuelve el iterador constante a la  posición final del conjunto.
+	@post no modifica el diccionario
+        */
+	const_iterator cend() const;
+
+	/** @brief class const_iterator
+	 * forward iterador constante sobre el diccionario, Lectura 
+	 *  const_iterator ,operator*, operator++, operator++(int) operator=, operator==, operator!=
+	 * */
+	class const_iterator {
+	public:
+	  const_iterator();
+	  const_iterator(const const_iterator & it);
+          /** @brief Convierte iterator en const_iterator
+          */
+	  const_iterator(const iterator & it);
+	  const conjunto::entrada & operator*() const;
+	  const_iterator operator++( int );
+	  const_iterator & operator++();
+ 	  const_iterator operator--(int);
+          const_iterator & operator--();
+	  bool operator==(const const_iterator & it);
+	  bool operator!=(const const_iterator & it);
+	private:
+	 
+	  vector<entrada>::const_iterator c_itv;
+	  friend class conjunto;
+	  
+	};
+	
 //AQUÍ TERMINA LA CLASE ITERATOR
 
 private:
