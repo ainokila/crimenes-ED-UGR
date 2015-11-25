@@ -13,14 +13,14 @@ conjunto::iterator conjunto::end(){
 	return iterator(vc.end());
 }
 
-conjunto::iterator(vector<conjunto::entrada>::iterator itn){
+conjunto::iterator::iterator(vector<conjunto::conjunto::entrada>::iterator itn ){
 	itv=itn;
 }
-conjunto::iterator (const iterator & it){
+conjunto::iterator::iterator(const conjunto::iterator & it){
 	itv = it.itv;
 }
        
-const conjunto::entrada & operator*() const{
+const conjunto::entrada & conjunto::iterator::operator*() const{
 		return *itv;
 }
 	   
@@ -63,6 +63,55 @@ bool conjunto::iterator::operator!=(const iterator & it){
 
 // ================================= CONST__ITERADORCONJUNTO ========================================/
 
+conjunto::const_iterator conjunto::cbegin()const{
+	return const_iterator(vc.begin());
+}
+
+conjunto::const_iterator conjunto::cend()const{
+	return const_iterator(vc.end());
+}
+
+conjunto::const_iterator::const_iterator(vector<conjunto::conjunto::entrada>::const_iterator itn ){
+	c_itv=itn;
+}
+conjunto::const_iterator::const_iterator(const conjunto::const_iterator & it){
+	c_itv = it.c_itv;
+}
+       
+const conjunto::entrada & conjunto::const_iterator::operator*() const{
+		return *c_itv;
+}
+	   
+       
+conjunto::const_iterator conjunto::const_iterator::operator++( int ){
+	//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
+		vector<entrada>::const_iterator copia = c_itv;
+		++c_itv;
+		return copia;
+			
+}
+conjunto::const_iterator & conjunto::const_iterator::operator++(){
+		c_itv++;
+		return *this;
+}
+conjunto::const_iterator conjunto::const_iterator::operator--(int){
+	//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
+		vector<entrada>::const_iterator copia = c_itv;
+		--c_itv;
+		return copia;
+}			
+			
+conjunto::const_iterator & conjunto::const_iterator::operator--(){
+		c_itv--;
+		return *this;
+	   
+}
+bool conjunto::const_iterator::operator==(const const_iterator & it){
+		return it.c_itv==c_itv;
+}
+bool conjunto::const_iterator::operator!=(const const_iterator & it){
+		return it.c_itv!=c_itv;
+}
 
 
 
