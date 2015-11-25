@@ -38,6 +38,9 @@ class conjunto{
 public:
 	typedef crimen entrada;
 	typedef unsigned int size_type;
+	class iterator; //declaraciones previa
+	class const_iterator;
+
 	/** @brief constructor primitivo. 
 	@post define la entrada nula como el par ("",-1)
 	*/
@@ -162,7 +165,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 *  iterator() ,operator*(), operator++, operator++(int) operator=, operator==, operator!=
 	 * */
     class iterator {
-
+	   public:
        iterator();
        iterator(const iterator & it);
 	   iterator(const vector<conjunto::entrada>::iterator n);
@@ -232,9 +235,41 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	@post no modifica el diccionario
         */
 	const_iterator cend() const;
+
 	
 //*********************************FIN_CONST_ITERATOR*************************
 
+
+
+
+//*********************************INICIO_ARRESTO_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_ARRESTO_ITERATOR*************************
+
+
+
+
+
+
+//*********************************INICIO_CONST_ARRESTO_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_CONST_ARRESTO_ITERATOR*************************
+
+//*********************************INICIO_DESCRIPCION_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_DESCRIPCION_ITERATOR*************************
+
+//*********************************INICIO_CONST_DESCRIPCION_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_CONST_DESCRIPCION_ITERATOR*************************
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
  friend class iterator;
