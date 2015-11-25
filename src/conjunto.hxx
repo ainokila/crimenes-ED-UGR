@@ -133,6 +133,37 @@
 
 // ================================= FIN-CONST__ITERADORCONJUNTO ========================================/
 
+
+
+//*********************************INICIO_ARRESTO_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_ARRESTO_ITERATOR*************************
+
+
+
+
+
+
+//*********************************INICIO_CONST_ARRESTO_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_CONST_ARRESTO_ITERATOR*************************
+
+//*********************************INICIO_DESCRIPCION_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_DESCRIPCION_ITERATOR*************************
+
+//*********************************INICIO_CONST_DESCRIPCION_ITERATOR*************************
+
+//Implemn aqui
+
+//*********************************FIN_CONST_DESCRIPCION_ITERATOR*************************
+
 //Constructor por defecto
 
 conjunto::conjunto(){

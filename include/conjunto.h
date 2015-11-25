@@ -255,19 +255,19 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 //*********************************INICIO_CONST_ARRESTO_ITERATOR*************************
 
-//Implemn aqui
+//aqui
 
 //*********************************FIN_CONST_ARRESTO_ITERATOR*************************
 
 //*********************************INICIO_DESCRIPCION_ITERATOR*************************
 
-//Implemn aqui
+//aqui
 
 //*********************************FIN_DESCRIPCION_ITERATOR*************************
 
 //*********************************INICIO_CONST_DESCRIPCION_ITERATOR*************************
 
-//Implemn aqui
+//aqui
 
 //*********************************FIN_CONST_DESCRIPCION_ITERATOR*************************
 private:
