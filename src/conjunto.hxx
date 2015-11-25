@@ -2,7 +2,15 @@
 //INICIO PRACTICA 3
 
 
-// ================================= ITERADOR ========================================/
+// ================================= ITERADORCONJUNTO ========================================/
+
+conjunto::iterator conjunto::begin(){
+	return iterator(vc.begin());
+}
+
+conjunto::iterator conjunto::end(){
+	return iterator(vc.end());
+}
 
 conjunto::iterator(){
 	//itv = vc.begin();
@@ -47,21 +55,20 @@ bool operator!=(const iterator & it){
 		return it.itv!=itv;
 	   }
 
-/*
-conjunto::iterator begin();
-conjunto::iterator end();
-iterator();
-iterator (const iterator & it);
-const conjunto::entrada & operator*() const;
-iterator operator++( int );
-iterator & operator++();
-iterator operator--(int);
-iterator & operator--();
-bool operator==(const iterator & it);
-bool operator!=(const iterator & it);
-*/
 
-// ================================= ITERADOR ========================================/
+// ================================= FIN-ITERADORCONJUNTO ========================================/
+
+
+
+
+// ================================= CONST__ITERADORCONJUNTO ========================================/
+
+
+
+
+
+
+// ================================= FIN-CONST__ITERADORCONJUNTO ========================================/
 
 //Constructor por defecto
 
