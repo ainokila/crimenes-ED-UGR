@@ -244,7 +244,42 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 //*********************************INICIO_ARRESTO_ITERATOR*************************
 
-//Implemn aqui
+/** @brief class arrest_iterator
+	 * forward iterador de arrestos sobre el diccionario, Lectura 
+	 *  arrest_iterator ,operator*, operator++, operator++(int) operator=, operator==, operator!=
+	 * */
+	class arrest_iterator {
+		public:
+		  arrest_iterator();
+		  arrest_iterator(const arrest_iterator & it);
+		  arrest_iterator(const vector<conjunto::entrada>::arrest_iterator n);
+		      /** @brief Convierte iterator en const_iterator
+		      */
+		  arrest_iterator(const iterator & it);
+		  const conjunto::entrada & operator*() const;
+		  arrest_iterator operator++( int );
+		  arrest_iterator & operator++();
+	 	  arrest_iterator operator--(int);
+		  arrest_iterator & operator--();
+		  bool operator==(const arrest_iterator & it);
+		  bool operator!=(const arrest_iterator & it);
+		private:
+		 
+		  vector<entrada>::arrest_iterator a_itv;
+		  friend class conjunto;
+	  
+	};
+/** @brief  
+         @return Devuelve el arrest_iterator a la primera posición del conjunto.
+	@post no modifica el diccionario
+        */
+    
+	 arrest_iterator abegin() const;
+	/** @brief iterador al final
+         @return Devuelve el iterador arresto a la  posición final del conjunto.
+	@post no modifica el diccionario
+        */
+	 arrest_iterator aend() const;
 
 //*********************************FIN_ARRESTO_ITERATOR*************************
 
@@ -255,7 +290,42 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 //*********************************INICIO_CONST_ARRESTO_ITERATOR*************************
 
-//aqui
+/** @brief class const_arrest_iterator
+	 * forward iterador constante de arrestos sobre el diccionario, Lectura 
+	 * const_arrest_iterator ,operator*, operator++, operator++(int) operator=, operator==, operator!=
+	 * */
+	class const_arrest_iterator {
+		public:
+		  const_arrest_iterator();
+		  const_arrest_iterator(const const_arrest_iterator & it);
+		  const_arrest_iterator(const vector<conjunto::entrada>::const_arrest_iterator n);
+		      /** @brief Convierte iterator en const_iterator
+		      */
+		  const_arrest_iterator(const iterator & it);
+		  const conjunto::entrada & operator*() const;
+		  const_arrest_iterator operator++( int );
+		  const_arrest_iterator & operator++();
+	 	  const_arrest_iterator operator--(int);
+		  const_arrest_iterator & operator--();
+		  bool operator==(const const_arrest_iterator & it);
+		  bool operator!=(const const_arrest_iterator & it);
+		private:
+		 
+		  vector<entrada>::const_arrest_iterator c_a_itv;
+		  friend class conjunto;
+	  
+	};
+/** @brief  
+         @return Devuelve el const_arrest_iterator a la primera posición del conjunto.
+	@post no modifica el diccionario
+        */
+    
+	 const_arrest_iterator cabegin() const;
+	/** @brief iterador al final
+         @return Devuelve el iterador constante de arresto a la  posición final del conjunto.
+	@post no modifica el diccionario
+        */
+	 const_arrest_iterator caend() const;
 
 //*********************************FIN_CONST_ARRESTO_ITERATOR*************************
 
