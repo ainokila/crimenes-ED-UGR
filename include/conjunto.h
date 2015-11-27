@@ -340,7 +340,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		public:
 		  arrest_iterator();
 		  arrest_iterator(const arrest_iterator & it);
-		  arrest_iterator(const vector<conjunto::entrada>::arrest_iterator n);
+		  arrest_iterator(const vector<conjunto::entrada>::iterator n);
 		      /** @brief Convierte iterator en const_iterator
 		      */
 		  arrest_iterator(const iterator & it);
@@ -353,7 +353,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		  bool operator!=(const arrest_iterator & it);
 		private:
 		 
-		  vector<entrada>::arrest_iterator a_itv;
+		  vector<entrada>::iterator a_itv;
 		  friend class conjunto;
 	  
 	};
@@ -386,7 +386,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		public:
 		  const_arrest_iterator();
 		  const_arrest_iterator(const const_arrest_iterator & it);
-		  const_arrest_iterator(const vector<conjunto::entrada>::const_arrest_iterator n);
+		  const_arrest_iterator(const vector<conjunto::entrada>::const_iterator n);
 		      /** @brief Convierte iterator en const_iterator
 		      */
 		  const_arrest_iterator(const iterator & it);
@@ -399,7 +399,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		  bool operator!=(const const_arrest_iterator & it);
 		private:
 		 
-		  vector<entrada>::const_arrest_iterator c_a_itv;
+		  vector<entrada>::const_iterator c_a_itv;
 		  friend class conjunto;
 	  
 	};
