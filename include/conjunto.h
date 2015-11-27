@@ -165,31 +165,74 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 *  iterator() ,operator*(), operator++, operator++(int) operator=, operator==, operator!=
 	 * */
     class iterator {
-	   public:
+
+	 public:
+
+	/** @brief Constructor por defecto de iterator
+
+	*/
        iterator();
+
+	/** @brief Constructor de Copia
+	@param it , tipo iterator
+	*/
        iterator(const iterator & it);
-	   iterator(const vector<conjunto::entrada>::iterator n);
+
+	/** @brief Constructor con parametro iterator tipo vecto<entrada>::iterator
+	@param n ,iterator tipo vecto<entrada>
+
+	*/
+       iterator(const vector<conjunto::entrada>::iterator n);
        
+	/** @brief Devuelve el valor del iterador actural
+         @return conjunto::entrada , valor actual del iterator
+        */
        const conjunto::entrada & operator*() const;
        
+	/** @brief Preincremento ++ ++it
+         @return Devuelve el iterador
+	@post Despues de devolverlo , se incremente
+        */
        iterator operator++( int );
+
+	/** @brief Post incremento ++ , it++
+         @return Devuelve el iterador
+	@post Incrementa el iterador para devolverlo
+        */
        iterator & operator++();
+
+	/** @brief Predecremento -- --it
+         @return Devuelve el iterador
+	@post Despues de devolverlo , se decrementa
+        */
        iterator operator--(int);
+
+	/** @brief Post decremento -- , it--
+         @return Devuelve el iterador
+	@post Decrementa el iterador para devolverlo
+        */
        iterator & operator--();
+
+	/** @brief Sobrecarga operato == de clase conjunto::iterator
+        @return true , si son iguales , false , si son distintos
+        */
        bool operator==(const iterator & it);
+
+	/** @brief Sobrecarga operato != de clase conjunto::iterator
+        @return false , si son iguales , true , si son distintos
+        */
        bool operator!=(const iterator & it);
 
        private:
            friend class conjunto;
            vector<conjunto::entrada>::iterator itv;
 	};
-	  /**@brief devuelve iterador al inicio del conjunto
 
+     /**@brief devuelve iterador al inicio del conjunto
      */
      iterator begin();
 
      /**@brief devuelve iterador al final (posición siguiente al último del conjunto
-
      */
      iterator end();
 	
@@ -205,18 +248,62 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 * */
 	class const_iterator {
 		public:
+
+		  /** @brief Constructor por defecto de const_iterator
+		   */	
 		  const_iterator();
+
+		  /** @brief Constructor de Copia
+		      @param it , tipo const_iterator
+		  */
 		  const_iterator(const const_iterator & it);
+
+		  /** @brief Constructor con parametro iterator tipo vecto<entrada>::const_iterator
+	              @param n ,const_iterator tipo vecto<entrada>
+		  */
 		  const_iterator(const vector<conjunto::entrada>::const_iterator n);
-		      /** @brief Convierte iterator en const_iterator
-		      */
+
+		  /** @brief Convierte iterator en const_iterator
+		  */
 		  const_iterator(const iterator & it);
+
+		  /** @brief Devuelve el valor del iterador actual
+                      @return conjunto::entrada , valor actual del iterator
+                  */	
 		  const conjunto::entrada & operator*() const;
+
+		  /** @brief Pre incremento ++ , ++it
+         	      @return Devuelve el const_iterador
+	              @post Incrementa el iterador despues de devolverlo
+        	  */
 		  const_iterator operator++( int );
+
+		  /** @brief Post incremento ++ , it++
+                      @return Devuelve el const_iterador
+		      @post Incrementa el iterador para devolverlo
+        	  */
 		  const_iterator & operator++();
+
+		  /** @brief Pre decremento -- , --it
+         	      @return Devuelve el const_iterador
+	              @post Decrementa el iterador despues de devolverlo
+        	  */
 	 	  const_iterator operator--(int);
+		
+		 /** @brief Post decremento -- , it--
+                      @return Devuelve el const_iterador decrementado
+		      @post Decrementa iterator
+        	  */
 		  const_iterator & operator--();
+
+		  /** @brief Sobrecarga operator == de clase conjunto::const_iterator
+        	   @return true , si son iguales , false , si son distintos
+                   */
 		  bool operator==(const const_iterator & it);
+
+		  /** @brief Sobrecarga operator == de clase conjunto::const_iterator
+        	   @return false, si son iguales , true , si son distintos
+                  */
 		  bool operator!=(const const_iterator & it);
 		private:
 		 
@@ -224,12 +311,13 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		  friend class conjunto;
 	  
 	};
-/** @brief  
+
+	/** @brief  
          @return Devuelve el const_iterator a la primera posición del conjunto.
 	@post no modifica el diccionario
         */
-    
 	 const_iterator cbegin() const;
+
 	/** @brief iterador al final
          @return Devuelve el iterador constante a la  posición final del conjunto.
 	@post no modifica el diccionario
