@@ -135,18 +135,20 @@
 
 
 
-//*********************************INICIO_ARRESTO_ITERATOR*************************
-//*********************************INICIO_ARRESTO_ITERATOR*************************
+// ================================= INICIO-ARREST_ITERADOR ========================================/
+
+
+
   
     	conjunto::arrest_iterator abegin(){
-	//NO TERMINADO
+	//NO TERMINADO FALTA PONERLO EN LA PRIMERA POSICION ARRESTO
 		arrest_iterator iterador;
   		iterador.a_itv=vc.begin();
   		return iterador;
 	}
 	
 	conjunto::arrest_iterator aend(){
-	//NO TERMINADO
+	//NO TERMINADO FALTA PONERLO EN LA ULTIMA POSICION ARRESTO
 		arrest_iterator iterador;
 		iterador.a_itv = vc.end();
 		return iterador;
