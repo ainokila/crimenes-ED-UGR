@@ -136,9 +136,73 @@
 
 
 //*********************************INICIO_ARRESTO_ITERATOR*************************
+//*********************************INICIO_ARRESTO_ITERATOR*************************
+  
+    	conjunto::arrest_iterator abegin(){
+	//NO TERMINADO
+		arrest_iterator iterador;
+  		iterador.a_itv=vc.begin();
+  		return iterador;
+	}
+	
+	conjunto::arrest_iterator aend(){
+	//NO TERMINADO
+		arrest_iterator iterador;
+		iterador.a_itv = vc.end();
+		return iterador;
+	}
 
-//Implemn aqui
+	conjunto::arrest_iterator(){
+	}
 
+	conjunto::arrest_iterator(const arrest_iterator & it){
+		a_itv = it.a_itv;
+	}	
+
+	conjunto::arrest_iterator(const vector<conjunto::entrada>::arrest_iterator n){
+		a_itv = n;
+	}		
+
+	const conjunto::entrada & conjunto::arrest_iterator::operator*() const{
+		return *a_itv;
+	}
+
+	conjunto::arrest_iterator conjunto::arrest_iterator::operator++( int ){
+	//NO TERMINADO
+	//Porque se pone CONJUNTO:: antes de inicializar copia?
+		conjunto::arrest_iterator copia(a_itv);
+		++a_itv;
+		return copia;
+			
+	}
+
+	conjunto::arrest_iterator & conjunto::arrest_iterator::operator++(){
+		a_itv++;
+		return *this;
+	 }
+
+	conjunto::arrest_iterator conjunto::arrest_iterator::operator--( int ){
+	//NO TERMINADO
+	//Porque se pone CONJUNTO:: antes de inicializar copia?
+		conjunto::arrest_iterator copia(a_itv);
+		--a_itv;
+		return copia;
+			
+	}
+
+	conjunto::arrest_iterator & conjunto::arrest_iterator::operator--(){
+		a_itv--;
+		return *this;
+	]
+
+	bool conjunto::arrest_iterator::operator==(const arrest_iterator & it){
+			return it.a_itv==a_itv;
+	}
+
+	bool conjunto::arrest_iterator::operator!=(const arrest_iterator & it){
+			return it.a_itv!=a_itv;
+	}
+	
 //*********************************FIN_ARRESTO_ITERATOR*************************
 
 
