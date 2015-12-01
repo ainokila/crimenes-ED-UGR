@@ -141,17 +141,41 @@
 
   
     	conjunto::arrest_iterator abegin(){
-	//NO TERMINADO FALTA PONERLO EN LA PRIMERA POSICION ARRESTO
 		arrest_iterator iterador;
-  		iterador.a_itv=vc.begin();
+		boolean arresto = false;
+		vector<conjunto::entrada>::iterator i = vc.begin();
+
+		while(!arresto || i != vc.end()){
+					
+			if((*i).getArrest == true){
+				arresto = true;
+			}
+			else{
+				i++;
+			}
+		}				
+  		iterador.a_itv = i;
   		return iterador;
 	}
 	
 	conjunto::arrest_iterator aend(){
-	//NO TERMINADO FALTA PONERLO EN LA ULTIMA POSICION ARRESTO
+	
 		arrest_iterator iterador;
-		iterador.a_itv = vc.end();
-		return iterador;
+		boolean arresto = false;
+		vector<conjunto::entrada>::iterator i = vc.end();
+
+		while(!arresto || i != vc.begin()){
+					
+			if((*i).getArrest == true){
+				arresto = true;
+				
+			}
+			else{
+				i--;
+			}
+		}
+		iterador.a_itv = i;
+  		return iterador;
 	}
 
 	conjunto::arrest_iterator(){
@@ -161,7 +185,7 @@
 		a_itv = it.a_itv;
 	}	
 
-	conjunto::arrest_iterator(const vector<conjunto::entrada>::arrest_iterator n){
+	conjunto::arrest_iterator(const vector<conjunto::entrada>::iterator n){
 		a_itv = n;
 	}		
 
@@ -170,10 +194,20 @@
 	}
 
 	conjunto::arrest_iterator conjunto::arrest_iterator::operator++( int ){
-	//NO TERMINADO
 	//Porque se pone CONJUNTO:: antes de inicializar copia?
+	
 		conjunto::arrest_iterator copia(a_itv);
-		++a_itv;
+		boolean arresto = false;
+
+		while(!arresto && a_itv != vc.aend()){
+					
+			if((*a_itv).getArrest == true){
+				arresto = true;
+			}
+			else{
+				++a_itv;
+			}
+		}
 		return copia;
 			
 	}
@@ -184,10 +218,20 @@
 	 }
 
 	conjunto::arrest_iterator conjunto::arrest_iterator::operator--( int ){
-	//NO TERMINADO
 	//Porque se pone CONJUNTO:: antes de inicializar copia?
 		conjunto::arrest_iterator copia(a_itv);
-		--a_itv;
+		boolean arresto = false;
+
+		while(!arresto && a_itv != vc.abegin()){
+					
+			if((*a_itv).getArrest == true){
+				arresto = true;
+			}
+			else{
+				--a_itv;
+			}
+		}
+		
 		return copia;
 			
 	}
