@@ -145,7 +145,7 @@
 		boolean arresto = false;
 		vector<conjunto::entrada>::iterator i = vc.begin();
 
-		while(!arresto || i != vc.end()){
+		while(!arresto && i != vc.end()){
 					
 			if((*i).getArrest == true){
 				arresto = true;
@@ -164,7 +164,7 @@
 		boolean arresto = false;
 		vector<conjunto::entrada>::iterator i = vc.end();
 
-		while(!arresto || i != vc.begin()){
+		while(!arresto && i != vc.begin()){
 					
 			if((*i).getArrest == true){
 				arresto = true;
@@ -218,7 +218,7 @@
 	 }
 
 	conjunto::arrest_iterator conjunto::arrest_iterator::operator--( int ){
-	//Porque se pone CONJUNTO:: antes de inicializar copia?
+	
 		conjunto::arrest_iterator copia(a_itv);
 		boolean arresto = false;
 
@@ -257,8 +257,113 @@
 
 
 //*********************************INICIO_CONST_ARRESTO_ITERATOR*************************
+	
+	conjunto::const_arrest_iterator cabegin(){
+		const_arrest_iterator iterador;
+		boolean arresto = false;
+		vector<conjunto::entrada>::const_iterator i = vc.begin();
 
-//Implemn aqui
+		while(!arresto && i != vc.end()){
+					
+			if((*i).getArrest == true){
+				arresto = true;
+			}
+			else{
+				i++;
+			}
+		}				
+  		iterador.c_a_itv = i;
+  		return iterador;
+	}
+
+	conjunto::const_arrest_iterator caend(){
+		const_arrest_iterator iterador;
+		boolean arresto = false;
+		vector<conjunto::entrada>::const_iterator i = vc.end();
+
+		while(!arresto && i != vc.begin()){
+					
+			if((*i).getArrest == true){
+				arresto = true;
+			}
+			else{
+				i--;
+			}
+		}				
+  		iterador.c_a_itv = i;
+  		return iterador;
+	}
+
+	conjunto::const_arrest_iterator(){
+	}
+
+	conjunto::const_arrest_iterator(const const_arrest_iterator & it){
+		c_a_itv = it.c_a_itv;
+	}
+
+	conjunto::const_arrest_iterator(const vector<conjunto::entrada>::const_iterator n){
+		c_a_itv = n;
+	}
+
+	conjunto::const_arrest_iterator(const arrest_iterator & it){
+		c_a_itv = it.a_itv;
+	}
+
+	const conjunto::entrada & conjunto::const_arrest_iterator::operator*() const{
+		return *c_a_itv;
+	}
+
+	conjunto::const_arrest_iterator conjunto::const_arrest_iterator::operator++( int ){
+
+		conjunto::const_arrest_iterator copia(c_a_itv);
+		boolean arresto = false;
+
+		while(!arresto && c_a_itv != vc.caend()){
+					
+			if((*c_a_itv).getArrest == true){
+				arresto = true;
+			}
+			else{
+				++c_a_itv;
+			}
+		}
+		return copia;
+			
+	}
+
+	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator++(){
+		c_a_itv++;
+		return *this;
+	}
+	const_arrest_iterator conjunto::const_arrest_iterator::operator--(int){
+		
+		conjunto::const_arrest_iterator copia(c_a_itv);
+		boolean arresto = false;
+
+		while(!arresto && c_a_itv != vc.cabegin()){
+					
+			if((*c_a_itv).getArrest == true){
+				arresto = true;
+			}
+			else{
+				--c_a_itv;
+			}
+		}
+		
+		return copia;
+
+	const_arrest_iterator & conjunto::const_arrest_iterator::operator--(){
+		c_a_itv--;
+		return *this;	
+	}
+
+	bool conjunto::const_arrest_iterator::operator==(const const_arrest_iterator & it){
+		return it.c_a_itv==c_a_itv;
+	}
+
+	bool conjunto::const_arrest_iterator::operator!=(const const_arrest_iterator & it){
+		return !(it.c_a_itv==c_a_itv);
+	}
 
 //*********************************FIN_CONST_ARRESTO_ITERATOR*************************
 
