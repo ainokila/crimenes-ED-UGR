@@ -69,7 +69,7 @@ int main()
 		cout << *it << endl;*/
 
 	conjunto::arrest_iterator it;
-	for (it = ChicagoDB.abegin() ; it != ChicagoDB.aend(); ++it) //Itera sobre todos los elementos del conjunto.
+	for (it = ChicagoDB.abegin() ; it != ChicagoDB.aend(); it++) //Itera sobre todos los elementos del conjunto.
 		cout << *it << endl;
 	
 
