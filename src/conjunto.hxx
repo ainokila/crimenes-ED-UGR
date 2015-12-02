@@ -206,10 +206,10 @@
 	}
 
 	conjunto::arrest_iterator & conjunto::arrest_iterator::operator++(){
-		do {
+		while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false){
         		a_itv++;
 
-		}while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false);
+		}
 
 		return *this;
 	 }
@@ -223,10 +223,10 @@
 	}
 
 	conjunto::arrest_iterator & conjunto::arrest_iterator::operator--(){
-		do {
+		while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false){
         		a_itv--;
 
-		}while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false);
+		}
 		return *this;
 	}
 
@@ -313,9 +313,9 @@
 	}
 
 	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator++(){
-		do {
+		while ((*ptr).vc.end()!=c_a_itv && (*c_a_itv).getArrest()==false){
         	c_a_itv++;
-       		}while ((*ptr).vc.end()!=c_a_itv && (*c_a_itv).getArrest()==false);
+       		}
 
 		return *this;
 	}
@@ -326,10 +326,9 @@
 		return copia;
 	}
 	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator--(){
-		do{
+		while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false){
         		c_a_itv--;
-       		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
-
+       		}
 		return *this;
 	}
 
