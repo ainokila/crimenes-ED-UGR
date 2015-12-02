@@ -63,9 +63,13 @@ int main()
 	cout << ChicagoDB.findDESCR("AGGRAVATED DOMESTIC BATTERY: HANDS/FIST/FEET SERIOUS INJURY")<< endl; */
 
 	//cout <<"Crimen: "<< ChicagoDB<< endl;
-
+	/*
 	conjunto::iterator it;
 	for (it = ChicagoDB.begin() ; it != ChicagoDB.end(); ++it) //Itera sobre todos los elementos del conjunto.
+		cout << *it << endl;*/
+
+	conjunto::arrest_iterator it;
+	for (it = ChicagoDB.abegin() ; it != ChicagoDB.aend(); ++it) //Itera sobre todos los elementos del conjunto.
 		cout << *it << endl;
 	
 
