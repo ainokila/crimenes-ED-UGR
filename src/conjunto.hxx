@@ -200,36 +200,33 @@
 	
 	
 		conjunto::arrest_iterator copia(a_itv);
-		
-		do {
-        		++a_itv;
-
-		}while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false);
-
+		++(*this);		
 		return copia;
 			
 	}
 
 	conjunto::arrest_iterator & conjunto::arrest_iterator::operator++(){
-		a_itv++;
+		do {
+        		a_itv++;
+
+		}while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false);
+
 		return *this;
 	 }
 
 	conjunto::arrest_iterator conjunto::arrest_iterator::operator--( int ){
 	
 		conjunto::arrest_iterator copia(a_itv);
-			
-		do {
-        		a_itv--;
-
-		}while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false);
-
+		--(*this);
 		return copia;
 			
 	}
 
 	conjunto::arrest_iterator & conjunto::arrest_iterator::operator--(){
-		a_itv--;
+		do {
+        		a_itv--;
+
+		}while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false);
 		return *this;
 	}
 
@@ -309,33 +306,31 @@
 
 	conjunto::const_arrest_iterator conjunto::const_arrest_iterator::operator++( int ){
 
-		conjunto::const_arrest_iterator copia(c_a_itv);
-		do {
-        		++c_a_itv;
-
-		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
-
+		conjunto::const_arrest_iterator copia(*this);
+		++(*this);
 		return copia;
 			
 	}
 
 	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator++(){
-		c_a_itv++;
+		do {
+        	c_a_itv++;
+       		}while ((*ptr).vc.end()!=c_a_itv && (*c_a_itv).getArrest()==false);
+
 		return *this;
 	}
 	conjunto::const_arrest_iterator conjunto::const_arrest_iterator::operator--(int){
 		
-		conjunto::const_arrest_iterator copia(c_a_itv);
-		do {
-        		--c_a_itv;
-
-		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
-
+		conjunto::const_arrest_iterator copia(*this);
+		--(*this);
 		return copia;
 	}
 	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator--(){
-		c_a_itv--;
-		return *this;	
+		do{
+        		c_a_itv--;
+       		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
+
+		return *this;
 	}
 
 	bool conjunto::const_arrest_iterator::operator==(const conjunto::const_arrest_iterator & it){
