@@ -140,14 +140,15 @@
 
 
   
-    	conjunto::arrest_iterator abegin(){
-		arrest_iterator iterador;
-		boolean arresto = false;
+    	conjunto::arrest_iterator conjunto::abegin(){
+
+		conjunto::arrest_iterator iterador;
+		bool arresto = false;
 		vector<conjunto::entrada>::iterator i = vc.begin();
 
 		while(!arresto && i != vc.end()){
 					
-			if((*i).getArrest == true){
+			if((*i).getArrest() == true){
 				arresto = true;
 			}
 			else{
@@ -155,37 +156,39 @@
 			}
 		}				
   		iterador.a_itv = i;
+		iterador.ptr =this;
   		return iterador;
 	}
 	
-	conjunto::arrest_iterator aend(){
+	conjunto::arrest_iterator conjunto::aend(){
 	
-		arrest_iterator iterador;
-		boolean arresto = false;
+		conjunto::arrest_iterator iterador;
+		bool arresto = false;
 		vector<conjunto::entrada>::iterator i = vc.end();
 
 		while(!arresto && i != vc.begin()){
 					
-			if((*i).getArrest == true){
+			if((*i).getArrest() == true){
 				arresto = true;
 				
 			}
 			else{
 				i--;
 			}
-		}
+		}	
 		iterador.a_itv = i;
+		iterador.ptr =this;
   		return iterador;
 	}
 
-	conjunto::arrest_iterator(){
+	conjunto::arrest_iterator::arrest_iterator(){
 	}
 
-	conjunto::arrest_iterator(const arrest_iterator & it){
+	conjunto::arrest_iterator::arrest_iterator(const conjunto::arrest_iterator & it){
 		a_itv = it.a_itv;
 	}	
 
-	conjunto::arrest_iterator(const vector<conjunto::entrada>::iterator n){
+	conjunto::arrest_iterator::arrest_iterator(const vector<conjunto::entrada>::iterator n){
 		a_itv = n;
 	}		
 
@@ -194,20 +197,15 @@
 	}
 
 	conjunto::arrest_iterator conjunto::arrest_iterator::operator++( int ){
-	//Porque se pone CONJUNTO:: antes de inicializar copia?
+	
 	
 		conjunto::arrest_iterator copia(a_itv);
-		boolean arresto = false;
+		
+		do {
+        		++a_itv;
 
-		while(!arresto && a_itv != vc.aend()){
-					
-			if((*a_itv).getArrest == true){
-				arresto = true;
-			}
-			else{
-				++a_itv;
-			}
-		}
+		}while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false);
+
 		return copia;
 			
 	}
@@ -220,18 +218,12 @@
 	conjunto::arrest_iterator conjunto::arrest_iterator::operator--( int ){
 	
 		conjunto::arrest_iterator copia(a_itv);
-		boolean arresto = false;
+			
+		do {
+        		a_itv--;
 
-		while(!arresto && a_itv != vc.abegin()){
-					
-			if((*a_itv).getArrest == true){
-				arresto = true;
-			}
-			else{
-				--a_itv;
-			}
-		}
-		
+		}while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false);
+
 		return copia;
 			
 	}
@@ -239,13 +231,13 @@
 	conjunto::arrest_iterator & conjunto::arrest_iterator::operator--(){
 		a_itv--;
 		return *this;
-	]
+	}
 
-	bool conjunto::arrest_iterator::operator==(const arrest_iterator & it){
+	bool conjunto::arrest_iterator::operator==(const conjunto::arrest_iterator & it){
 			return it.a_itv==a_itv;
 	}
 
-	bool conjunto::arrest_iterator::operator!=(const arrest_iterator & it){
+	bool conjunto::arrest_iterator::operator!=(const conjunto::arrest_iterator & it){
 			return it.a_itv!=a_itv;
 	}
 	
@@ -258,14 +250,14 @@
 
 //*********************************INICIO_CONST_ARRESTO_ITERATOR*************************
 	
-	conjunto::const_arrest_iterator cabegin(){
-		const_arrest_iterator iterador;
-		boolean arresto = false;
+	conjunto::const_arrest_iterator conjunto::cabegin() const{
+		conjunto::const_arrest_iterator iterador;
+		bool arresto = false;
 		vector<conjunto::entrada>::const_iterator i = vc.begin();
 
 		while(!arresto && i != vc.end()){
 					
-			if((*i).getArrest == true){
+			if((*i).getArrest() == true){
 				arresto = true;
 			}
 			else{
@@ -273,17 +265,18 @@
 			}
 		}				
   		iterador.c_a_itv = i;
+		iterador.ptr =this;
   		return iterador;
 	}
 
-	conjunto::const_arrest_iterator caend(){
-		const_arrest_iterator iterador;
-		boolean arresto = false;
+	conjunto::const_arrest_iterator conjunto::caend() const{
+		conjunto::const_arrest_iterator iterador;
+		bool arresto = false;
 		vector<conjunto::entrada>::const_iterator i = vc.end();
 
 		while(!arresto && i != vc.begin()){
 					
-			if((*i).getArrest == true){
+			if((*i).getArrest() == true){
 				arresto = true;
 			}
 			else{
@@ -291,21 +284,22 @@
 			}
 		}				
   		iterador.c_a_itv = i;
+		iterador.ptr =this;
   		return iterador;
 	}
 
-	conjunto::const_arrest_iterator(){
+	conjunto::const_arrest_iterator::const_arrest_iterator(){
 	}
 
-	conjunto::const_arrest_iterator(const const_arrest_iterator & it){
+	conjunto::const_arrest_iterator::const_arrest_iterator(const const_arrest_iterator & it){
 		c_a_itv = it.c_a_itv;
 	}
 
-	conjunto::const_arrest_iterator(const vector<conjunto::entrada>::const_iterator n){
+	conjunto::const_arrest_iterator::const_arrest_iterator(const vector<conjunto::entrada>::const_iterator n){
 		c_a_itv = n;
 	}
 
-	conjunto::const_arrest_iterator(const arrest_iterator & it){
+	conjunto::const_arrest_iterator::const_arrest_iterator(const conjunto::arrest_iterator & it){
 		c_a_itv = it.a_itv;
 	}
 
@@ -316,17 +310,11 @@
 	conjunto::const_arrest_iterator conjunto::const_arrest_iterator::operator++( int ){
 
 		conjunto::const_arrest_iterator copia(c_a_itv);
-		boolean arresto = false;
+		do {
+        		++c_a_itv;
 
-		while(!arresto && c_a_itv != vc.caend()){
-					
-			if((*c_a_itv).getArrest == true){
-				arresto = true;
-			}
-			else{
-				++c_a_itv;
-			}
-		}
+		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
+
 		return copia;
 			
 	}
@@ -335,33 +323,26 @@
 		c_a_itv++;
 		return *this;
 	}
-	const_arrest_iterator conjunto::const_arrest_iterator::operator--(int){
+	conjunto::const_arrest_iterator conjunto::const_arrest_iterator::operator--(int){
 		
 		conjunto::const_arrest_iterator copia(c_a_itv);
-		boolean arresto = false;
+		do {
+        		--c_a_itv;
 
-		while(!arresto && c_a_itv != vc.cabegin()){
-					
-			if((*c_a_itv).getArrest == true){
-				arresto = true;
-			}
-			else{
-				--c_a_itv;
-			}
-		}
-		
+		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
+
 		return copia;
-
-	const_arrest_iterator & conjunto::const_arrest_iterator::operator--(){
+	}
+	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator--(){
 		c_a_itv--;
 		return *this;	
 	}
 
-	bool conjunto::const_arrest_iterator::operator==(const const_arrest_iterator & it){
+	bool conjunto::const_arrest_iterator::operator==(const conjunto::const_arrest_iterator & it){
 		return it.c_a_itv==c_a_itv;
 	}
 
-	bool conjunto::const_arrest_iterator::operator!=(const const_arrest_iterator & it){
+	bool conjunto::const_arrest_iterator::operator!=(const conjunto::const_arrest_iterator & it){
 		return !(it.c_a_itv==c_a_itv);
 	}
 

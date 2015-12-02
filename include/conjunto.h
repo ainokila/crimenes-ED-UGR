@@ -40,6 +40,8 @@ public:
 	typedef unsigned int size_type;
 	class iterator; //declaraciones previa
 	class const_iterator;
+	class arrest_iterator;
+	class const_arrest_iterator;
 
 	/** @brief constructor primitivo. 
 	@post define la entrada nula como el par ("",-1)
@@ -349,10 +351,12 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		  arrest_iterator & operator--();
 		  bool operator==(const arrest_iterator & it);
 		  bool operator!=(const arrest_iterator & it);
+		
 		private:
 		 
 		  vector<entrada>::iterator a_itv;
 		  friend class conjunto;
+		  const conjunto * ptr; 
 	  
 	};
 /** @brief  
@@ -360,12 +364,12 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	@post no modifica el diccionario
         */
     
-	 arrest_iterator abegin() const;
+	 arrest_iterator abegin() ;
 	/** @brief iterador al final
          @return Devuelve el iterador arresto a la  posición final del conjunto.
 	@post no modifica el diccionario
         */
-	 arrest_iterator aend() const;
+	 arrest_iterator aend();
 
 //*********************************FIN_ARRESTO_ITERATOR*************************
 
@@ -399,6 +403,12 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		 
 		  vector<entrada>::const_iterator c_a_itv;
 		  friend class conjunto;
+		/**
+		@brief ptr puntero al propio conjunto para permitirme realizar
+		operaciones auxiliares necesarias en este iterador
+		*/
+
+		const conjunto * ptr; 
 	  
 	};
 /** @brief  
@@ -429,6 +439,9 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
  friend class iterator;
+ friend class arrest_iterator;
+ friend class const_arrest_iterator;
+
  
  
  /** \invariant
