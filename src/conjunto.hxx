@@ -168,7 +168,7 @@
 
 		while(!arresto && i != vc.begin()){
 					
-			if((*i).getArrest() == true){
+			if((*i).getArrest() == true ){
 				arresto = true;
 				
 			}
@@ -329,7 +329,9 @@
 		while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false){
         		c_a_itv--;
        		}
-		return *this;
+		return *this;include/../src/conjunto.hxx:351:52: error: conversion from ‘std::vector<crimen>::const_iterator {aka __gnu_cxx::__normal_iterator<const crimen*, std::vector<crimen> >}’ to non-scalar type ‘std::vector<crimen>::iterator {aka __gnu_cxx::__normal_iterator<crimen*, std::vector<crimen> >}’ requested
+   vector<conjunto::entrada>::iterator i = vc.begin();
+
 	}
 
 	bool conjunto::const_arrest_iterator::operator==(const conjunto::const_arrest_iterator & it){
@@ -344,13 +346,200 @@
 
 //*********************************INICIO_DESCRIPCION_ITERATOR*************************
 
-//Implemn aqui
+conjunto::descripcion_iterator conjunto::dbegin(const string & descr) const{
+
+		conjunto::descripcion_iterator iterador;
+		bool descripcion = false;
+		vector<conjunto::entrada>::iterator iterator = vc.begin();
+
+		while(!descripcion && i != vc.end()){
+					
+			if((*i).getDescr() == descr){
+				descripcion = true;
+			}
+			else{
+				i++;
+			}
+		}				
+  		iterador.d_itv = i;
+		iterador.ptr = this;
+  		return iterador;
+	}
+	
+	conjunto::descripcion_iterator conjunto::dend(){
+	
+		conjunto::descripcion_iterator iterador;
+		bool descripcion = false;
+		vector<conjunto::entrada>::iterator i = vc.end();
+
+		while(!descripcion && i != vc.begin()){
+					
+			if((*i).getDescr() == i.getDescr()){
+				descripcion = true;
+				
+			}
+			else{
+				i--;
+			}
+		}	
+		iterador.d_itv = i;
+		iterador.ptr =this;
+  		return iterador;
+	}
+
+	conjunto::descripcion_iterator::descripcion_iterator(){
+	}
+
+	conjunto::descripcion_iterator::descripcion_iterator(const conjunto::descripcion_iterator & it){
+		d_itv = it.d_itv;
+	}	
+
+	conjunto::descripcion_iterator::descripcion_iterator(const vector<conjunto::entrada>::iterator n){
+		d_itv = n;
+	}		
+
+	const conjunto::entrada & conjunto::descripcion_iterator::operator*() const{
+		return *d_itv;
+	}
+
+	conjunto::descripcion_iterator conjunto::descripcion_iterator::operator++( int ){
+	
+	
+		conjunto::descripcion_iterator copia(d_itv);
+		++(*this);		
+		return copia;
+			
+	}
+
+	conjunto::descripcion_iterator & conjunto::descripcion_iterator::operator++(){
+		//while ((*ptr).vc.end()!=d_itv && (*d_itv).getDescr()==false){
+        		d_itv++;
+
+		//}
+
+		return *this;
+	 }
+
+	conjunto::descripcion_iterator conjunto::descripcion_iterator::operator--( int ){
+	
+		conjunto::descripcion_iterator copia(d_itv);
+		--(*this);
+		return copia;
+			
+	}
+
+	conjunto::descripcion_iterator & conjunto::descripcion_iterator::operator--(){
+		//while ((*ptr).vc.begin()!=d_itv && (*d_itv).getDescr()==false){
+        		d_itv--;
+
+		//}
+		return *this;
+	}
+
+	bool conjunto::descripcion_iterator::operator==(const conjunto::descripcion_iterator & it){
+			return it.d_itv==d_itv;
+	}
+
+	bool conjunto::descripcion_iterator::operator!=(const conjunto::descripcion_iterator & it){
+			return it.d_itv!=d_itv;
+	}
 
 //*********************************FIN_DESCRIPCION_ITERATOR*************************
 
 //*********************************INICIO_CONST_DESCRIPCION_ITERATOR*************************
 
-//Implemn aqui
+conjunto::const_descripcion_iterator conjunto::cdbegin(const string & descr) const{
+		conjunto::const_descripcion_iterator iterador;
+		bool descripcion = false;
+		vector<conjunto::entrada>::const_iterator i = vc.begin();
+
+		while(!descripcion && i != vc.end()){
+					
+			if((*i).getDescr() == descr){
+				descripcion = true;
+			}
+			else{
+				i++;
+			}
+		}				
+  		iterador.c_d_itv = i;
+		iterador.ptr =this;
+  		return iterador;
+	}
+
+	conjunto::const_descripcion_iterator conjunto::cdend() const{
+		conjunto::const_descripcion_iterator iterador;
+		bool descripcion = false;
+		vector<conjunto::entrada>::const_iterator i = vc.end();
+
+		while(!descripcion && i != vc.begin()){
+					
+			if((*i).getDescr() == vc.end()){
+				descripcion = true;
+			}
+			else{
+				i--;
+			}
+		}				
+  		iterador.c_d_itv = i;
+		iterador.ptr =this;
+  		return iterador;
+	}
+
+	conjunto::const_descripcion_iterator::const_descripcion_iterator(){
+	}
+
+	conjunto::const_descripcion_iterator::const_descripcion_iterator(const const_descripcion_iterator & it){
+		c_d_itv = it.c_d_itv;
+	}
+
+	conjunto::const_descripcion_iterator::const_descripcion_iterator(const vector<conjunto::entrada>::const_iterator n){
+		c_d_itv = n;
+	}
+
+	conjunto::const_descripcion_iterator::const_descripcion_iterator(const conjunto::descripcion_iterator & it){
+		c_d_itv = it.d_itv;
+	}
+
+	const conjunto::entrada & conjunto::const_descripcion_iterator::operator*() const{
+		return *c_d_itv;
+	}
+
+	conjunto::const_descripcion_iterator conjunto::const_descripcion_iterator::operator++( int ){
+
+		conjunto::const_descripcion_iterator copia(*this);
+		++(*this);
+		return copia;
+			
+	}
+
+	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator++(){
+		//while ((*ptr).vc.end()!=c_d_itv && (*c_d_itv).getDescr()==false){
+        	c_d_itv++;
+       		//}
+
+		return *this;
+	}
+	conjunto::const_descripcion_iterator conjunto::const_descripcion_iterator::operator--(int){
+		
+		conjunto::const_descripcion_iterator copia(*this);
+		--(*this);
+		return copia;
+	}
+	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator--(){
+		//while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==false){
+        		c_d_itv--;
+       		//}
+		return *this;
+	}
+
+	bool conjunto::const_descripcion_iterator::operator==(const conjunto::const_descripcion_iterator & it){
+		return it.c_d_itv==c_d_itv;
+	}
+
+	bool conjunto::const_descripcion_iterator::operator!=(const conjunto::const_descripcion_iterator & it){
+		return !(it.c_d_itv==c_d_itv);
+	}
 
 //*********************************FIN_CONST_DESCRIPCION_ITERATOR*************************
 

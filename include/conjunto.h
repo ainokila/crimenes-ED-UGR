@@ -403,6 +403,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 		 
 		  vector<entrada>::const_iterator c_a_itv;
 		  friend class conjunto;
+		  
 		/**
 		@brief ptr puntero al propio conjunto para permitirme realizar
 		operaciones auxiliares necesarias en este iterador
@@ -426,14 +427,83 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 //*********************************FIN_CONST_ARRESTO_ITERATOR*************************
 
 //*********************************INICIO_DESCRIPCION_ITERATOR*************************
+class descripcion_iterator {
+		public:
+		  descripcion_iterator();
+		  descripcion_iterator(const descripcion_iterator & it);
+		  descripcion_iterator(const vector<conjunto::entrada>::iterator n);
+		    
+		  const conjunto::entrada & operator*() const;
+		  descripcion_iterator operator++( int );
+		  descripcion_iterator & operator++();
+	 	  descripcion_iterator operator--(int);
+		  descripcion_iterator & operator--();
+		  bool operator==(const descripcion_iterator & it);
+		  bool operator!=(const descripcion_iterator & it);
+		
+		private:
+		 
+		  vector<entrada>::iterator d_itv;
+		  friend class conjunto;
+		  const conjunto * ptr; 
+	  
+	};
 
-//aqui
+	/** @brief  
+         @return Devuelve el descripcion_iterator a la primera posición del conjunto.
+	@post no modifica el diccionario
+        */
+    
+	 descripcion_iterator dbegin(const string & descr) const;
+	/** @brief iterador al final
+         @return Devuelve el iterador arresto a la  posición final del conjunto.
+	@post no modifica el diccionario
+        */
+	 descripcion_iterator dend();
+
 
 //*********************************FIN_DESCRIPCION_ITERATOR*************************
 
 //*********************************INICIO_CONST_DESCRIPCION_ITERATOR*************************
 
-//aqui
+class const_descripcion_iterator {
+		public:
+		  const_descripcion_iterator();
+		  const_descripcion_iterator(const const_descripcion_iterator & it);
+		  const_descripcion_iterator(const vector<conjunto::entrada>::const_iterator n);
+		      /** @brief Convierte iterator en const_iterator
+		      */
+		  const_descripcion_iterator(const descripcion_iterator & it);
+		  const conjunto::entrada & operator*() const;
+		  const_descripcion_iterator operator++( int );
+		  const_descripcion_iterator & operator++();
+	 	  const_descripcion_iterator operator--(int);
+		  const_descripcion_iterator & operator--();
+		  bool operator==(const const_descripcion_iterator & it);
+		  bool operator!=(const const_descripcion_iterator & it);
+		private:
+		 
+		  vector<entrada>::const_iterator c_d_itv;
+		  friend class conjunto;
+		/**
+		@brief ptr puntero al propio conjunto para permitirme realizar
+		operaciones auxiliares necesarias en este iterador
+		*/
+
+		const conjunto * ptr; 
+	  
+	};
+/** @brief  
+         @return Devuelve el const_descripcion_iterator a la primera posición del conjunto.
+	@post no modifica el diccionario
+        */
+    
+	 const_descripcion_iterator cdbegin(const string & descr) const;
+	/** @brief iterador al final
+         @return Devuelve el iterador constante de descripcion a la  posición final del conjunto.
+	@post no modifica el diccionario
+        */
+	 const_descripcion_iterator cdend() const;
 
 //*********************************FIN_CONST_DESCRIPCION_ITERATOR*************************
 private:
@@ -441,6 +511,8 @@ private:
  friend class iterator;
  friend class arrest_iterator;
  friend class const_arrest_iterator;
+ friend class descripcion_iterator;
+ friend class const_descripcion_iterator;
 
  
  
