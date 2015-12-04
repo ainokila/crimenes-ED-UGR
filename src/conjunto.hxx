@@ -329,8 +329,7 @@
 		while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false){
         		c_a_itv--;
        		}
-		return *this;include/../src/conjunto.hxx:351:52: error: conversion from ‘std::vector<crimen>::const_iterator {aka __gnu_cxx::__normal_iterator<const crimen*, std::vector<crimen> >}’ to non-scalar type ‘std::vector<crimen>::iterator {aka __gnu_cxx::__normal_iterator<crimen*, std::vector<crimen> >}’ requested
-   vector<conjunto::entrada>::iterator i = vc.begin();
+		return *this;
 
 	}
 
