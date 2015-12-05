@@ -161,24 +161,10 @@
 	}
 	
 	conjunto::arrest_iterator conjunto::aend(){
-	
 		conjunto::arrest_iterator iterador;
-		bool arresto = false;
-		vector<conjunto::entrada>::iterator i = vc.end();
-
-		while(!arresto && i != vc.begin()){
-					
-			if((*i).getArrest() == true ){
-				arresto = true;
-				
-			}
-			else{
-				i--;
-			}
-		}	
-		iterador.a_itv = i;
+		iterador.a_itv = vc.end();
 		iterador.ptr =this;
-  		return iterador;
+	        return iterador;
 	}
 
 	conjunto::arrest_iterator::arrest_iterator(){
@@ -206,10 +192,10 @@
 	}
 
 	conjunto::arrest_iterator & conjunto::arrest_iterator::operator++(){
-		while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false){
+		do{
         		a_itv++;
 
-		}
+		}while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false);
 
 		return *this;
 	 }
@@ -223,10 +209,10 @@
 	}
 
 	conjunto::arrest_iterator & conjunto::arrest_iterator::operator--(){
-		while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false){
+		do{
         		a_itv--;
 
-		}
+		}while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false);
 		return *this;
 	}
 
@@ -313,9 +299,9 @@
 	}
 
 	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator++(){
-		while ((*ptr).vc.end()!=c_a_itv && (*c_a_itv).getArrest()==false){
+		do{
         	c_a_itv++;
-       		}
+       		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
 
 		return *this;
 	}
@@ -326,9 +312,9 @@
 		return copia;
 	}
 	conjunto::const_arrest_iterator & conjunto::const_arrest_iterator::operator--(){
-		while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false){
+		do{
         		c_a_itv--;
-       		}
+       		}while ((*ptr).vc.begin()!=c_a_itv && (*c_a_itv).getArrest()==false);
 		return *this;
 
 	}
@@ -368,22 +354,9 @@ conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 	conjunto::descripcion_iterator conjunto::dend(){
 	
 		conjunto::descripcion_iterator iterador;
-		bool descripcion = false;
-		vector<conjunto::entrada>::iterator i = vc.end();
-
-		while(!descripcion && i != vc.begin()){
-					
-			if((*i).getDescr() == i.getDescr()){
-				descripcion = true;
-				
-			}
-			else{
-				i--;
-			}
-		}	
-		iterador.d_itv = i;
-		iterador.ptr =this;
-  		return iterador;
+		iterador.d_itv = vc.end();
+		iterador.ptr=this;
+	        return iterador;
 	}
 
 	conjunto::descripcion_iterator::descripcion_iterator(){
@@ -467,22 +440,11 @@ conjunto::const_descripcion_iterator conjunto::cdbegin(const string & descr) con
 	}
 
 	conjunto::const_descripcion_iterator conjunto::cdend() const{
+	
 		conjunto::const_descripcion_iterator iterador;
-		bool descripcion = false;
-		vector<conjunto::entrada>::const_iterator i = vc.end();
-
-		while(!descripcion && i != vc.begin()){
-					
-			if((*i).getDescr() == vc.end()){
-				descripcion = true;
-			}
-			else{
-				i--;
-			}
-		}				
-  		iterador.c_d_itv = i;
-		iterador.ptr =this;
-  		return iterador;
+		iterador.c_d_itv = vc.end();
+		iterador.ptr=this;
+	        return iterador;
 	}
 
 	conjunto::const_descripcion_iterator::const_descripcion_iterator(){

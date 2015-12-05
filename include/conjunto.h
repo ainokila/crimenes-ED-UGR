@@ -454,7 +454,7 @@ class descripcion_iterator {
 	@post no modifica el diccionario
         */
     
-	 descripcion_iterator dbegin(const string & descr) const;
+	 descripcion_iterator dbegin(const string & descr);
 	/** @brief iterador al final
          @return Devuelve el iterador arresto a la  posición final del conjunto.
 	@post no modifica el diccionario
