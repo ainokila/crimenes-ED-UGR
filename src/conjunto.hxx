@@ -345,11 +345,11 @@
 
 //*********************************INICIO_DESCRIPCION_ITERATOR*************************
 
-conjunto::descripcion_iterator conjunto::dbegin(const string & descr) const{
+conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 
 		conjunto::descripcion_iterator iterador;
 		bool descripcion = false;
-		vector<conjunto::entrada>::iterator iterator = vc.begin();
+		vector<conjunto::entrada>::iterator i = vc.begin();
 
 		while(!descripcion && i != vc.end()){
 					
