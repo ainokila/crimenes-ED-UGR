@@ -384,10 +384,10 @@ conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 	}
 
 	conjunto::descripcion_iterator & conjunto::descripcion_iterator::operator++(){
-		do{
+		//do{
         		d_itv++;
 
-		}while ((*ptr).vc.end()!=d_itv && (*d_itv).getDescr()==this->getDescr());//ERROR ULTIMA COMPR
+		//}while ((*ptr).vc.end()!=d_itv && (*d_itv).getDescr()==(*ptr).dend());//ERROR ULTIMA COMPR
 
 		return *this;		
 		
@@ -402,10 +402,10 @@ conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 	}
 
 	conjunto::descripcion_iterator & conjunto::descripcion_iterator::operator--(){
-		do{
+		//do{
         		d_itv--;
 
-		}while ((*ptr).vc.begin()!=d_itv && (*d_itv).getDescr()==this->getDescr());////ERROR ULTIMA COMPR
+		//}while ((*ptr).vc.begin()!=d_itv && (*d_itv).getDescr()==(*ptr).dbegin(d_itv));////ERROR ULTIMA COMPR
 		return *this;
 	}
 
@@ -476,9 +476,9 @@ conjunto::const_descripcion_iterator conjunto::cdbegin(const string & descr) con
 	}
 
 	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator++(){	
-		do{
+		//do{
         	c_d_itv++;
-       		}while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==this->getDescr());//ERROR ULTIMA COMPR
+       		//}while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==(*ptr).cdbegin(d_itv));//ERROR ULTIMA COMPR
 
 		return *this;
 	}
@@ -490,9 +490,9 @@ conjunto::const_descripcion_iterator conjunto::cdbegin(const string & descr) con
 	}
 	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator--(){	
 	
-		do{
+		//do{
         		c_d_itv--;
-       		}while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==this->getDescr());//ERROR ULTIMA COMPR
+       		//}while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==(*ptr).cdbegin(d_itv));//ERROR ULTIMA COMPR
 		return *this;
 	}
 
