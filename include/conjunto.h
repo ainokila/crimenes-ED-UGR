@@ -550,22 +550,53 @@ class descripcion_iterator {
           */
 		  descripcion_iterator();
 
-			/** @brief Post decremento -- , it--
+			/** @brief Constructor con parametros
          		@param it ,descripcion_iterator
         	*/
 		  descripcion_iterator(const descripcion_iterator & it);
 
-			/** @brief Post decremento -- , it--
-         		@param it ,descripcion_iterator
+			/** @brief Constructor con parametros
+         		@param n , vector<conjunto::entrada>::iterator
         	*/
 		  descripcion_iterator(const vector<conjunto::entrada>::iterator n);
 		    
+			/** @brief Devuelve el valor actual del iterador 
+         		@return conjunto::entrada
+        	*/
 		  const conjunto::entrada & operator*() const;
+
+			/** @brief Pre incremento ++ , ++it
+                @return Devuelve el descripcion_iterator
+		      @post Incrementa el iterador despues de devolverlo
+        	  */
 		  descripcion_iterator operator++( int );
+
+			/** @brief Post incremento ++ , it++
+                @return Devuelve el descripcion_iterator
+		      @post Incrementa el iterador antes de devolverlo
+        	  */
 		  descripcion_iterator & operator++();
+
+			/** @brief Pre decremento -- , --it
+                @return Devuelve el descripcion_iterator
+		      @post Decrementa el iterador despues de devolverlo
+        	  */
 	 	  descripcion_iterator operator--(int);
+
+			/** @brief Post decremento -- , it--
+                @return Devuelve el descripcion_iterator
+		      @post Decrementa el iterador antes de devolverlo
+        	  */
 		  descripcion_iterator & operator--();
+
+			/** @brief Sobrecarga operator == de clase conjunto::descripcion_iterator
+        	   @return true , si son iguales , false , si son distintos
+                   */
 		  bool operator==(const descripcion_iterator & it);
+
+			/** @brief Sobrecarga operator == de clase conjunto::descripcion_iterator
+        	   @return false , si son iguales , true , si son distintos
+                   */
 		  bool operator!=(const descripcion_iterator & it);
 		
 		private:
@@ -595,18 +626,62 @@ class descripcion_iterator {
 
 class const_descripcion_iterator {
 		public:
+
+			/** @brief COnstructor por defecto
+          */
 		  const_descripcion_iterator();
+
+			/** @brief Constructor por parametros
+         		@param it ,const_descripcion_iterator
+        	*/
 		  const_descripcion_iterator(const const_descripcion_iterator & it);
+		
+			/** @brief Constructor con parametros
+         		@param n , vector<conjunto::entrada>::iterator
+        	*/
 		  const_descripcion_iterator(const vector<conjunto::entrada>::const_iterator n);
+
 		      /** @brief Convierte iterator en const_iterator
 		      */
 		  const_descripcion_iterator(const descripcion_iterator & it);
+
+			/** @brief Devuelve el valor actual del iterador 
+         		@return conjunto::entrada
+        	*/
 		  const conjunto::entrada & operator*() const;
+
+			/** @brief Pre incremento ++ , ++it
+                @return Devuelve el const_descripcion_iterator
+		      @post Incrementa el iterador despues de devolverlo
+        	  */
 		  const_descripcion_iterator operator++( int );
+
+			/** @brief Post incremento ++ , it++
+                @return Devuelve el const_descripcion_iterator
+		      @post Incrementa el iterador antes de devolverlo
+        	  */
 		  const_descripcion_iterator & operator++();
+
+			/** @brief Pre decremento -- , --it
+                @return Devuelve el const_descripcion_iterator
+		      @post Decrementa el iterador despues de devolverlo
+        	  */
 	 	  const_descripcion_iterator operator--(int);
+
+			/** @brief Post decremento -- , it--
+                @return Devuelve el const_descripcion_iterator
+		      @post Decrementa el iterador antes de devolverlo
+        	  */
 		  const_descripcion_iterator & operator--();
+
+			/** @brief Sobrecarga operator == de clase conjunto::const_descripcion_iterator
+        	   @return true , si son iguales , false , si son distintos
+                   */
 		  bool operator==(const const_descripcion_iterator & it);
+
+			/** @brief Sobrecarga operator == de clase conjunto::const_descripcion_iterator
+        	   @return false , si son iguales , true , si son distintos
+                   */
 		  bool operator!=(const const_descripcion_iterator & it);
 		private:
 		 

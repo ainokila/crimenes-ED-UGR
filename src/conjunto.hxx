@@ -387,7 +387,7 @@ conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 		do{
         		d_itv++;
 
-		}while ((*ptr).vc.end()!=d_itv && (*d_itv).getDescr()==this);//ERROR ULTIMA COMPR
+		}while ((*ptr).vc.end()!=d_itv && (*d_itv).getDescr()==this->getDescr());//ERROR ULTIMA COMPR
 
 		return *this;		
 		
@@ -405,7 +405,7 @@ conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 		do{
         		d_itv--;
 
-		}while ((*ptr).vc.begin()!=d_itv && (*d_itv).getDescr()==this);////ERROR ULTIMA COMPR
+		}while ((*ptr).vc.begin()!=d_itv && (*d_itv).getDescr()==this->getDescr());////ERROR ULTIMA COMPR
 		return *this;
 	}
 
