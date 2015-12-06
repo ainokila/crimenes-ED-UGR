@@ -429,8 +429,18 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 //*********************************INICIO_DESCRIPCION_ITERATOR*************************
 class descripcion_iterator {
 		public:
+		  /** @brief COnstructor por defecto
+          */
 		  descripcion_iterator();
+
+			/** @brief Post decremento -- , it--
+         		@param it ,descripcion_iterator
+        	*/
 		  descripcion_iterator(const descripcion_iterator & it);
+
+			/** @brief Post decremento -- , it--
+         		@param it ,descripcion_iterator
+        	*/
 		  descripcion_iterator(const vector<conjunto::entrada>::iterator n);
 		    
 		  const conjunto::entrada & operator*() const;
