@@ -384,12 +384,13 @@ conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 	}
 
 	conjunto::descripcion_iterator & conjunto::descripcion_iterator::operator++(){
-		//while ((*ptr).vc.end()!=d_itv && (*d_itv).getDescr()==false){
+		do{
         		d_itv++;
 
-		//}
+		}while ((*ptr).vc.end()!=d_itv && (*d_itv).getDescr()==this->getDescr());//ERROR ULTIMA COMPR
 
-		return *this;
+		return *this;		
+		
 	 }
 
 	conjunto::descripcion_iterator conjunto::descripcion_iterator::operator--( int ){
@@ -401,10 +402,10 @@ conjunto::descripcion_iterator conjunto::dbegin(const string & descr){
 	}
 
 	conjunto::descripcion_iterator & conjunto::descripcion_iterator::operator--(){
-		//while ((*ptr).vc.begin()!=d_itv && (*d_itv).getDescr()==false){
+		do{
         		d_itv--;
 
-		//}
+		}while ((*ptr).vc.begin()!=d_itv && (*d_itv).getDescr()==this->getDescr());////ERROR ULTIMA COMPR
 		return *this;
 	}
 
@@ -474,10 +475,10 @@ conjunto::const_descripcion_iterator conjunto::cdbegin(const string & descr) con
 			
 	}
 
-	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator++(){
-		//while ((*ptr).vc.end()!=c_d_itv && (*c_d_itv).getDescr()==false){
+	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator++(){	
+		do{
         	c_d_itv++;
-       		//}
+       		}while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==this->getDescr());//ERROR ULTIMA COMPR
 
 		return *this;
 	}
@@ -487,10 +488,11 @@ conjunto::const_descripcion_iterator conjunto::cdbegin(const string & descr) con
 		--(*this);
 		return copia;
 	}
-	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator--(){
-		//while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==false){
+	conjunto::const_descripcion_iterator & conjunto::const_descripcion_iterator::operator--(){	
+	
+		do{
         		c_d_itv--;
-       		//}
+       		}while ((*ptr).vc.begin()!=c_d_itv && (*c_d_itv).getDescr()==this->getDescr());//ERROR ULTIMA COMPR
 		return *this;
 	}
 
