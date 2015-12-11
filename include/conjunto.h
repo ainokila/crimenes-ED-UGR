@@ -43,19 +43,18 @@ public:
 	class arrest_iterator;
 	class const_arrest_iterator;
 	
-	template <typename T> 
+	
 	class fechaCreciente {
 	public:
-	  bool operator()(const T & a, const T &  b){
+	  bool operator()(const entrada & a, const entrada &  b){
 	    return a.getDate() > b.getDate();
 	   }
 	    
 	};
 	
-	template <typename T> 
 	class fechaDecreciente {
 	public:
-	  bool operator()(const T & a, const T &  b){
+	  bool operator()(const entrada & a, const entrada &  b){
 	    return (a.getDate() < b.getDate());
 	   }
 	    
