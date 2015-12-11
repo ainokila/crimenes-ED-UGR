@@ -32,7 +32,7 @@ using namespace std;
 
 
 
-template <typename CMP> //Dudas , pero seguro que va aqui 
+template <typename CMP> 
 class conjunto{
   
 public:
@@ -727,6 +727,8 @@ class const_descripcion_iterator {
 //*********************************FIN_CONST_DESCRIPCION_ITERATOR*************************
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
+ CMP comp;
+ 
  friend class iterator;
  friend class arrest_iterator;
  friend class const_arrest_iterator;
