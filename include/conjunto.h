@@ -42,6 +42,24 @@ public:
 	class const_iterator;
 	class arrest_iterator;
 	class const_arrest_iterator;
+	
+	template <typename T> 
+	class fechaCreciente {
+	public:
+	  bool operator()(const T & a, const T &  b){
+	    return a.getDate() > b.getDate();
+	   }
+	    
+	};
+	
+	template <typename T> 
+	class fechaDecreciente {
+	public:
+	  bool operator()(const T & a, const T &  b){
+	    return (a.getDate() < b.getDate());
+	   }
+	    
+	};
 
 	/** @brief constructor primitivo. 
 	@post define la entrada nula como el par ("",-1)
