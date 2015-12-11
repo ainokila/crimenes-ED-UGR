@@ -32,7 +32,7 @@ using namespace std;
 
 
 
-
+template <typename CMP> //Dudas , pero seguro que va aqui 
 class conjunto{
   
 public:
