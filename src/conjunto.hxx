@@ -5,60 +5,60 @@
 // ================================= ITERADORCONJUNTO ========================================/
 
 
-	conjunto::iterator conjunto::begin(){
+	conjunto<CMP>::iterator conjunto<CMP>::begin(){
 		iterator iterador;
   		iterador.itv=vc.begin();
   		return iterador;
 	}
 
-	conjunto::iterator conjunto::end(){
+	conjunto<CMP>::iterator conjunto<CMP>::end(){
 		iterator iterador;
   		iterador.itv=vc.end();
   		return iterador;
 	}
 
-	conjunto::iterator::iterator(){
+	conjunto<CMP>::iterator::iterator(){
 		
 	}
-	conjunto::iterator::iterator(const conjunto::iterator & it){
+	conjunto<CMP>::iterator::iterator(const conjunto<CMP>::iterator & it){
 		itv = it.itv;
 	}
-	conjunto::iterator::iterator(const vector<conjunto::entrada>::iterator n){
+	conjunto<CMP>::iterator::iterator(const vector<conjunto<CMP>::entrada>::iterator n){
 		itv=n;
 	}
 		   
-	const conjunto::entrada & conjunto::iterator::operator*() const{
+	const conjunto<CMP>::entrada & conjunto<CMP>::iterator::operator*() const{
 			return *itv;
 	}
 		   
 		   
-	conjunto::iterator conjunto::iterator::operator++( int ){
+	conjunto<CMP>::iterator conjunto<CMP>::iterator::operator++( int ){
 		//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
-			conjunto::iterator copia(itv);
+			conjunto<CMP>::iterator copia(itv);
 			++itv;
 			return copia;
 			
 	}
-	conjunto::iterator & conjunto::iterator::operator++(){
+	conjunto<CMP>::iterator & conjunto<CMP>::iterator::operator++(){
 			itv++;
 			return *this;
 	}
-	conjunto::iterator conjunto::iterator::operator--(int){
+	conjunto<CMP>::iterator conjunto<CMP>::iterator::operator--(int){
 		//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
-			conjunto::iterator copia(itv);
+			conjunto<CMP>::iterator copia(itv);
 			--itv;
 			return copia;
 	}			
 			
-	conjunto::iterator & conjunto::iterator::operator--(){
+	conjunto<CMP>::iterator & conjunto<CMP>::iterator::operator--(){
 			itv--;
 			return *this;
 		   
 	}
-	bool conjunto::iterator::operator==(const iterator & it){
+	bool conjunto<CMP>::iterator::operator==(const iterator & it){
 			return it.itv==itv;
 	}
-	bool conjunto::iterator::operator!=(const iterator & it){
+	bool conjunto<CMP>::iterator::operator!=(const iterator & it){
 			return it.itv!=itv;
 	}
 
@@ -76,11 +76,11 @@
 
 
   
-    	conjunto::arrest_iterator conjunto::abegin(){
+    conjunto<CMP>::arrest_iterator conjunto<CMP>::abegin(){
 
-		conjunto::arrest_iterator iterador;
+		conjunto<CMP>::arrest_iterator iterador;
 		bool arresto = false;
-		vector<conjunto::entrada>::iterator i = vc.begin();
+		vector<conjunto<CMP>::entrada>::iterator i = vc.begin();
 
 		while(!arresto && i != vc.end()){
 					
@@ -96,38 +96,38 @@
   		return iterador;
 	}
 	
-	conjunto::arrest_iterator conjunto::aend(){
-		conjunto::arrest_iterator iterador;
+	conjunto<CMP>::arrest_iterator conjunto<CMP>::aend(){
+		conjunto<CMP>::arrest_iterator iterador;
 		iterador.a_itv = vc.end();
 		iterador.ptr =this;
 	        return iterador;
 	}
 
-	conjunto::arrest_iterator::arrest_iterator(){
+	conjunto<CMP>::arrest_iterator::arrest_iterator(){
 	}
 
-	conjunto::arrest_iterator::arrest_iterator(const conjunto::arrest_iterator & it){
+	conjunto<CMP>::arrest_iterator::arrest_iterator(const conjunto<CMP>::arrest_iterator & it){
 		a_itv = it.a_itv;
 	}	
 
-	conjunto::arrest_iterator::arrest_iterator(const vector<conjunto::entrada>::iterator n){
+	conjunto<CMP>::arrest_iterator::arrest_iterator(const vector<conjunto<CMP>::entrada>::iterator n){
 		a_itv = n;
 	}		
 
-	const conjunto::entrada & conjunto::arrest_iterator::operator*() const{
+	const conjunto<CMP>::entrada & conjunto<CMP>::arrest_iterator::operator*() const{
 		return *a_itv;
 	}
 
-	conjunto::arrest_iterator conjunto::arrest_iterator::operator++( int ){
+	conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator++( int ){
 	
 	
-		conjunto::arrest_iterator copia(a_itv);
+		conjunto<CMP>::arrest_iterator copia(a_itv);
 		++(*this);		
 		return copia;
 			
 	}
 
-	conjunto::arrest_iterator & conjunto::arrest_iterator::operator++(){
+	conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator++(){
 		do{
         		a_itv++;
 
@@ -136,15 +136,15 @@
 		return *this;
 	 }
 
-	conjunto::arrest_iterator conjunto::arrest_iterator::operator--( int ){
+	conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator--( int ){
 	
-		conjunto::arrest_iterator copia(a_itv);
+		conjunto<CMP>::arrest_iterator copia(a_itv);
 		--(*this);
 		return copia;
 			
 	}
 
-	conjunto::arrest_iterator & conjunto::arrest_iterator::operator--(){
+	conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator--(){
 		do{
         		a_itv--;
 
@@ -152,11 +152,11 @@
 		return *this;
 	}
 
-	bool conjunto::arrest_iterator::operator==(const conjunto::arrest_iterator & it){
+	bool conjunto<CMP>::arrest_iterator::operator==(const conjunto<CMP>::arrest_iterator & it){
 			return it.a_itv==a_itv;
 	}
 
-	bool conjunto::arrest_iterator::operator!=(const conjunto::arrest_iterator & it){
+	bool conjunto<CMP>::arrest_iterator::operator!=(const conjunto<CMP>::arrest_iterator & it){
 			return it.a_itv!=a_itv;
 	}
 	
@@ -170,13 +170,13 @@
 
 //Constructor por defecto
 
-conjunto::conjunto(){
+conjunto<CMP>::conjunto(){
 }
 
 	
 //Constructor de copia
 	
-conjunto::conjunto (const conjunto & d){
+conjunto<CMP>::conjunto(const conjunto<CMP> & d){
 
 	
 	this->vc = d.vc;
@@ -185,9 +185,9 @@ conjunto::conjunto (const conjunto & d){
 
 
 
-pair<conjunto::entrada,bool>  conjunto::findID( const long int & id) const{
+pair<conjunto<CMP>::entrada,bool>  conjunto<CMP>::findID( const long int & id) const{
 
-	pair<conjunto::entrada, bool> solucion;
+	pair<conjunto<CMP>::entrada, bool> solucion;
 	solucion.second = false;
 			unsigned int aux = id;
 
@@ -202,10 +202,10 @@ pair<conjunto::entrada,bool>  conjunto::findID( const long int & id) const{
 return solucion;
 }
 	
-conjunto conjunto::findIUCR( const string & iucr) const{
+conjunto<CMP> conjunto<CMP>::findIUCR( const string & iucr) const{
 			
 		
-	conjunto solucion;
+	conjunto<CMP> solucion;
 	
 	for(size_t i =0;  i<vc.size() ; i++){
 		if(vc[i].getIUCR() == iucr){
@@ -223,9 +223,9 @@ return solucion;
 }
 
 
-conjunto conjunto::findDESCR( const string & descr) const{
+conjunto<CMP> conjunto<CMP>::findDESCR( const string & descr) const{
 
-	conjunto solucion;
+	conjunto<CMP> solucion;
 
 	for(size_t i =0;  i<vc.size()  ; i++){
 		if(vc[i].getDescr() == descr){
@@ -239,7 +239,7 @@ conjunto conjunto::findDESCR( const string & descr) const{
 
 return solucion;
 }
-int conjunto::busquedaBinaria(const long int & e)const{
+int conjunto<CMP>::busquedaBinaria(const long int & e)const{
 		int primero = 0 ;
 			int ultimo = vc.size()-1;
 
@@ -258,7 +258,7 @@ int conjunto::busquedaBinaria(const long int & e)const{
 			
 return primero;
 }
-bool conjunto::insert( const conjunto::entrada & e){
+bool conjunto<CMP>::insert( const conjunto<CMP>::entrada & e){
 		
 		bool solucion = true;
 		if(empty()){
@@ -277,11 +277,11 @@ bool conjunto::insert( const conjunto::entrada & e){
 return solucion;
 }			
 
-bool conjunto::erase(const long int & id){
+bool conjunto<CMP>::erase(const long int & id){
 	
 	bool solucion = false;
 	
-	for (vector<conjunto::entrada>::iterator it = vc.begin() ; it != vc.end(); it++){
+	for (vector<conjunto<CMP>::entrada>::iterator it = vc.begin() ; it != vc.end(); it++){
 		if(it->getID() == id){
 			solucion = true;
 			vc.erase(it);
@@ -293,11 +293,11 @@ return solucion;
 
 }
 
-bool conjunto::erase(const  conjunto::entrada & e){
+bool conjunto<CMP>::erase(const  conjunto<CMP>::entrada & e){
 
 		bool solucion = false;
 	
-	for (vector<conjunto::entrada>::iterator it = vc.begin() ; it != vc.end(); it++){
+	for (vector<conjunto<CMP>::entrada>::iterator it = vc.begin() ; it != vc.end(); it++){
 		if(it->getID() == e.getID()){
 			solucion = true;
 			vc.erase(it);
@@ -307,7 +307,7 @@ bool conjunto::erase(const  conjunto::entrada & e){
 return solucion;  
 }
 
-conjunto & conjunto::operator=( const conjunto & org){
+conjunto<CMP> & conjunto<CMP>::operator=( const conjunto<CMP> & org){
 
 		
 		this->vc = org.vc;
@@ -315,12 +315,12 @@ conjunto & conjunto::operator=( const conjunto & org){
 return *this;
 }
 
-conjunto::size_type conjunto::size() const {
+conjunto<CMP>::size_type conjunto<CMP>::size() const {
 	
 return vc.size();
 }
 
-bool conjunto::empty() const{
+bool conjunto<CMP>::empty() const{
 	bool solucion = false;
 		if (vc.size() == 0){
 				solucion = true;
@@ -329,7 +329,7 @@ return solucion;
 
 }
 
-bool conjunto::cheq_rep( ) const{
+bool conjunto<CMP>::cheq_rep( ) const{
 
   bool solucion=true;
  
@@ -347,7 +347,7 @@ return solucion;
 }
 
 
-ostream& operator << ( ostream &sal, const conjunto & D){
+ostream& operator << ( ostream &sal, const conjunto<CMP> & D){
 
 		if(D.empty()){
 			sal << "Conjunto vacio." ;

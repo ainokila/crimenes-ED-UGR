@@ -32,16 +32,14 @@ using namespace std;
 
 
 
-//template <typename CMP> 
+template <typename CMP> 
 class conjunto{
   
 public:
 	typedef crimen entrada;
 	typedef unsigned int size_type;
 	class iterator; //declaraciones previa
-	class const_iterator;
 	class arrest_iterator;
-	class const_arrest_iterator;
 	
 	
 	class fechaCreciente {
@@ -371,7 +369,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
- //CMP comp;
+ CMP comp;
  
  friend class iterator;
  friend class arrest_iterator;
