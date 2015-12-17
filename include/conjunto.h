@@ -405,6 +405,7 @@ private:
 @post  No se modifica el conjunto.
 @todo implementar esta funcion
 	*/
+template <typename CMP>
 ostream &  operator << (ostream & sal, const conjunto & D);
 
 	

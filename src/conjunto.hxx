@@ -5,14 +5,14 @@
 // ================================= ITERADORCONJUNTO ========================================/
 
 	template <typename CMP> 
-	conjunto<CMP>::iterator conjunto<CMP>::begin(){
+	typename conjunto<CMP>::iterator conjunto<CMP>::begin(){
 		iterator iterador;
   		iterador.itv=vc.begin();
   		return iterador;
 	}
 
 	template <typename CMP> 
-	conjunto<CMP>::iterator conjunto<CMP>::end(){
+	typename conjunto<CMP>::iterator conjunto<CMP>::end(){
 		iterator iterador;
   		iterador.itv=vc.end();
   		return iterador;
@@ -32,12 +32,12 @@
 	}
 		
 	template <typename CMP>    
-	const conjunto<CMP>::entrada & conjunto<CMP>::iterator::operator*() const{
+	typename const conjunto<CMP>::entrada & conjunto<CMP>::iterator::operator*() const{
 			return *itv;
 	}
 		   
 	template <typename CMP>    
-	conjunto<CMP>::iterator conjunto<CMP>::iterator::operator++( int ){
+	typename conjunto<CMP>::iterator conjunto<CMP>::iterator::operator++( int ){
 		//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
 			conjunto<CMP>::iterator copia(itv);
 			++itv;
@@ -46,13 +46,13 @@
 	}
 
 	template <typename CMP> 
-	conjunto<CMP>::iterator & conjunto<CMP>::iterator::operator++(){
+	typename conjunto<CMP>::iterator & conjunto<CMP>::iterator::operator++(){
 			itv++;
 			return *this;
 	}
 
 	template <typename CMP> 
-	conjunto<CMP>::iterator conjunto<CMP>::iterator::operator--(int){
+	typename conjunto<CMP>::iterator conjunto<CMP>::iterator::operator--(int){
 		//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
 			conjunto<CMP>::iterator copia(itv);
 			--itv;
@@ -60,7 +60,7 @@
 	}	
 		
 	template <typename CMP> 	
-	conjunto<CMP>::iterator & conjunto<CMP>::iterator::operator--(){
+	typename conjunto<CMP>::iterator & conjunto<CMP>::iterator::operator--(){
 			itv--;
 			return *this;
 		   
@@ -70,6 +70,8 @@
 	bool conjunto<CMP>::iterator::operator==(const iterator & it){
 			return it.itv==itv;
 	}
+	
+	template <typename CMP>
 	bool conjunto<CMP>::iterator::operator!=(const iterator & it){
 			return it.itv!=itv;
 	}
@@ -248,7 +250,7 @@ return solucion;
 }
 
 template <typename CMP> 
-conjunto<CMP> conjunto<CMP>::findDESCR( const string & descr) const{
+typename conjunto<CMP> conjunto<CMP>::findDESCR( const string & descr) const{
 
 	conjunto<CMP> solucion;
 
@@ -348,7 +350,7 @@ return *this;
 }
 
 template <typename CMP> 
-conjunto<CMP>::size_type conjunto<CMP>::size() const {
+typename conjunto<CMP>::size_type conjunto<CMP>::size() const {
 	
 return vc.size();
 }
