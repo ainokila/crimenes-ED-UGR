@@ -41,21 +41,12 @@ public:
 	class iterator; //declaraciones previa
 	class arrest_iterator;
 	
-	
-	class fechaCreciente {
-	public:
-	  bool operator()(const entrada & a, const entrada &  b){
-	    return a.getDate() > b.getDate();
-	   }
-	    
-	};
-	
-	class fechaDecreciente {
-	public:
-	  bool operator()(const entrada & a, const entrada &  b){
-	    return (a.getDate() < b.getDate());
-	   }
-	    
+	/** @brief Class CrecienteIUCR
+	 *  operator()
+	 * */
+	class CrecienteIUCR {
+ 		public:
+   		bool operator()(const crimen &a, const crimen &b);
 	};
 
 	/** @brief constructor primitivo. 
