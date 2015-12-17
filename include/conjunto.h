@@ -253,106 +253,94 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 
 
-//*********************************INICIO_ARRESTO_ITERATOR*************************
+//*********************************INICIO_CONST_ITERATOR*************************
+	
+ 	
 
-/** @brief class arrest_iterator
-	 * forward iterador de arrestos sobre el diccionario, Lectura 
-	 *  arrest_iterator ,operator*, operator++, operator++(int) operator=, operator==, operator!=
+	/** @brief class const_iterator
+	 * forward iterador constante sobre el diccionario, Lectura 
+	 *  const_iterator ,operator*, operator++, operator++(int) operator=, operator==, operator!=
 	 * */
-	class arrest_iterator {
+	class const_iterator {
 		public:
 
-	 /** @brief Constructor por defecto de arrest_iterator
-		   */
+		  /** @brief Constructor por defecto de const_iterator
+		   */	
+		  const_iterator();
 
-		  arrest_iterator();
-
-	 /** @brief Constructor de Copia
-		      @param it , tipo arrest_iterator
+		  /** @brief Constructor de Copia
+		      @param it , tipo const_iterator
 		  */
+		  const_iterator(const const_iterator & it);
 
-		  arrest_iterator(const arrest_iterator & it);
-
-	/** @brief Constructor con parametro iterator tipo vector<entrada>::iterator
-	              @param n ,iterator tipo vector<entrada>
+		  /** @brief Constructor con parametro iterator tipo vecto<entrada>::const_iterator
+	              @param n ,const_iterator tipo vecto<entrada>
 		  */
+		  const_iterator(const vector<conjunto::entrada>::const_iterator n);
 
-		  arrest_iterator(const vector<conjunto::entrada>::iterator n);
-		
-      /** @brief Devuelve el valor del iterador actual
+		  /** @brief Convierte iterator en const_iterator
+		  */
+		  const_iterator(const iterator & it);
+
+		  /** @brief Devuelve el valor del iterador actual
                       @return conjunto::entrada , valor actual del iterator
                   */	
-
 		  const conjunto::entrada & operator*() const;
 
-	  /** @brief Pre incremento ++ , ++it
-         	      @return Devuelve el arrest_iterator
+		  /** @brief Pre incremento ++ , ++it
+         	      @return Devuelve el const_iterador
 	              @post Incrementa el iterador despues de devolverlo
         	  */
-	
-		  arrest_iterator operator++( int );
+		  const_iterator operator++( int );
 
-	  /** @brief Post incremento ++ , it++
-                      @return Devuelve el arrest_iterator
+		  /** @brief Post incremento ++ , it++
+                      @return Devuelve el const_iterador
 		      @post Incrementa el iterador para devolverlo
         	  */
+		  const_iterator & operator++();
 
-		  arrest_iterator & operator++();
-	
-	/** @brief Pre decremento -- , --it
-         	      @return Devuelve el arrest_iterator
+		  /** @brief Pre decremento -- , --it
+         	      @return Devuelve el const_iterador
 	              @post Decrementa el iterador despues de devolverlo
         	  */
-
-         	  arrest_iterator operator--(int);
-
-	/** @brief Post decremento -- , it--
-                      @return Devuelve el arrest_iterator
-		      @post Decrementa el iterador para devolverlo
+	 	  const_iterator operator--(int);
+		
+		 /** @brief Post decremento -- , it--
+                      @return Devuelve el const_iterador decrementado
+		      @post Decrementa iterator
         	  */
+		  const_iterator & operator--();
 
-		  arrest_iterator & operator--();
-
-	  /** @brief Sobrecarga operator == de clase conjunto::arrest_iterator
+		  /** @brief Sobrecarga operator == de clase conjunto::const_iterator
         	   @return true , si son iguales , false , si son distintos
                    */
+		  bool operator==(const const_iterator & it);
 
-		  bool operator==(const arrest_iterator & it);
-
-	/** @brief Sobrecarga operator == de clase conjunto::arrest_iterator
+		  /** @brief Sobrecarga operator == de clase conjunto::const_iterator
         	   @return false, si son iguales , true , si son distintos
                   */
-
-		  bool operator!=(const arrest_iterator & it);
-		
+		  bool operator!=(const const_iterator & it);
 		private:
 		 
-		  vector<entrada>::iterator a_itv;
+		  vector<entrada>::const_iterator c_itv;
 		  friend class conjunto;
-
-	/**
-		@brief ptr puntero al propio conjunto para permitirme realizar
-		operaciones auxiliares necesarias en este iterador
-		*/
-
-		  const conjunto * ptr; 
 	  
 	};
-	/** @brief  
-		 @return Devuelve el arrest_iterator a la primera posición del conjunto.
-		@post no modifica el diccionario
-		*/
-    
-		  arrest_iterator abegin() ;
 
-	/** @brief iterador al final
-         @return Devuelve el iterador arresto a la  posición final del conjunto.
+	/** @brief  
+         @return Devuelve el const_iterator a la primera posición del conjunto.
 	@post no modifica el diccionario
         */
+	 const_iterator cbegin() const;
 
-		  arrest_iterator aend();
+	/** @brief iterador al final
+         @return Devuelve el iterador constante a la  posición final del conjunto.
+	@post no modifica el diccionario
+        */
+	const_iterator cend() const;
 
-//*********************************FIN_ARRESTO_ITERATOR*************************
+	
+//*********************************FIN_CONST_ITERATOR*************************
 
 
 

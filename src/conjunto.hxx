@@ -95,108 +95,86 @@
 
 
 
-// ================================= INICIO-ARREST_ITERADOR ========================================/
-
-
-
-  	template <typename CMP> 
-    typename conjunto<CMP>::arrest_iterator conjunto<CMP>::abegin(){
-
-		conjunto<CMP>::arrest_iterator iterador;
-		bool arresto = false;
-		vector<conjunto<CMP>::entrada>::iterator i = vc.begin();
-
-		while(!arresto && i != vc.end()){
-					
-			if((*i).getArrest() == true){
-				arresto = true;
-			}
-			else{
-				i++;
-			}
-		}				
-  		iterador.a_itv = i;
-		iterador.ptr =this;
+// ================================= CONST__ITERADORCONJUNTO ========================================/
+	template <typename CMP>
+	typename conjunto<CMP>::const_iterator conjunto<CMP>::cbegin()const{
+		const_iterator iterador;
+  		iterador.c_itv=vc.begin();
   		return iterador;
 	}
-	
-	template <typename CMP> 
-	typename conjunto<CMP>::arrest_iterator conjunto<CMP>::aend(){
-		conjunto<CMP>::arrest_iterator iterador;
-		iterador.a_itv = vc.end();
-		iterador.ptr =this;
-	        return iterador;
+
+	template <typename CMP>
+	typename conjunto<CMP>::const_iterator conjunto<CMP>::cend()const{
+		const_iterator iterador;
+  		iterador.c_itv=vc.end();
+  		return iterador;
 	}
 
-	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator::arrest_iterator(){
+	template <typename CMP>
+	conjunto<CMP>::const_iterator::const_iterator(){
+		
 	}
 
-	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator::arrest_iterator(const conjunto<CMP>::arrest_iterator & it){
-		a_itv = it.a_itv;
-	}	
-
-	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator::arrest_iterator(const vector<conjunto<CMP>::entrada>::iterator n){
-		a_itv = n;
-	}		
-
-	template <typename CMP> 
-	const typename conjunto<CMP>::entrada & conjunto<CMP>::arrest_iterator::operator*() const{
-		return *a_itv;
+	template <typename CMP>
+	conjunto<CMP>::const_iterator::const_iterator(const vector<conjunto::entrada>::const_iterator n){
+		c_itv=n;
 	}
 
-	template <typename CMP> 
-	typename conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator++( int ){
-	
-	
-		conjunto<CMP>::arrest_iterator copia(a_itv);
-		++(*this);		
-		return copia;
+	template <typename CMP>
+	conjunto<CMP>::const_iterator::const_iterator(const conjunto::const_iterator & it){
+		c_itv = it.c_itv;
+	}
+
+	template <typename CMP>   
+	const typename conjunto<CMP>::entrada & conjunto<CMP>::const_iterator::operator*() const{
+			return *c_itv;
+	}
+		   
+	template <typename CMP>	   
+	typename conjunto<CMP>::const_iterator conjunto<CMP>::const_iterator::operator++( int ){
+		//Aquí hay que hacer una copia e incrementar el iterador, pero devolver la copia, porque es el operador de Pre-incremento.
+			conjunto::const_iterator copia(c_itv);
+			++c_itv;
+			return copia;
 			
 	}
-
-	template <typename CMP> 
-	typename conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator++(){
-		do{
-        		a_itv++;
-
-		}while ((*ptr).vc.end()!=a_itv && (*a_itv).getArrest()==false);
-
-		return *this;
-	 }
-
-	template <typename CMP> 
-	typename conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator--( int ){
 	
-		conjunto<CMP>::arrest_iterator copia(a_itv);
-		--(*this);
-		return copia;
-			
+	template <typename CMP>
+	typename conjunto<CMP>::const_iterator & conjunto<CMP>::const_iterator::operator++(){
+			c_itv++;
+			return *this;
 	}
 
-	template <typename CMP> 
-	typename conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator--(){
-		do{
-        		a_itv--;
-
-		}while ((*ptr).vc.begin()!=a_itv && (*a_itv).getArrest()==false);
-		return *this;
+	template <typename CMP>
+	typename conjunto<CMP>::const_iterator conjunto<CMP>::const_iterator::operator--(int){
+		//Aquí hay que hacer una copia e decrementar el iterador, pero devolver la copia, porque es el operador de Pre-decremento.
+			conjunto::const_iterator copia(c_itv);
+			--c_itv;
+			return copia;
+	}			
+		
+	template <typename CMP>	
+	typename conjunto<CMP>::const_iterator & conjunto<CMP>::const_iterator::operator--(){
+			c_itv--;
+			return *this;
+		   
 	}
 
-	template <typename CMP> 
-	bool conjunto<CMP>::arrest_iterator::operator==(const conjunto<CMP>::arrest_iterator & it){
-			return it.a_itv==a_itv;
+	template <typename CMP>
+	bool conjunto<CMP>::const_iterator::operator==(const const_iterator & it){
+			return it.c_itv==c_itv;
 	}
 
-	template <typename CMP> 
-	bool conjunto<CMP>::arrest_iterator::operator!=(const conjunto<CMP>::arrest_iterator & it){
-			return it.a_itv!=a_itv;
+	template <typename CMP>
+	bool conjunto<CMP>::const_iterator::operator!=(const const_iterator & it){
+			return it.c_itv!=c_itv;
 	}
-	
-//*********************************FIN_ARRESTO_ITERATOR*************************
 
+
+
+
+
+// ================================= FIN-CONST__ITERADORCONJUNTO ========================================/
 
 
 
