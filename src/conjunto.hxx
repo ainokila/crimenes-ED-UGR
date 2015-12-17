@@ -250,7 +250,7 @@ return solucion;
 }
 
 template <typename CMP> 
-typename conjunto<CMP> conjunto<CMP>::findDESCR( const string & descr) const{
+conjunto<CMP> conjunto<CMP>::findDESCR( const string & descr) const{
 
 	conjunto<CMP> solucion;
 
