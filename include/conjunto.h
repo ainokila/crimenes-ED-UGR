@@ -46,7 +46,10 @@ public:
 	 * */
 	class CrecienteIUCR {
  		public:
-   		bool operator()(const crimen &a, const crimen &b);
+		/** @brief Comparador del funtor
+			@param a , tipo crimen
+		*/
+   		bool operator()(const entrada &a, const entrada &b);
 	};
 
 	/** @brief constructor primitivo. 

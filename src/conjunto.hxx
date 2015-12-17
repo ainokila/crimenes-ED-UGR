@@ -1,10 +1,10 @@
 #include "conjunto.h"
-//INICIO PRACTICA 3
+//INICIO PRACTICA 4
 
 // __________________________________IMPLEMENTACION CrecienteIUCR ____________________________________________
 
 		template <typename CMP> 
-   		bool conjunto<CMP>::CrecienteIUCR::operator()(const crimen &a, const crimen &b){
+   		bool conjunto<CMP>::CrecienteIUCR::operator()(const conjunto<CMP>::entrada &a, const conjunto<CMP>::entrada &b){
 				return (a.getIUCR()<b.getIUCR());
 		}
 	
