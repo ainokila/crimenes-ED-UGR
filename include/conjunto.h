@@ -395,7 +395,7 @@ private:
   bool cheq_rep( ) const;
   
 //  declaracion del operator<< como metodo amigo
-  friend ostream &  operator << ( ostream & sal, const conjunto & D);
+  friend ostream &  operator << ( ostream & sal, const conjunto<CMP> & D);
  
 
 };
@@ -406,7 +406,7 @@ private:
 @todo implementar esta funcion
 	*/
 template <typename CMP>
-ostream &  operator << (ostream & sal, const typename conjunto<CMP> & D);
+ostream &  operator << (ostream & sal, const conjunto<CMP> & D);
 
 	
 #include "../src/conjunto.hxx"

@@ -42,9 +42,9 @@ bool load(conjunto &  C, const string & s) {
   fe.close();
   return false;
  }
-
+*/
 int main()
-{
+{/*
     conjunto ChicagoDB;
     crimen d;
     fecha f;
