@@ -3,8 +3,8 @@
 
 // __________________________________IMPLEMENTACION CrecienteIUCR ____________________________________________
 
-		template <typename CMP> 
-   		bool conjunto<CMP>::CrecienteIUCR::operator()(const conjunto<CMP>::entrada &a, const conjunto<CMP>::entrada &b){
+		 
+   		bool CrecienteIUCR::operator()(const crimen &a, const crimen &b){
 				return (a.getIUCR()<b.getIUCR());
 		}
 	

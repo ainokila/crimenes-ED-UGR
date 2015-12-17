@@ -14,6 +14,19 @@
 
 using namespace std;
 
+	/** @brief Class CrecienteIUCR
+	 *  operator()
+	 * */
+	class CrecienteIUCR {
+ 		public:
+		/** @brief Comparador del funtor
+			@param a , tipo crimen
+			@param b , tipo crimen
+		*/
+   		bool operator()(const crimen &a, const crimen &b);
+	};
+
+
 
 //! Clase conjunto
  /*! conjunto:: conjunto, find, size,  
@@ -28,10 +41,6 @@ using namespace std;
  
  @todo Implementa esta clase, junto con su documentación asociada
  */
-
-
-
-
 template <typename CMP> 
 class conjunto{
   
@@ -41,16 +50,6 @@ public:
 	class iterator; //declaraciones previa
 	class arrest_iterator;
 	
-	/** @brief Class CrecienteIUCR
-	 *  operator()
-	 * */
-	class CrecienteIUCR {
- 		public:
-		/** @brief Comparador del funtor
-			@param a , tipo crimen
-		*/
-   		bool operator()(const entrada &a, const entrada &b);
-	};
 
 	/** @brief constructor primitivo. 
 	@post define la entrada nula como el par ("",-1)
