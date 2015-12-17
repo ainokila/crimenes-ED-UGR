@@ -12,7 +12,7 @@ using namespace std;
         @param[in,out] C conjunto sobre el que se lee
 	@return true si la lectura ha sido correcta, false en caso contrario
 	*/
-
+/*
 bool load(conjunto &  C, const string & s) {
 
  ifstream fe;
@@ -67,11 +67,11 @@ int main()
 	conjunto::iterator it;
 	for (it = ChicagoDB.begin() ; it != ChicagoDB.end(); ++it) //Itera sobre todos los elementos del conjunto.
 		cout << *it << endl;*/
-
+/*
 	conjunto::arrest_iterator it;
 	for (it = ChicagoDB.abegin() ; it != ChicagoDB.aend(); it++) //Itera sobre todos los elementos del conjunto.
 		cout << *it << endl;
 	
 
-   return 0;
+   return 0;*/
 }

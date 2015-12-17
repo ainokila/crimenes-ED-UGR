@@ -32,7 +32,7 @@
 	}
 		
 	template <typename CMP>    
-	typename const conjunto<CMP>::entrada & conjunto<CMP>::iterator::operator*() const{
+	const typename conjunto<CMP>::entrada & conjunto<CMP>::iterator::operator*() const{
 			return *itv;
 	}
 		   
@@ -90,7 +90,7 @@
 
 
   	template <typename CMP> 
-    conjunto<CMP>::arrest_iterator conjunto<CMP>::abegin(){
+    typename conjunto<CMP>::arrest_iterator conjunto<CMP>::abegin(){
 
 		conjunto<CMP>::arrest_iterator iterador;
 		bool arresto = false;
@@ -111,7 +111,7 @@
 	}
 	
 	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator conjunto<CMP>::aend(){
+	typename conjunto<CMP>::arrest_iterator conjunto<CMP>::aend(){
 		conjunto<CMP>::arrest_iterator iterador;
 		iterador.a_itv = vc.end();
 		iterador.ptr =this;
@@ -133,12 +133,12 @@
 	}		
 
 	template <typename CMP> 
-	const conjunto<CMP>::entrada & conjunto<CMP>::arrest_iterator::operator*() const{
+	const typename conjunto<CMP>::entrada & conjunto<CMP>::arrest_iterator::operator*() const{
 		return *a_itv;
 	}
 
 	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator++( int ){
+	typename conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator++( int ){
 	
 	
 		conjunto<CMP>::arrest_iterator copia(a_itv);
@@ -148,7 +148,7 @@
 	}
 
 	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator++(){
+	typename conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator++(){
 		do{
         		a_itv++;
 
@@ -158,7 +158,7 @@
 	 }
 
 	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator--( int ){
+	typename conjunto<CMP>::arrest_iterator conjunto<CMP>::arrest_iterator::operator--( int ){
 	
 		conjunto<CMP>::arrest_iterator copia(a_itv);
 		--(*this);
@@ -167,7 +167,7 @@
 	}
 
 	template <typename CMP> 
-	conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator--(){
+	typename conjunto<CMP>::arrest_iterator & conjunto<CMP>::arrest_iterator::operator--(){
 		do{
         		a_itv--;
 
@@ -211,7 +211,7 @@ conjunto<CMP>::conjunto(const conjunto<CMP> & d){
 
 
 template <typename CMP> 
-pair<conjunto<CMP>::entrada,bool>  conjunto<CMP>::findID( const long int & id) const{
+pair< typename conjunto<CMP>::entrada,bool>  conjunto<CMP>::findID( const long int & id) const{
 
 	pair<conjunto<CMP>::entrada, bool> solucion;
 	solucion.second = false;

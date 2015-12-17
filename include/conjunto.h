@@ -406,7 +406,7 @@ private:
 @todo implementar esta funcion
 	*/
 template <typename CMP>
-ostream &  operator << (ostream & sal, const conjunto & D);
+ostream &  operator << (ostream & sal, const typename conjunto<CMP> & D);
 
 	
 #include "../src/conjunto.hxx"
