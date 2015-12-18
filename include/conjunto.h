@@ -14,42 +14,48 @@
 
 using namespace std;
 
-	/** @brief Class CrecienteIUCR
-	 *  operator()
-	 * */
-	class CrecienteIUCR {
- 		public:
-		/** @brief Comparador del funtor
-			@param a , tipo crimen
-			@param b , tipo crimen
-		*/
-   		bool operator()(const crimen &a, const crimen &b);
-	};
-
-
 
 //! Clase conjunto
  /*! conjunto:: conjunto, find, size,  
  * Tipos conjunto::entrada, conjunto::size_type
  * Descripción
-
 * Un conjunto es un contenedor que permite almacenar en orden creciente un conjunto de elementos no repetidos.  En nuestro caso el conjunto va a tener un subconjunto restringido de métodos (inserción de elementos, consulta de un elemento, etc). Este conjunto "simulará" un conjunto de la stl, con algunas claras diferencias pues, entre otros,  no estará dotado de la capacidad de iterar (recorrer) a través de sus elementos.
-
 * Asociado al conjunto, tendremos el tipo  \code conjunto::entrada \endcode que permite hacer referencia al elemento  almacenados en cada una de las posiciones del conjunto, en nuestro caso delitos (crimenes). Para esta entrada el requisito es que tenga definidos el operador< y operator=
-
 * El número de elementos en el conjunto puede variar dinámicamente; la gestión de la memoria es automática. 
  
  @todo Implementa esta clase, junto con su documentación asociada
  */
-template <typename CMP> 
+
+
+
+
+//template <typename CMP> 
 class conjunto{
   
 public:
 	typedef crimen entrada;
 	typedef unsigned int size_type;
 	class iterator; //declaraciones previa
+	class const_iterator;
 	class arrest_iterator;
+	class const_arrest_iterator;
 	
+	
+	class fechaCreciente {
+	public:
+	  bool operator()(const entrada & a, const entrada &  b){
+	    return a.getDate() > b.getDate();
+	   }
+	    
+	};
+	
+	class fechaDecreciente {
+	public:
+	  bool operator()(const entrada & a, const entrada &  b){
+	    return (a.getDate() < b.getDate());
+	   }
+	    
+	};
 
 	/** @brief constructor primitivo. 
 	@post define la entrada nula como el par ("",-1)
@@ -68,7 +74,6 @@ public:
 	@post no modifica el conjunto.
 	\verbatim Uso
        
-
 	if (C.findID(12345).second ==true) cout << "Esta" ;
 	else cout << "No esta";
 	\endverbatim
@@ -113,12 +118,9 @@ public:
 	
 	
 /** @brief Borra una entrada en el conjunto .
-
 Busca la entrada con id en el conjunto (o e.getID() en el segundo caso) y si la encuentra la borra
-
 @param[in] entrada con e.getID() que queremos borrar, el resto de los valores no son tenidos en cuenta
 @param[in] id a borrar
-
 @post Si esta en el conjunto su tamaño se decrementa en 1.
 */
 	 bool erase(const long int & id);
@@ -179,7 +181,6 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 	 public:
 
 	/** @brief Constructor por defecto de iterator
-
 	*/
        iterator();
 
@@ -190,7 +191,6 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 	/** @brief Constructor con parametro iterator tipo vecto<entrada>::iterator
 	@param n ,iterator tipo vecto<entrada>
-
 	*/
        iterator(const vector<conjunto::entrada>::iterator n);
        
@@ -253,94 +253,106 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 
 
-//*********************************INICIO_CONST_ITERATOR*************************
-	
- 	
+//*********************************INICIO_ARRESTO_ITERATOR*************************
 
-	/** @brief class const_iterator
-	 * forward iterador constante sobre el diccionario, Lectura 
-	 *  const_iterator ,operator*, operator++, operator++(int) operator=, operator==, operator!=
+/** @brief class arrest_iterator
+	 * forward iterador de arrestos sobre el diccionario, Lectura 
+	 *  arrest_iterator ,operator*, operator++, operator++(int) operator=, operator==, operator!=
 	 * */
-	class const_iterator {
+	class arrest_iterator {
 		public:
 
-		  /** @brief Constructor por defecto de const_iterator
-		   */	
-		  const_iterator();
+	 /** @brief Constructor por defecto de arrest_iterator
+		   */
 
-		  /** @brief Constructor de Copia
-		      @param it , tipo const_iterator
+		  arrest_iterator();
+
+	 /** @brief Constructor de Copia
+		      @param it , tipo arrest_iterator
 		  */
-		  const_iterator(const const_iterator & it);
 
-		  /** @brief Constructor con parametro iterator tipo vecto<entrada>::const_iterator
-	              @param n ,const_iterator tipo vecto<entrada>
+		  arrest_iterator(const arrest_iterator & it);
+
+	/** @brief Constructor con parametro iterator tipo vector<entrada>::iterator
+	              @param n ,iterator tipo vector<entrada>
 		  */
-		  const_iterator(const vector<conjunto::entrada>::const_iterator n);
 
-		  /** @brief Convierte iterator en const_iterator
-		  */
-		  const_iterator(const iterator & it);
-
-		  /** @brief Devuelve el valor del iterador actual
+		  arrest_iterator(const vector<conjunto::entrada>::iterator n);
+		
+      /** @brief Devuelve el valor del iterador actual
                       @return conjunto::entrada , valor actual del iterator
                   */	
+
 		  const conjunto::entrada & operator*() const;
 
-		  /** @brief Pre incremento ++ , ++it
-         	      @return Devuelve el const_iterador
+	  /** @brief Pre incremento ++ , ++it
+         	      @return Devuelve el arrest_iterator
 	              @post Incrementa el iterador despues de devolverlo
         	  */
-		  const_iterator operator++( int );
+	
+		  arrest_iterator operator++( int );
 
-		  /** @brief Post incremento ++ , it++
-                      @return Devuelve el const_iterador
+	  /** @brief Post incremento ++ , it++
+                      @return Devuelve el arrest_iterator
 		      @post Incrementa el iterador para devolverlo
         	  */
-		  const_iterator & operator++();
 
-		  /** @brief Pre decremento -- , --it
-         	      @return Devuelve el const_iterador
+		  arrest_iterator & operator++();
+	
+	/** @brief Pre decremento -- , --it
+         	      @return Devuelve el arrest_iterator
 	              @post Decrementa el iterador despues de devolverlo
         	  */
-	 	  const_iterator operator--(int);
-		
-		 /** @brief Post decremento -- , it--
-                      @return Devuelve el const_iterador decrementado
-		      @post Decrementa iterator
-        	  */
-		  const_iterator & operator--();
 
-		  /** @brief Sobrecarga operator == de clase conjunto::const_iterator
+         	  arrest_iterator operator--(int);
+
+	/** @brief Post decremento -- , it--
+                      @return Devuelve el arrest_iterator
+		      @post Decrementa el iterador para devolverlo
+        	  */
+
+		  arrest_iterator & operator--();
+
+	  /** @brief Sobrecarga operator == de clase conjunto::arrest_iterator
         	   @return true , si son iguales , false , si son distintos
                    */
-		  bool operator==(const const_iterator & it);
 
-		  /** @brief Sobrecarga operator == de clase conjunto::const_iterator
+		  bool operator==(const arrest_iterator & it);
+
+	/** @brief Sobrecarga operator == de clase conjunto::arrest_iterator
         	   @return false, si son iguales , true , si son distintos
                   */
-		  bool operator!=(const const_iterator & it);
+
+		  bool operator!=(const arrest_iterator & it);
+		
 		private:
 		 
-		  vector<entrada>::const_iterator c_itv;
+		  vector<entrada>::iterator a_itv;
 		  friend class conjunto;
+
+	/**
+		@brief ptr puntero al propio conjunto para permitirme realizar
+		operaciones auxiliares necesarias en este iterador
+		*/
+
+		  const conjunto * ptr; 
 	  
 	};
-
 	/** @brief  
-         @return Devuelve el const_iterator a la primera posición del conjunto.
-	@post no modifica el diccionario
-        */
-	 const_iterator cbegin() const;
+		 @return Devuelve el arrest_iterator a la primera posición del conjunto.
+		@post no modifica el diccionario
+		*/
+    
+		  arrest_iterator abegin() ;
 
 	/** @brief iterador al final
-         @return Devuelve el iterador constante a la  posición final del conjunto.
+         @return Devuelve el iterador arresto a la  posición final del conjunto.
 	@post no modifica el diccionario
         */
-	const_iterator cend() const;
 
-	
-//*********************************FIN_CONST_ITERATOR*************************
+		  arrest_iterator aend();
+
+//*********************************FIN_ARRESTO_ITERATOR*************************
 
 
 
@@ -350,7 +362,7 @@ inline conjunto::entrada getPos(unsigned int indice) const{
 
 private:
  vector<crimen> vc; // vector que almacena los elementos del conjunto
- CMP comp;
+ //CMP comp;
  
  friend class iterator;
  friend class arrest_iterator;
@@ -366,7 +378,6 @@ private:
 	vc[i].ID > 0;
 \li Para todo i, 0 <= i < D.dic.size()-1 se cumple
 	vc[i].ID< vc[i+1].ID
-
 */
 
 	
@@ -376,7 +387,7 @@ private:
   bool cheq_rep( ) const;
   
 //  declaracion del operator<< como metodo amigo
-  friend ostream &  operator << ( ostream & sal, const conjunto<CMP> & D);
+  friend ostream &  operator << ( ostream & sal, const conjunto & D);
  
 
 };
@@ -386,8 +397,7 @@ private:
 @post  No se modifica el conjunto.
 @todo implementar esta funcion
 	*/
-template <typename CMP>
-ostream &  operator << (ostream & sal, const conjunto<CMP> & D);
+ostream &  operator << (ostream & sal, const conjunto & D);
 
 	
 #include "../src/conjunto.hxx"
