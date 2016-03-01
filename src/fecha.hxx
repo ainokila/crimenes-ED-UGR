@@ -14,7 +14,6 @@
     
     Copyright 2016 Cristian Velez Ruiz universidadcvr@gmail.com
     Copyright 2016 Jorge Gutierrez Segovia
-    Copyright 2016 Mario Antonio Lopez Ruiz
 */
 
 /** @brief fichero de implementacion de la clase fecha
