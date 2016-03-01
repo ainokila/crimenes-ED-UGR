@@ -1,8 +1,3 @@
-/* 
- * meteorito.h
- * 
- * Copyright  (C) Juan F. Huete
-*/
 #ifndef __CRIMEN_H
 #define __CRIMEN_H
 
