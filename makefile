@@ -20,7 +20,7 @@ CPPFLAGS = -Wall -g -c -I$(INCLUDE)
 #
 #
 #TODO
-all: clean $(BIN)/principal
+all: crear clean $(BIN)/principal
 #
 #COMPILACION
 
@@ -48,7 +48,9 @@ clean:
 	@rm -f $(LIB)/*
 	@rm -f $(BIN)/*
 
-	
+crear:
+	mkdir bin
+	mkdir obj
 	
 mrproper: clean
 
