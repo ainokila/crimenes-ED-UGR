@@ -267,4 +267,3 @@ ostream& operator << ( ostream &os, const crimen &c ){
 	os << "ID : " << c.getID() << " - " << "Numero de caso: " << c.getCaseNumber() << " - " << "Fecha: "<< c.getDate().toString() << " - " << "IUCR: "<< c.getIUCR()<< " - " << "Tipo Primario: " << c.getPrimaryType() << " - " <<"Descripcion del caso: "<<  c.getDescr() << " - " <<"Descripcion del lugar: " << c.getLocalDescription() << " - " <<"Arresto: "<< aux1 << " - " <<"Crimen domestico: " << aux2 << " - " << "Latitud: " << c.getLatitude() << " - " <<"Longitud: "<< c.getLongitude()<< endl;
    return os;
 }
-
