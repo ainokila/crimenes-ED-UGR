@@ -12,8 +12,8 @@ using namespace std;
         @param[in,out] C conjunto sobre el que se lee
 	@return true si la lectura ha sido correcta, false en caso contrario
 	*/
-/*
-bool load(conjunto &  C, const string & s) {
+template <typename CMP>
+bool load(conjunto<CMP> &  C, const string & s) {
 
  ifstream fe;
  string cadena;	
@@ -42,36 +42,24 @@ bool load(conjunto &  C, const string & s) {
   fe.close();
   return false;
  }
-*/
+
 int main()
-{/*
-    conjunto ChicagoDB;
+{
+    conjunto<CrecienteIUCR> ChicagoDB;
     crimen d;
     fecha f;
     
     
 
 	load(ChicagoDB, "crimenes.csv");
-	/*Descomentar esto para comprobaciones
 	
-	if (ChicagoDB.findID(10073647).second){
-		cout << ChicagoDB.findID(10073647).first<<endl;
-	}
-	else{
-		cout << "ID no encontrado."<<endl;
-	}	
-	cout << ChicagoDB.findDESCR("AGGRAVATED DOMESTIC BATTERY: HANDS/FIST/FEET SERIOUS INJURY")<< endl; */
-
-	//cout <<"Crimen: "<< ChicagoDB<< endl;
-	/*
-	conjunto::iterator it;
+	conjunto<CrecienteIUCR>::iterator it;
 	for (it = ChicagoDB.begin() ; it != ChicagoDB.end(); ++it) //Itera sobre todos los elementos del conjunto.
-		cout << *it << endl;*/
-/*
-	conjunto::arrest_iterator it;
-	for (it = ChicagoDB.abegin() ; it != ChicagoDB.aend(); it++) //Itera sobre todos los elementos del conjunto.
 		cout << *it << endl;
-	
 
-   return 0;*/
+	cout << "Probamos a buscar un crimen con id 2034\n";
+	conjunto<CrecienteIUCR> nuevo = ChicagoDB.findIUCR("2034");
+	cout <<nuevo;
+
+   return 0;
 }
