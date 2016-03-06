@@ -6,6 +6,8 @@ Esta practica consiste en analizar una base de datos , mediante la creacion dive
 
 Para cualquier duda , todo el funcionamiento del programa esta descrito en documentacion.pdf o usar el correo de contacto
 
+Documentacion del software : https://github.com/ainokila/EstructurasDeDatosUGR/blob/master/documentacion.pdf
+
 Contacto : universidadcvr@gmail.com
 
 http://ainokila.github.io/EstructurasDeDatosUGR
