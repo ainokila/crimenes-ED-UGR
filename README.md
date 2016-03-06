@@ -1,4 +1,4 @@
-# EdP2Crimenes
+# Crimenes
 
 Practicas de la asignatura Estructuras de Datos , Universidad de Granada. 2016
 
