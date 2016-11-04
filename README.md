@@ -1,14 +1,12 @@
 # Crimenes
 
-Practicas de la asignatura Estructuras de Datos , Universidad de Granada. 2016
+Estructuras de Datos , Universidad de Granada. 2016
 
-Esta practica consiste en analizar una base de datos , mediante la creacion diversas clases para trabajar con la informacion y sus distintas implementaciones , asi como sus iteradores , functores y demas.
+This practice involves analyzing a database, by creating different classes for working with information and its various implementations, as well as its iterators, functors and others.
 
-Para cualquier duda , todo el funcionamiento del programa esta descrito en documentacion.pdf o usar el correo de contacto
+Documentation : https://github.com/ainokila/EstructurasDeDatosUGR/blob/master/documentacion.pdf
 
-Documentacion del software : https://github.com/ainokila/EstructurasDeDatosUGR/blob/master/documentacion.pdf
-
-Contacto : universidadcvr@gmail.com
+Contact : universidadcvr@gmail.com
 
 http://ainokila.github.io/EstructurasDeDatosUGR
 
