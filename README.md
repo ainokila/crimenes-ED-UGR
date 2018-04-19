@@ -6,9 +6,3 @@ This practice involves analyzing a database, by creating different classes for w
 
 Documentation : https://github.com/ainokila/EstructurasDeDatosUGR/blob/master/documentacion.pdf
 
-Contact : universidadcvr@gmail.com
-
-http://ainokila.github.io/EstructurasDeDatosUGR
-
-www.cristianvelez.es
-
